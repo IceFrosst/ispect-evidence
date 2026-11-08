@@ -1,0 +1,2 @@
+# Run 10cde0f0, step gate-and-register, pod log excerpt (UTC)
+2026-11-07T19:24:38.022673017Z registered s3://models/p1546-risk/runs/10cde0f0-b5be-4b9f-a170-09c8c598c2ff/ {"mae_db": 0.711, "p95_abs_err_db": 2.049, "coverage_q05_q95": 0.9077, "mean_interval_db": 4.9, "missed_exceedances_pct": 0.285, "cleared_without_exact_calc_pct": 36.1}

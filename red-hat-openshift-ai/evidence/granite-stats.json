@@ -1,0 +1,79 @@
+{
+ "model": "granite",
+ "seconds": 17929,
+ "runs": {
+  "space_ific3074": {
+   "findings": 12,
+   "llm_written": 3,
+   "template_fallback": 9,
+   "rejections": [
+    "numbers not in the computed fields: [10.7, 11.7, 95500027.0]",
+    "LLM error: APITimeoutError",
+    "LLM error: APITimeoutError",
+    "numbers not in the computed fields: [17.7, 324520183.0]",
+    "numbers not in the computed fields: [17.7, 324520184.0]",
+    "LLM error: BadRequestError",
+    "LLM error: BadRequestError",
+    "LLM error: APITimeoutError",
+    "LLM error: APITimeoutError"
+   ]
+  },
+  "terrestrial_ific3076": {
+   "findings": 8,
+   "llm_written": 0,
+   "template_fallback": 8,
+   "rejections": [
+    "numbers not in the computed fields: [108.0, 380.0]",
+    "numbers not in the computed fields: [108.0, 380.0]",
+    "numbers not in the computed fields: [108.0, 380.0]",
+    "numbers not in the computed fields: [108.0, 380.0]",
+    "numbers not in the computed fields: [108.0, 380.0, 93082323.0]",
+    "numbers not in the computed fields: [108.0, 380.0]",
+    "numbers not in the computed fields: [108.0, 380.0]",
+    "numbers not in the computed fields: [108.0, 380.0]"
+   ]
+  },
+  "space_ific3073": {
+   "findings": 15,
+   "llm_written": 3,
+   "template_fallback": 12,
+   "rejections": [
+    "numbers not in the computed fields: [3400.0]",
+    "numbers not in the computed fields: [3400.0]",
+    "numbers not in the computed fields: [10.7, 11.7, 23.0, 299500228.0]",
+    "numbers not in the computed fields: [10.7, 11.7, 99500228.0]",
+    "numbers not in the computed fields: [10.7, 11.7]",
+    "numbers not in the computed fields: [10.7, 11.7, 600368.0]",
+    "numbers not in the computed fields: [600368.0]",
+    "numbers not in the computed fields: [309500335.0]",
+    "numbers not in the computed fields: [7250.0, 7900.0, 125520100.0]",
+    "numbers not in the computed fields: [21.16, 7250.0, 7900.0, 125520099.0]",
+    "numbers not in the computed fields: [7250.0, 7900.0, 125520098.0]",
+    "numbers not in the computed fields: [7250.0, 7900.0, 125520097.0]"
+   ]
+  },
+  "terrestrial_ific3075": {
+   "findings": 18,
+   "llm_written": 2,
+   "template_fallback": 16,
+   "rejections": [
+    "numbers not in the computed fields: [108.0, 380.0, 93073932.0]",
+    "numbers not in the computed fields: [108.0, 380.0]",
+    "numbers not in the computed fields: [108.0, 380.0]",
+    "numbers not in the computed fields: [108.0, 380.0]",
+    "numbers not in the computed fields: [108.0, 380.0]",
+    "numbers not in the computed fields: [108.0, 380.0]",
+    "numbers not in the computed fields: [108.0, 380.0]",
+    "numbers not in the computed fields: [108.0, 380.0]",
+    "numbers not in the computed fields: [108.0, 380.0]",
+    "numbers not in the computed fields: [108.0, 380.0]",
+    "numbers not in the computed fields: [108.0, 380.0]",
+    "numbers not in the computed fields: [108.0, 380.0]",
+    "numbers not in the computed fields: [108.0, 380.0]",
+    "numbers not in the computed fields: [108.0, 380.0]",
+    "numbers not in the computed fields: [108.0, 380.0]",
+    "numbers not in the computed fields: [108.0, 380.0]"
+   ]
+  }
+ }
+}

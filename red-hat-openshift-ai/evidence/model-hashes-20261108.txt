@@ -1,0 +1,13 @@
+# P.1546 risk model files: S3 (MinIO bucket models) vs the files the KServe predictor serves. sha256. Captured 2026-11-08T03:2xZ.
+## s3://models/p1546-risk/v1/ (the version KServe stages to PVC p1546-models)
+f8b697f36d1ddef6f1f564e27bd7ca1df95f30aa8da1ed7d3e192dae0571bc83  p1546_q05.txt
+9a432c8d60027360214165c828768b52da144188aaea9f5a6e787bf983cda241  p1546_q50.txt
+c4d16f450f06f9269369ce3b8178dff7d50067b1572c8b682fb0c4ff5df88819  p1546_q95.txt
+## served: oc exec deploy/p1546-risk-predictor -- sha256sum /mnt/models/*.txt
+f8b697f36d1ddef6f1f564e27bd7ca1df95f30aa8da1ed7d3e192dae0571bc83  p1546_q05.txt
+9a432c8d60027360214165c828768b52da144188aaea9f5a6e787bf983cda241  p1546_q50.txt
+c4d16f450f06f9269369ce3b8178dff7d50067b1572c8b682fb0c4ff5df88819  p1546_q95.txt
+## pipeline run 10cde0f0 (s3://models/p1546-risk/runs/10cde0f0-.../p1546_q50.txt)
+9a432c8d60027360214165c828768b52da144188aaea9f5a6e787bf983cda241  p1546_q50.txt   (byte-identical to v1; q05/q95 of the run not compared)
+## metrics: v1/metrics.json vs run 10cde0f0 metrics.json
+22 of 25 keys identical (every predictive metric: mae, p95, coverage, interval, missed/cleared % for full/masked_50pct/all_masked, sample counts); the 3 that differ are timing: train_s 95.4 vs 17.8, predict_us_per_row 224.8 vs 46.2 (v1 also records exact_ms_per_row 0.5).

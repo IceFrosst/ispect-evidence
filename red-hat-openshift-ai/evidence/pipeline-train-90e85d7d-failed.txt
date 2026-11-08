@@ -1,0 +1,7 @@
+# Failed first training run 90e85d7d (step train-model), pod log excerpt (timestamps UTC)
+2026-11-07T19:11:09.094792467Z Traceback (most recent call last):
+2026-11-07T19:11:09.096060634Z OSError: libgomp.so.1: cannot open shared object file: No such file or directory
+2026-11-07T19:11:09.116564681Z E1107 19:11:09.116493      16 launcher_v2.go:449] Component failed to execute successfully: exit status 1
+2026-11-07T19:11:09.929449909Z F1107 19:11:09.929389      16 main.go:60] failed to execute component: exit status 1
+2026-11-07T19:11:10.872893372Z Error: exit status 1
+# Cause: the training image lacked libgomp (LightGBM's OpenMP runtime); the image was fixed and run 10cde0f0 succeeded 12 min later.

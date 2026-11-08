@@ -1,0 +1,26 @@
+{
+ "note": "1 of the 8 accepted Granite texts (llm_cache_granite.json, source llm:granite); the other 45 findings got the deterministic template",
+ "sample": {
+  "text": "The Traficom radio-interference screening found that the INTELSAT7 66E satellite exceeds the Table 21-4 limit by 11.0 dB in peak gain towards Finland, specifically in the S3R beam. This exceeds the upper bound for the nominal GSO free-space pfd, with a calculated margin of 10.968 dB. The screening is considered a \"exceeds_limit\" finding, indicating a potential issue that requires expert review, as it's not a proven violation but a candidate for further investigation. The affected stations are located within Finnish territory, including the Aland Islands.",
+  "source": "llm:granite",
+  "citations": [
+   {
+    "id": "Article 21, Section V, No. 21.16, Table 21-4 (Rev.WRC-23), 10.7-11.7 GHz, GSO fixed-satellite; PDF p. 298 (printed 288)",
+    "title": "ITU Radio Regulations, Volume 1, Article 21, Section V, No. 21.16, Table 21-4 (Rev.WRC-23), 10.7-11.7 GHz, GSO fixed-satellite; PDF p. 298 (printed 288)",
+    "file": "datasets/reference/itu/rr2024/RR2024_Vol1-E.pdf",
+    "page": 298,
+    "resolved": true,
+    "link": "datasets/reference/itu/rr2024/RR2024_Vol1-E.pdf#page=298"
+   },
+   {
+    "id": "Space IFIC ingest semantics",
+    "title": "Space IFIC ingest semantics",
+    "file": "docs/ific-space-semantics.md",
+    "page": null,
+    "resolved": true,
+    "link": "docs/ific-space-semantics.md"
+   }
+  ],
+  "quality": "q1"
+ }
+}

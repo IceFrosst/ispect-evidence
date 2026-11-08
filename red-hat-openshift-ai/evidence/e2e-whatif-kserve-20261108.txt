@@ -1,0 +1,23 @@
+# End-to-end: live What-if on the Vultr VM -> KServe InferenceService p1546-risk on Red Hat OpenShift AI
+# Captured by Dani with ssh (VM) and oc (cluster). No credentials in this file.
+
+## Deployed code
+VM /opt/sinceai/app files infra/serve.py, infra/playground.py, risk/assess.py, app/web/src/shared/globe_map.js, app/web/src/features/triage/triage.js, docs/submission-texts.md
+match git commit ff9f304 byte for byte (sha256; app folder updated 2026-11-08T03:16Z).
+
+## The VM's model endpoint (RISK_API_URL, host only; the route needs no credentials)
+https://p1546-risk-danialheidari619-dev.apps.rm2.thpm.p1.openshiftapps.com
+
+## 1. Request on the VM (antenna height unknown -> ML estimate)
+UTC 2026-11-08T03:34:02Z
+POST http://localhost:8000/api/playground/terrestrial  {"lat":59.4,"lon":24.7,"f_mhz":450,"bw_khz":25,"erp_w":50,"h_agl_m":null}
+HTTP 200 in 0.461144s
+response .ml = {"trigger_dbuv_m": 20.0, "erp_kw": 0.05, "inputs": {"f_mhz": 450.0, "t_pct": 10, "heff_m": null, "h2_m": 10.0, "d_km": 40.91830270404399, "sea_frac": 0, "urban": 0.0}, "citation": "P1546", "method": "ml_estimate", "missing": ["heff_m"], "interval_dbuv_m": [10.7, 25.3, 52.1], "p_exceed": 0.664, "risk": "high", "note": "ML estimate for review priority only; not a calculation result. Outcome stays insufficient_data."}
+UTC 2026-11-08T03:34:03Z
+
+## 2. Same window on OpenShift: KServe predictor log (oc logs deploy/p1546-risk-predictor --timestamps --since-time=2026-11-08T03:34:02Z)
+2026-11-08T03:34:03.412326502Z INFO:     10.x.x.x:56176 - "POST /predict HTTP/1.1" 200 OK
+
+## 3. Reproduce without a login (public route): GET /healthz
+UTC 2026-11-08T03:34:05Z
+HTTP 200

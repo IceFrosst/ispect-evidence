@@ -1,0 +1,145 @@
+{
+ "source": "GET /apis/v2beta1/runs/<id> on the DSPA route (KFP v2), captured 2026-11-08T03:2xZ",
+ "runs": [
+  {
+   "run_id": "10cde0f0-b5be-4b9f-a170-09c8c598c2ff",
+   "display_name": "p1546-risk-train-20261107-212304",
+   "state": "SUCCEEDED",
+   "created_at": "2026-11-07T19:23:05Z",
+   "finished_at": "2026-11-07T19:24:50Z",
+   "steps": [
+    {
+     "step": "executor",
+     "state": "SKIPPED"
+    },
+    {
+     "step": "executor",
+     "state": "SUCCEEDED"
+    },
+    {
+     "step": "gate-and-register",
+     "state": "SUCCEEDED"
+    },
+    {
+     "step": "generate-samples",
+     "state": "SUCCEEDED"
+    },
+    {
+     "step": "root",
+     "state": "SUCCEEDED"
+    }
+   ]
+  },
+  {
+   "run_id": "6f2182e7-2c52-4a7f-b312-f18bb3d7ef6c",
+   "display_name": "sinceai-calc-lane-20261107-212307",
+   "state": "SUCCEEDED",
+   "created_at": "2026-11-07T19:23:08Z",
+   "finished_at": "2026-11-07T19:29:28Z",
+   "steps": [
+    {
+     "step": "calculate",
+     "state": "SUCCEEDED"
+    },
+    {
+     "step": "calculate-2",
+     "state": "SUCCEEDED"
+    },
+    {
+     "step": "executor",
+     "state": "SUCCEEDED"
+    },
+    {
+     "step": "fetch-ific",
+     "state": "SUCCEEDED"
+    },
+    {
+     "step": "fetch-ific-2",
+     "state": "SUCCEEDED"
+    },
+    {
+     "step": "root",
+     "state": "SUCCEEDED"
+    },
+    {
+     "step": "verify-results",
+     "state": "SUCCEEDED"
+    }
+   ]
+  },
+  {
+   "run_id": "90e85d7d-5e94-4787-869a-fa059226c569",
+   "display_name": "p1546-risk-train-20261107-210048",
+   "state": "FAILED",
+   "created_at": "2026-11-07T19:00:49Z",
+   "finished_at": "2026-11-07T19:11:15Z",
+   "steps": [
+    {
+     "step": "executor",
+     "state": "FAILED"
+    },
+    {
+     "step": "executor",
+     "state": "SUCCEEDED"
+    },
+    {
+     "step": "gate-and-register",
+     "state": null
+    },
+    {
+     "step": "generate-samples",
+     "state": "SUCCEEDED"
+    },
+    {
+     "step": "root",
+     "state": "FAILED"
+    }
+   ]
+  },
+  {
+   "run_id": "df180855-1456-475f-b83c-28e64fe3dab6",
+   "display_name": "ific-time-machine-20261107-230106",
+   "state": "RUNNING",
+   "created_at": "2026-11-07T21:01:07Z",
+   "finished_at": "1970-01-01T00:00:00Z",
+   "steps": [
+    {
+     "step": "executor",
+     "state": "SUCCEEDED"
+    },
+    {
+     "step": "for-loop-2",
+     "state": "RUNNING"
+    },
+    {
+     "step": "iteration-item",
+     "state": "SUCCEEDED"
+    },
+    {
+     "step": "iteration-iterations",
+     "state": "RUNNING"
+    },
+    {
+     "step": "iteration-iterations(0:0)",
+     "state": "SUCCEEDED"
+    },
+    {
+     "step": "iteration-iterations(1:1)",
+     "state": "SUCCEEDED"
+    },
+    {
+     "step": "iteration-iterations(2:2)",
+     "state": "SUCCEEDED"
+    },
+    {
+     "step": "iteration-iterations(3:3)",
+     "state": "RUNNING"
+    },
+    {
+     "step": "root",
+     "state": "RUNNING"
+    }
+   ]
+  }
+ ]
+}

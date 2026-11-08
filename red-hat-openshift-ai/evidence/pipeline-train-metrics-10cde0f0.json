@@ -1,0 +1,48 @@
+{
+ "samples": {
+  "train": 96000,
+  "test": 24000
+ },
+ "train_s": 17.8,
+ "predict_us_per_row": 46.2,
+ "features": [
+  "log_f_mhz",
+  "t_pct",
+  "heff_m",
+  "h2_m",
+  "log_d_km",
+  "sea_frac",
+  "urban"
+ ],
+ "quantiles": [
+  0.05,
+  0.5,
+  0.95
+ ],
+ "test": {
+  "full_inputs": {
+   "mae_db": 0.711,
+   "p95_abs_err_db": 2.049,
+   "coverage_q05_q95": 0.9077,
+   "mean_interval_db": 4.9,
+   "missed_exceedances_pct": 0.285,
+   "cleared_without_exact_calc_pct": 36.1
+  },
+  "masked_50pct": {
+   "mae_db": 6.165,
+   "p95_abs_err_db": 19.409,
+   "coverage_q05_q95": 0.8808,
+   "mean_interval_db": 23.1,
+   "missed_exceedances_pct": 1.299,
+   "cleared_without_exact_calc_pct": 18.4
+  },
+  "all_masked": {
+   "mae_db": 9.816,
+   "p95_abs_err_db": 24.528,
+   "coverage_q05_q95": 0.9075,
+   "mean_interval_db": 38.83,
+   "missed_exceedances_pct": 1.049,
+   "cleared_without_exact_calc_pct": 10.2
+  }
+ }
+}

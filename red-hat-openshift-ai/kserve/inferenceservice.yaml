@@ -1,0 +1,22 @@
+# The served model. Source of truth: s3://models/p1546-risk/v1 (OpenShift AI data connection "models-connection"),
+# staged onto the PVC p1546-models by stage-model-job.yaml; KServe mounts it at /mnt/models. RawDeployment (no Knative
+# on the Developer Sandbox); the route is created by the visibility label.
+apiVersion: serving.kserve.io/v1beta1
+kind: InferenceService
+metadata:
+  name: p1546-risk
+  labels: {opendatahub.io/dashboard: "true", networking.kserve.io/visibility: exposed, sinceai: "2026"}
+  annotations:
+    openshift.io/display-name: "P.1546 risk model"
+    serving.kserve.io/deploymentMode: RawDeployment
+spec:
+  predictor:
+    # Recreate: the model PVC is ReadWriteOnce (one node); a rolling update scheduled on another node waits forever
+    # for the volume (seen Sat 7 Nov: new pod stuck in ContainerCreating 11 h, isvc Ready=False).
+    deploymentStrategy: {type: Recreate}
+    minReplicas: 1
+    maxReplicas: 1
+    model:
+      modelFormat: {name: lightgbm-quantile, version: "1"}
+      runtime: p1546-risk-runtime
+      storageUri: pvc://p1546-models/p1546-risk/v1

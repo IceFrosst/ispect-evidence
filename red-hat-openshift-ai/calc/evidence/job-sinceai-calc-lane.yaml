@@ -1,0 +1,86 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"batch/v1","kind":"Job","metadata":{"annotations":{},"labels":{"app":"sinceai-calc","sinceai":"2026"},"name":"sinceai-calc-lane","namespace":"danialheidari619-dev"},"spec":{"activeDeadlineSeconds":2400,"backoffLimit":0,"template":{"metadata":{"labels":{"app":"sinceai-calc","sinceai":"2026"}},"spec":{"containers":[{"envFrom":[{"secretRef":{"name":"models-connection","optional":true}}],"image":"image-registry.openshift-image-registry.svc:5000/danialheidari619-dev/sinceai-calc:latest","imagePullPolicy":"Always","name":"lane","resources":{"limits":{"cpu":"4","memory":"6Gi"},"requests":{"cpu":"250m","memory":"1Gi"}},"volumeMounts":[{"mountPath":"/data","name":"data"}]}],"restartPolicy":"Never","volumes":[{"name":"data","persistentVolumeClaim":{"claimName":"calc-data"}}]}},"ttlSecondsAfterFinished":86400}}
+  creationTimestamp: "2026-11-07T19:00:12Z"
+  generation: 1
+  labels:
+    app: sinceai-calc
+    sinceai: "2026"
+  name: sinceai-calc-lane
+  namespace: danialheidari619-dev
+  resourceVersion: "6354674126"
+  uid: 9ccbba24-6959-4063-b96c-5350e61bdac1
+spec:
+  activeDeadlineSeconds: 2400
+  backoffLimit: 0
+  completionMode: NonIndexed
+  completions: 1
+  manualSelector: false
+  parallelism: 1
+  podReplacementPolicy: TerminatingOrFailed
+  selector:
+    matchLabels:
+      batch.kubernetes.io/controller-uid: 9ccbba24-6959-4063-b96c-5350e61bdac1
+  suspend: false
+  template:
+    metadata:
+      labels:
+        app: sinceai-calc
+        batch.kubernetes.io/controller-uid: 9ccbba24-6959-4063-b96c-5350e61bdac1
+        batch.kubernetes.io/job-name: sinceai-calc-lane
+        controller-uid: 9ccbba24-6959-4063-b96c-5350e61bdac1
+        job-name: sinceai-calc-lane
+        sinceai: "2026"
+    spec:
+      containers:
+      - envFrom:
+        - secretRef:
+            name: models-connection
+            optional: true
+        image: image-registry.openshift-image-registry.svc:5000/danialheidari619-dev/sinceai-calc:latest
+        imagePullPolicy: Always
+        name: lane
+        resources:
+          limits:
+            cpu: "4"
+            memory: 6Gi
+          requests:
+            cpu: 250m
+            memory: 1Gi
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /data
+          name: data
+      dnsPolicy: ClusterFirst
+      restartPolicy: Never
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: calc-data
+  ttlSecondsAfterFinished: 86400
+status:
+  conditions:
+  - lastProbeTime: "2026-11-07T19:09:28Z"
+    lastTransitionTime: "2026-11-07T19:09:28Z"
+    message: Job has reached the specified backoff limit
+    reason: BackoffLimitExceeded
+    status: "True"
+    type: FailureTarget
+  - lastProbeTime: "2026-11-07T19:09:28Z"
+    lastTransitionTime: "2026-11-07T19:09:28Z"
+    message: Job has reached the specified backoff limit
+    reason: BackoffLimitExceeded
+    status: "True"
+    type: Failed
+  failed: 1
+  ready: 0
+  startTime: "2026-11-07T19:00:12Z"
+  terminating: 0
+  uncountedTerminatedPods: {}

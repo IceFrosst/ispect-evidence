@@ -1,0 +1,25 @@
+Sat Nov  7 06:51:55 PM UTC 2026
+CONTAINER ID   NAME                CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O         PIDS
+75cdd1e3d0cc   fiware-receiver-1   0.03%     20.04MiB / 64MiB    31.30%    52.4MB / 40MB     9.32MB / 1.9MB    1
+8469324fcb77   fiware-orion-1      4.76%     355.5MiB / 384MiB   92.59%    52.4MB / 40MB     2.02MB / 46.9MB   6
+dd9a7cd39a5b   fiware-mongo-1      11.23%    145MiB / 512MiB     28.32%    39.6MB / 5.45MB   868kB / 22.8MB    50
+               total        used        free      shared  buff/cache   available
+Mem:            3910        1343         338           0        2522        2566
+Swap:           7899         104        7795
+ActiveState=active
+SubState=running
+ActiveEnterTimestamp=Sat 2026-11-07 18:40:57 UTC
+api-runs=HTTP-200
+NEXT                         LEFT LAST                         PASSED UNIT                 ACTIVATES
+Sat 2026-11-07 19:51:19 UTC 59min Sat 2026-11-07 18:51:19 UTC 38s ago fiware-publish.timer fiware-publish.service
+
+1 timers listed.
+Pass --all to see loaded but inactive timers, too.
+Nov 07 18:51:19 sinceai-2026-batch systemd[1]: Starting fiware-publish.service - Read-only FIWARE upsert of current pipeline result files...
+Nov 07 18:51:35 sinceai-2026-batch python[65584]: {"run": "space_ific3073", "entities": 1124}
+Nov 07 18:51:35 sinceai-2026-batch python[65584]: {"run": "space_ific3074", "entities": 1264}
+Nov 07 18:51:35 sinceai-2026-batch python[65584]: {"run": "terrestrial_ific3075", "entities": 1100}
+Nov 07 18:51:35 sinceai-2026-batch python[65584]: {"run": "terrestrial_ific3076", "entities": 1100}
+Nov 07 18:51:36 sinceai-2026-batch systemd[1]: fiware-publish.service: Deactivated successfully.
+Nov 07 18:51:36 sinceai-2026-batch systemd[1]: Finished fiware-publish.service - Read-only FIWARE upsert of current pipeline result files.
+Nov 07 18:51:36 sinceai-2026-batch systemd[1]: fiware-publish.service: Consumed 2.093s CPU time.

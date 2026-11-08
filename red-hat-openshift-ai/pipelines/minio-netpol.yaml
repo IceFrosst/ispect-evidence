@@ -1,0 +1,14 @@
+# The OpenShift AI pipeline operator (namespace redhat-ods-applications) health-checks the pipeline artefact store
+# before the pipeline server starts. Our MinIO only accepts same-namespace traffic, so allow the operator on port 9000.
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-from-redhat-ods-app-to-minio
+  labels: {sinceai: "2026"}
+spec:
+  podSelector: {matchLabels: {app: minio}}
+  policyTypes: [Ingress]
+  ingress:
+    - from:
+        - namespaceSelector: {matchLabels: {kubernetes.io/metadata.name: redhat-ods-applications}}
+      ports: [{protocol: TCP, port: 9000}]

@@ -1,0 +1,15 @@
+# captured 2026-11-07T00:11:56Z
+$ oc get bc,build,deploy,route -l app=p1546-risk -n danialheidari619-dev
+NAME                         READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/p1546-risk   1/1     1            1           3h22m
+
+NAME                                      HOST/PORT                                                                PATH   SERVICES     PORT       TERMINATION   WILDCARD
+route.route.openshift.io/p1546-risk       p1546-risk-danialheidari619-dev.apps.rm2.thpm.p1.openshiftapps.com              p1546-risk   8080-tcp                 None
+route.route.openshift.io/p1546-risk-tls   p1546-risk-tls-danialheidari619-dev.apps.rm2.thpm.p1.openshiftapps.com          p1546-risk   8080-tcp   edge          None
+
+$ oc get bc,build -n danialheidari619-dev   (filtered: p1546)
+NAME                                           TYPE     FROM     LATEST
+buildconfig.build.openshift.io/p1546-risk      Docker   Binary   2
+NAME                                       TYPE     FROM             STATUS                       STARTED       DURATION
+build.build.openshift.io/p1546-risk-1      Docker   Binary           Failed (DockerBuildFailed)   4 hours ago   13m45s
+build.build.openshift.io/p1546-risk-2      Docker   Binary           Complete                     4 hours ago   13m51s

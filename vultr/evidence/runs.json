@@ -1,0 +1,86 @@
+[
+ {
+  "name": "space_ific3074",
+  "kind": "space",
+  "ific": 3074,
+  "counts": {
+   "exceeds_limit": 12,
+   "within_margin": 0,
+   "insufficient_data": 22,
+   "overlap_only": 126,
+   "no_concern": 0,
+   "excluded": 36
+  },
+  "origin": "results"
+ },
+ {
+  "name": "space_ific3075",
+  "kind": "space",
+  "ific": 3075,
+  "counts": {
+   "exceeds_limit": 4,
+   "within_margin": 0,
+   "insufficient_data": 24,
+   "overlap_only": 82,
+   "no_concern": 0,
+   "excluded": 19
+  },
+  "origin": "automatic"
+ },
+ {
+  "name": "space_ific3083",
+  "kind": "space",
+  "ific": 3083,
+  "counts": {
+   "exceeds_limit": 6,
+   "within_margin": 0,
+   "insufficient_data": 18,
+   "overlap_only": 115,
+   "no_concern": 0,
+   "excluded": 29
+  },
+  "origin": "automatic"
+ },
+ {
+  "name": "space_ific3073",
+  "kind": "space",
+  "ific": 3073,
+  "counts": {
+   "exceeds_limit": 15,
+   "within_margin": 0,
+   "insufficient_data": 17,
+   "overlap_only": 75,
+   "no_concern": 0,
+   "excluded": 19
+  },
+  "origin": "results"
+ },
+ {
+  "name": "terrestrial_ific3075",
+  "kind": "terrestrial",
+  "ific": 3075,
+  "counts": {
+   "exceeds_limit": 18,
+   "within_margin": 0,
+   "insufficient_data": 8,
+   "overlap_only": 0,
+   "no_concern": 19,
+   "excluded": 69
+  },
+  "origin": "results"
+ },
+ {
+  "name": "terrestrial_ific3076",
+  "kind": "terrestrial",
+  "ific": 3076,
+  "counts": {
+   "exceeds_limit": 8,
+   "within_margin": 1,
+   "insufficient_data": 0,
+   "overlap_only": 0,
+   "no_concern": 22,
+   "excluded": 83
+  },
+  "origin": "results"
+ }
+]

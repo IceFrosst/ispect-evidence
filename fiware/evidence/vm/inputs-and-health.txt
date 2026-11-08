@@ -1,0 +1,31 @@
+Sat Nov  7 06:54:53 PM UTC 2026
+e59ddec2051bf3585128353083e8e75e595d9b9e3ce0f0d55fc88b516258db9c  /opt/sinceai/app/results/compare_annotations_ific3073.json
+97fd6833c2f3f6e05d5994b4512ff8a5cfc3fd92568854528257690618a3dd83  /opt/sinceai/app/results/compare_annotations_ific3074.json
+07b4f22a936d7229ab40e22a1b20f143a63769dec9ece4c082f362c4b0532b8e  /opt/sinceai/app/results/compare_annotations_terrestrial_ific3075.json
+be74111050b524a44472151e51f46496b5d3ea5a05ed80584885cb076813f0a9  /opt/sinceai/app/results/compare_br_ific3073.json
+c664988585f17efa4be4ae8e55756a3747de1f295cd5e871f2e29ae6ada4c756  /opt/sinceai/app/results/compare_br_ific3074.json
+f50455662879ead18dcc0351ced531557b64dbe74a8e616f0f8f0de2c311f5f7  /opt/sinceai/app/results/compare_br_terrestrial_ific3075.json
+3340f8d3e7339717ed9cde8e042fb77781ee41de02031310151b4cb53385c779  /opt/sinceai/app/results/compare_br_terrestrial_ific3076.json
+6118b893458d5e87fe805c4d4d0e17ab3d44700ae19f05e7d5df6809fca1b954  /opt/sinceai/app/results/coverage_ific3074.json
+8638faf588571cf01c1f99017250523007194e00320106ce185feb157bce3431  /opt/sinceai/app/results/novelty_space_ific3073.json
+2be4de2a0a464a8bf4edc48da4c5f0961ec6cb0a515f9f804e0d7ecdb27bcc3f  /opt/sinceai/app/results/novelty_space_ific3074.json
+24b61e8fd962e9f475b873085d20047e15494a771a7accb704644f1092d56b71  /opt/sinceai/app/results/space_ific3073_heatmaps.json
+a8ed057f19ff132668abdb3b6123aa834adae5f0a57360bb81e1753e5c613495  /opt/sinceai/app/results/space_ific3073.json
+aa75dddf5eeb01163d729f672b54850556939b1780d38e0a9940e0a8dbeeba24  /opt/sinceai/app/results/space_ific3074_heatmaps.json
+c3ff5b871042e8050f1e76ea16f936ca78ef120be4c4a100a57f7bac0ee3b505  /opt/sinceai/app/results/space_ific3074.json
+ffd57cdd35ab47d8b655f00b59876839728b0115a94f30d552e3853ce1ca1146  /opt/sinceai/app/results/space_ific3074_ngso_sim_fullres_10s_0p25.json
+f02b057194ba43992b2160b65bb5e0c93eafb58f54f6c6a2d9bf882c343ccfc0  /opt/sinceai/app/results/space_ific3074_ngso_sim.json
+8ba3a729aa29165d76b69301a215ba63d0351abf55fdbcbaaf84cb4cc0d16a0d  /opt/sinceai/app/results/space_ific3074_novelty.json
+0f9fff88ae96782c1b1271781bb95de8d0fb4d3a7d808e3065ec304524c8d23e  /opt/sinceai/app/results/terrestrial_ific3075.audit.json
+2c808d8f46b207ec0bb5317b40fc5f83c637654eddac9551013af1a056355d7e  /opt/sinceai/app/results/terrestrial_ific3075.json
+0eabe53dad51187d47f3908ab462e6bbebf7a68681d14ade86bf14c4f5527c20  /opt/sinceai/app/results/terrestrial_ific3076.audit.json
+e72a3c6d1bff788f0b3ef0d5f3e16c31d59ae88e348ef4b4e29c72deb2c6f9a8  /opt/sinceai/app/results/terrestrial_ific3076.json
+5872cf78af43fec4ff4fee97fddbf4564f1e5f386e08adb7f6e78517a5573dcc  /opt/sinceai/app/results/trends_terrestrial_ific3075.json
+6ba190b4f768722815f31d89cd79709e2233fe8496ea5b953145e3f706d7eb4c  /opt/sinceai/app/results/trends_terrestrial_ific3076.json
+NAME                IMAGE                   COMMAND                  SERVICE    CREATED         STATUS                   PORTS
+fiware-mongo-1      mongo:5.0.31            "docker-entrypoint.s…"   mongo      5 minutes ago   Up 5 minutes (healthy)   127.0.0.1:27017->27017/tcp
+fiware-orion-1      fiware/orion-ld:1.8.0   "orionld -fg -multis…"   orion      5 minutes ago   Up 5 minutes (healthy)   127.0.0.1:1026->1026/tcp
+fiware-receiver-1   python:3.12.8-alpine    "python -u /receiver…"   receiver   5 minutes ago   Up 4 minutes (healthy)   
+/fiware-mongo-1 memory=536870912 restart=0 oom=false
+/fiware-orion-1 memory=402653184 restart=0 oom=false
+/fiware-receiver-1 memory=67108864 restart=0 oom=false

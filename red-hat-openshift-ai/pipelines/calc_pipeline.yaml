@@ -1,0 +1,454 @@
+# PIPELINE DEFINITION
+# Name: sinceai-calc-lane
+# Description: Filing Radar interference calculations (space pfd vs RR Art. 21, terrestrial P.1546 vs T/R 25-08) on public ITU IFIC releases, verified against the committed results
+# Inputs:
+#    fixed_time: str [Default: '2026-11-07T00:00:00Z']
+#    space_ific: int [Default: 3074.0]
+#    terrestrial_ific: int [Default: 3076.0]
+components:
+  comp-calculate:
+    executorLabel: exec-calculate
+    inputDefinitions:
+      parameters:
+        fixed_time:
+          parameterType: STRING
+        ific:
+          parameterType: NUMBER_INTEGER
+        kind:
+          parameterType: STRING
+        run_id:
+          parameterType: STRING
+    outputDefinitions:
+      parameters:
+        Output:
+          parameterType: NUMBER_DOUBLE
+  comp-calculate-2:
+    executorLabel: exec-calculate-2
+    inputDefinitions:
+      parameters:
+        fixed_time:
+          parameterType: STRING
+        ific:
+          parameterType: NUMBER_INTEGER
+        kind:
+          parameterType: STRING
+        run_id:
+          parameterType: STRING
+    outputDefinitions:
+      parameters:
+        Output:
+          parameterType: NUMBER_DOUBLE
+  comp-fetch-ific:
+    executorLabel: exec-fetch-ific
+    inputDefinitions:
+      parameters:
+        ific:
+          parameterType: NUMBER_INTEGER
+        kind:
+          parameterType: STRING
+    outputDefinitions:
+      parameters:
+        Output:
+          parameterType: NUMBER_DOUBLE
+  comp-fetch-ific-2:
+    executorLabel: exec-fetch-ific-2
+    inputDefinitions:
+      parameters:
+        ific:
+          parameterType: NUMBER_INTEGER
+        kind:
+          parameterType: STRING
+    outputDefinitions:
+      parameters:
+        Output:
+          parameterType: NUMBER_DOUBLE
+  comp-verify-results:
+    executorLabel: exec-verify-results
+    inputDefinitions:
+      parameters:
+        run_id:
+          parameterType: STRING
+    outputDefinitions:
+      artifacts:
+        metrics:
+          artifactType:
+            schemaTitle: system.Metrics
+            schemaVersion: 0.0.1
+        results:
+          artifactType:
+            schemaTitle: system.Artifact
+            schemaVersion: 0.0.1
+      parameters:
+        Output:
+          parameterType: BOOLEAN
+deploymentSpec:
+  executors:
+    exec-calculate:
+      container:
+        args:
+        - --executor_input
+        - '{{$}}'
+        - --function_to_execute
+        - calculate
+        command:
+        - sh
+        - -c
+        - "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip ||\
+          \ python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1\
+          \ python3 -m pip install --quiet --no-warn-script-location 'kfp==2.18.0'\
+          \ '--no-deps' 'typing-extensions>=3.7.4,<5; python_version<\"3.9\"' && \"\
+          $0\" \"$@\"\n"
+        - sh
+        - -ec
+        - 'program_path=$(mktemp -d)
+
+
+          printf "%s" "$0" > "$program_path/ephemeral_component.py"
+
+          _KFP_RUNTIME=true python3 -m kfp.dsl.executor_main                         --component_module_path                         "$program_path/ephemeral_component.py"                         "$@"
+
+          '
+        - "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import\
+          \ *\n\ndef calculate(kind: str, ific: int, run_id: str, fixed_time: str)\
+          \ -> float:\n    \"\"\"radar run --space N / --terrestrial N --previous\
+          \ N-1 (engines unchanged); returns wall seconds.\"\"\"\n    from infra.openshift.calc.lane\
+          \ import calculate as run, data_dir\n    return run(kind, ific, data_dir()\
+          \ / \"out\" / run_id, fixed_time)\n\n"
+        image: image-registry.openshift-image-registry.svc:5000/danialheidari619-dev/sinceai-calc:latest
+        resources:
+          cpuLimit: 4.0
+          cpuRequest: 0.25
+          memoryLimit: 6.0
+          memoryRequest: 1.0
+          resourceCpuLimit: '4'
+          resourceCpuRequest: 250m
+          resourceMemoryLimit: 6G
+          resourceMemoryRequest: 1G
+    exec-calculate-2:
+      container:
+        args:
+        - --executor_input
+        - '{{$}}'
+        - --function_to_execute
+        - calculate
+        command:
+        - sh
+        - -c
+        - "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip ||\
+          \ python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1\
+          \ python3 -m pip install --quiet --no-warn-script-location 'kfp==2.18.0'\
+          \ '--no-deps' 'typing-extensions>=3.7.4,<5; python_version<\"3.9\"' && \"\
+          $0\" \"$@\"\n"
+        - sh
+        - -ec
+        - 'program_path=$(mktemp -d)
+
+
+          printf "%s" "$0" > "$program_path/ephemeral_component.py"
+
+          _KFP_RUNTIME=true python3 -m kfp.dsl.executor_main                         --component_module_path                         "$program_path/ephemeral_component.py"                         "$@"
+
+          '
+        - "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import\
+          \ *\n\ndef calculate(kind: str, ific: int, run_id: str, fixed_time: str)\
+          \ -> float:\n    \"\"\"radar run --space N / --terrestrial N --previous\
+          \ N-1 (engines unchanged); returns wall seconds.\"\"\"\n    from infra.openshift.calc.lane\
+          \ import calculate as run, data_dir\n    return run(kind, ific, data_dir()\
+          \ / \"out\" / run_id, fixed_time)\n\n"
+        image: image-registry.openshift-image-registry.svc:5000/danialheidari619-dev/sinceai-calc:latest
+        resources:
+          cpuLimit: 4.0
+          cpuRequest: 0.25
+          memoryLimit: 6.0
+          memoryRequest: 1.0
+          resourceCpuLimit: '4'
+          resourceCpuRequest: 250m
+          resourceMemoryLimit: 6G
+          resourceMemoryRequest: 1G
+    exec-fetch-ific:
+      container:
+        args:
+        - --executor_input
+        - '{{$}}'
+        - --function_to_execute
+        - fetch_ific
+        command:
+        - sh
+        - -c
+        - "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip ||\
+          \ python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1\
+          \ python3 -m pip install --quiet --no-warn-script-location 'kfp==2.18.0'\
+          \ '--no-deps' 'typing-extensions>=3.7.4,<5; python_version<\"3.9\"' && \"\
+          $0\" \"$@\"\n"
+        - sh
+        - -ec
+        - 'program_path=$(mktemp -d)
+
+
+          printf "%s" "$0" > "$program_path/ephemeral_component.py"
+
+          _KFP_RUNTIME=true python3 -m kfp.dsl.executor_main                         --component_module_path                         "$program_path/ephemeral_component.py"                         "$@"
+
+          '
+        - "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import\
+          \ *\n\ndef fetch_ific(kind: str, ific: int) -> float:\n    \"\"\"Download\
+          \ + sha256-verify + unzip one public ITU release onto the PVC (0 s when\
+          \ already there).\"\"\"\n    from infra.openshift.calc.lane import fetch\n\
+          \    return fetch(kind, ific)\n\n"
+        image: image-registry.openshift-image-registry.svc:5000/danialheidari619-dev/sinceai-calc:latest
+        resources:
+          cpuLimit: 1.0
+          cpuRequest: 0.25
+          memoryLimit: 2.0
+          memoryRequest: 1.0
+          resourceCpuLimit: '1'
+          resourceCpuRequest: 250m
+          resourceMemoryLimit: 2G
+          resourceMemoryRequest: 1G
+    exec-fetch-ific-2:
+      container:
+        args:
+        - --executor_input
+        - '{{$}}'
+        - --function_to_execute
+        - fetch_ific
+        command:
+        - sh
+        - -c
+        - "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip ||\
+          \ python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1\
+          \ python3 -m pip install --quiet --no-warn-script-location 'kfp==2.18.0'\
+          \ '--no-deps' 'typing-extensions>=3.7.4,<5; python_version<\"3.9\"' && \"\
+          $0\" \"$@\"\n"
+        - sh
+        - -ec
+        - 'program_path=$(mktemp -d)
+
+
+          printf "%s" "$0" > "$program_path/ephemeral_component.py"
+
+          _KFP_RUNTIME=true python3 -m kfp.dsl.executor_main                         --component_module_path                         "$program_path/ephemeral_component.py"                         "$@"
+
+          '
+        - "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import\
+          \ *\n\ndef fetch_ific(kind: str, ific: int) -> float:\n    \"\"\"Download\
+          \ + sha256-verify + unzip one public ITU release onto the PVC (0 s when\
+          \ already there).\"\"\"\n    from infra.openshift.calc.lane import fetch\n\
+          \    return fetch(kind, ific)\n\n"
+        image: image-registry.openshift-image-registry.svc:5000/danialheidari619-dev/sinceai-calc:latest
+        resources:
+          cpuLimit: 1.0
+          cpuRequest: 0.25
+          memoryLimit: 2.0
+          memoryRequest: 1.0
+          resourceCpuLimit: '1'
+          resourceCpuRequest: 250m
+          resourceMemoryLimit: 2G
+          resourceMemoryRequest: 1G
+    exec-verify-results:
+      container:
+        args:
+        - --executor_input
+        - '{{$}}'
+        - --function_to_execute
+        - verify_results
+        command:
+        - sh
+        - -c
+        - "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip ||\
+          \ python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1\
+          \ python3 -m pip install --quiet --no-warn-script-location 'kfp==2.18.0'\
+          \ '--no-deps' 'typing-extensions>=3.7.4,<5; python_version<\"3.9\"' && \"\
+          $0\" \"$@\"\n"
+        - sh
+        - -ec
+        - 'program_path=$(mktemp -d)
+
+
+          printf "%s" "$0" > "$program_path/ephemeral_component.py"
+
+          _KFP_RUNTIME=true python3 -m kfp.dsl.executor_main                         --component_module_path                         "$program_path/ephemeral_component.py"                         "$@"
+
+          '
+        - "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import\
+          \ *\n\ndef verify_results(run_id: str, metrics: dsl.Output[dsl.Metrics],\
+          \ results: dsl.Output[dsl.Artifact]) -> bool:\n    \"\"\"Same outcome +\
+          \ reason code per notice as results/ (fails otherwise); file-level match\
+          \ logged too.\"\"\"\n    import json\n    import shutil\n    from pathlib\
+          \ import Path\n    from infra.openshift.calc.lane import commit, data_dir,\
+          \ verify\n\n    out = data_dir() / \"out\" / run_id\n    report = {\"run_id\"\
+          : run_id, \"git_commit\": commit(), **verify(out)}\n    (out / \"verify.json\"\
+          ).write_text(json.dumps(report, indent=2))\n    for stem, counts in report[\"\
+          counts\"].items():\n        for outcome, n in counts.items():\n        \
+          \    metrics.log_metric(f\"{stem}.{outcome}\", n)\n    files = report[\"\
+          files\"]\n    metrics.log_metric(\"files_matching_committed\", sum(f[\"\
+          match_normalised\"] is True for f in files))\n    metrics.log_metric(\"\
+          files_differing\", sum(f[\"match_normalised\"] is False for f in files))\n\
+          \    metrics.log_metric(\"files_without_reference\", sum(f[\"match_normalised\"\
+          ] is None for f in files))\n    metrics.log_metric(\"result_files_outcomes_identical\"\
+          , sum(f.get(\"outcomes_identical\") is True for f in files))\n    metrics.log_metric(\"\
+          result_files_outcomes_differ\", sum(f.get(\"outcomes_identical\") is False\
+          \ for f in files))\n    Path(results.path).mkdir(parents=True, exist_ok=True)\n\
+          \    for f in out.iterdir():\n        if f.is_file():\n            shutil.copy2(f,\
+          \ Path(results.path) / f.name)\n    results.metadata.update({\"git_commit\"\
+          : report[\"git_commit\"], \"ok\": report[\"ok\"]})\n    for f in files:\n\
+          \        print((\"NOREF\" if f[\"match_normalised\"] is None else \"OK \
+          \ \" if f[\"match_normalised\"] else \"DIFF\"), f[\"file\"])\n    if not\
+          \ report[\"ok\"]:\n        raise RuntimeError(\"a notice outcome or reason\
+          \ code differs from the committed results/ (see verify.json)\")\n    return\
+          \ True\n\n"
+        image: image-registry.openshift-image-registry.svc:5000/danialheidari619-dev/sinceai-calc:latest
+        resources:
+          cpuLimit: 1.0
+          cpuRequest: 0.25
+          memoryLimit: 2.0
+          memoryRequest: 1.0
+          resourceCpuLimit: '1'
+          resourceCpuRequest: 250m
+          resourceMemoryLimit: 2G
+          resourceMemoryRequest: 1G
+pipelineInfo:
+  description: Filing Radar interference calculations (space pfd vs RR Art. 21, terrestrial
+    P.1546 vs T/R 25-08) on public ITU IFIC releases, verified against the committed
+    results
+  name: sinceai-calc-lane
+root:
+  dag:
+    tasks:
+      calculate:
+        cachingOptions: {}
+        componentRef:
+          name: comp-calculate
+        dependentTasks:
+        - fetch-ific-2
+        inputs:
+          parameters:
+            fixed_time:
+              componentInputParameter: fixed_time
+            ific:
+              componentInputParameter: space_ific
+            kind:
+              runtimeValue:
+                constant: space
+            run_id:
+              runtimeValue:
+                constant: '{{$.pipeline_job_uuid}}'
+        taskInfo:
+          name: 'space: pfd vs RR Article 21'
+      calculate-2:
+        cachingOptions: {}
+        componentRef:
+          name: comp-calculate-2
+        dependentTasks:
+        - calculate
+        inputs:
+          parameters:
+            fixed_time:
+              componentInputParameter: fixed_time
+            ific:
+              componentInputParameter: terrestrial_ific
+            kind:
+              runtimeValue:
+                constant: terrestrial
+            run_id:
+              runtimeValue:
+                constant: '{{$.pipeline_job_uuid}}'
+        taskInfo:
+          name: 'terrestrial: P.1546 vs T/R 25-08'
+      fetch-ific:
+        cachingOptions: {}
+        componentRef:
+          name: comp-fetch-ific
+        inputs:
+          parameters:
+            ific:
+              componentInputParameter: space_ific
+            kind:
+              runtimeValue:
+                constant: space
+        taskInfo:
+          name: fetch space IFIC
+      fetch-ific-2:
+        cachingOptions: {}
+        componentRef:
+          name: comp-fetch-ific-2
+        dependentTasks:
+        - fetch-ific
+        inputs:
+          parameters:
+            ific:
+              componentInputParameter: terrestrial_ific
+            kind:
+              runtimeValue:
+                constant: terrestrial
+        taskInfo:
+          name: fetch terrestrial IFIC
+      verify-results:
+        cachingOptions: {}
+        componentRef:
+          name: comp-verify-results
+        dependentTasks:
+        - calculate-2
+        inputs:
+          parameters:
+            run_id:
+              runtimeValue:
+                constant: '{{$.pipeline_job_uuid}}'
+        taskInfo:
+          name: verify vs committed results
+  inputDefinitions:
+    parameters:
+      fixed_time:
+        defaultValue: '2026-11-07T00:00:00Z'
+        isOptional: true
+        parameterType: STRING
+      space_ific:
+        defaultValue: 3074.0
+        isOptional: true
+        parameterType: NUMBER_INTEGER
+      terrestrial_ific:
+        defaultValue: 3076.0
+        isOptional: true
+        parameterType: NUMBER_INTEGER
+schemaVersion: 2.1.0
+sdkVersion: kfp-2.18.0
+---
+platforms:
+  kubernetes:
+    deploymentSpec:
+      executors:
+        exec-calculate:
+          pvcMount:
+          - constant: calc-data
+            mountPath: /data
+            pvcNameParameter:
+              runtimeValue:
+                constant: calc-data
+        exec-calculate-2:
+          pvcMount:
+          - constant: calc-data
+            mountPath: /data
+            pvcNameParameter:
+              runtimeValue:
+                constant: calc-data
+        exec-fetch-ific:
+          pvcMount:
+          - constant: calc-data
+            mountPath: /data
+            pvcNameParameter:
+              runtimeValue:
+                constant: calc-data
+        exec-fetch-ific-2:
+          pvcMount:
+          - constant: calc-data
+            mountPath: /data
+            pvcNameParameter:
+              runtimeValue:
+                constant: calc-data
+        exec-verify-results:
+          pvcMount:
+          - constant: calc-data
+            mountPath: /data
+            pvcNameParameter:
+              runtimeValue:
+                constant: calc-data

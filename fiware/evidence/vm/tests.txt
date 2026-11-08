@@ -1,0 +1,41 @@
+Command: /tmp/sinceai-l13-venv/bin/python -m pytest infra -q (final)
+=========================== short test summary info ============================
+FAILED infra/fiware/test_fiware.py::test_mapping[space_ific3074] - pydantic_c...
+FAILED infra/fiware/test_fiware.py::test_fake_publish_subscribe_and_receiver
+FAILED infra/fiware/test_fiware.py::test_cli_read_only - pydantic_core._pydan...
+FAILED infra/fiware/test_fiware.py::test_explicit_context_for_orion18 - pydan...
+FAILED infra/tests/test_primary_semantics.py::test_served_margins_match_csv[space_ific3074]
+FAILED infra/tests/test_primary_semantics.py::test_served_margins_match_csv[space_ific3073]
+FAILED infra/tests/test_primary_semantics.py::test_space_order_is_published_rank[space_ific3074]
+FAILED infra/tests/test_primary_semantics.py::test_space_order_is_published_rank[space_ific3073]
+FAILED infra/tests/test_primary_semantics.py::test_steerable_only_is_qualified_not_firm[space_ific3074]
+FAILED infra/tests/test_primary_semantics.py::test_overlap_explanations_do_not_claim_clearance[space_ific3074]
+FAILED infra/tests/test_review_fix_g1.py::test_ui06_every_3074_notice_is_named
+FAILED infra/tests/test_serve.py::test_committed_novelty_covers_every_result_notice
+FAILED infra/tests/test_serve.py::test_reference_agreement_is_the_compare_file_for_that_run
+FAILED infra/tests/test_ui_rows.py::test_space_findings_are_never_banded_by_terrestrial_thresholds
+FAILED infra/tests/test_ui_rows.py::test_run_dispositions_endpoint - Assertio...
+15 failed, 101 passed, 1 xfailed, 6080 warnings in 24.97s
+
+Baseline at unchanged HEAD 209dfe7 (detached worktree):
+=========================== short test summary info ============================
+FAILED infra/fiware/test_fiware.py::test_mapping[space_ific3074] - pydantic_c...
+FAILED infra/fiware/test_fiware.py::test_fake_publish_subscribe_and_receiver
+FAILED infra/fiware/test_fiware.py::test_cli_read_only - pydantic_core._pydan...
+FAILED infra/fiware/test_fiware.py::test_explicit_context_for_orion18 - pydan...
+FAILED infra/tests/test_primary_semantics.py::test_served_margins_match_csv[space_ific3074]
+FAILED infra/tests/test_primary_semantics.py::test_served_margins_match_csv[space_ific3073]
+FAILED infra/tests/test_primary_semantics.py::test_space_order_is_published_rank[space_ific3074]
+FAILED infra/tests/test_primary_semantics.py::test_space_order_is_published_rank[space_ific3073]
+FAILED infra/tests/test_primary_semantics.py::test_steerable_only_is_qualified_not_firm[space_ific3074]
+FAILED infra/tests/test_primary_semantics.py::test_overlap_explanations_do_not_claim_clearance[space_ific3074]
+FAILED infra/tests/test_review_fix_g1.py::test_ui06_every_3074_notice_is_named
+FAILED infra/tests/test_serve.py::test_committed_novelty_covers_every_result_notice
+FAILED infra/tests/test_serve.py::test_reference_agreement_is_the_compare_file_for_that_run
+FAILED infra/tests/test_ui_rows.py::test_space_findings_are_never_banded_by_terrestrial_thresholds
+FAILED infra/tests/test_ui_rows.py::test_run_dispositions_endpoint - Assertio...
+15 failed, 92 passed, 1 xfailed, 6080 warnings in 31.41s
+
+Command: /tmp/sinceai-l13-venv/bin/python -m pytest infra/fiware/test_proxy.py infra/fiware/test_vm_publish.py -q
+.........                                                                [100%]
+9 passed in 0.75s

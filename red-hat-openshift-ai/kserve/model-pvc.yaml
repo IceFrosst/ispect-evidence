@@ -1,0 +1,11 @@
+# Cluster storage for the served model. KServe mounts a pvc:// model directly, without the storage-initializer
+# container (whose platform default asks for a 24Gi memory limit, more than the Developer Sandbox quota allows).
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: p1546-models
+  labels: {opendatahub.io/dashboard: "true", sinceai: "2026"}
+  annotations: {openshift.io/display-name: "P.1546 model storage"}
+spec:
+  accessModes: [ReadWriteOnce]
+  resources: {requests: {storage: 1Gi}}

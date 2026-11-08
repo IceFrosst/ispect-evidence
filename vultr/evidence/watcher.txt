@@ -1,0 +1,44 @@
+# captured 2026-11-08T02:51:30Z
+
+$ systemctl list-timers sinceai-watcher --no-pager
+NEXT                            LEFT LAST                              PASSED UNIT                  ACTIVATES
+Sun 2026-11-08 07:16:50 UTC 4h 25min Sun 2026-11-08 01:16:50 UTC 1h 34min ago sinceai-watcher.timer sinceai-watcher.service
+
+
+$ cat /opt/sinceai/data/watcher/state.json
+{
+ "space": 3083,
+ "terrestrial": 3083
+}
+
+$ journalctl -u sinceai-watcher -n 12 --no-pager (last runs)
+Nov 07 13:16:11 sinceai-2026-batch systemd[1]: sinceai-watcher.service: Deactivated successfully.
+Nov 07 13:16:11 sinceai-2026-batch systemd[1]: Finished sinceai-watcher.service - IFIC watcher: poll ITU release pages once, download a new issue, notify the UI.
+Nov 07 19:16:39 sinceai-2026-batch systemd[1]: Starting sinceai-watcher.service - IFIC watcher: poll ITU release pages once, download a new issue, notify the UI...
+Nov 07 19:16:41 sinceai-2026-batch python[86960]: space null
+Nov 07 19:16:41 sinceai-2026-batch python[86960]: terrestrial null
+Nov 07 19:16:41 sinceai-2026-batch systemd[1]: sinceai-watcher.service: Deactivated successfully.
+Nov 07 19:16:41 sinceai-2026-batch systemd[1]: Finished sinceai-watcher.service - IFIC watcher: poll ITU release pages once, download a new issue, notify the UI.
+Nov 08 01:16:50 sinceai-2026-batch systemd[1]: Starting sinceai-watcher.service - IFIC watcher: poll ITU release pages once, download a new issue, notify the UI...
+Nov 08 01:16:51 sinceai-2026-batch python[391260]: space null
+Nov 08 01:16:51 sinceai-2026-batch python[391260]: terrestrial null
+Nov 08 01:16:51 sinceai-2026-batch systemd[1]: sinceai-watcher.service: Deactivated successfully.
+Nov 08 01:16:51 sinceai-2026-batch systemd[1]: Finished sinceai-watcher.service - IFIC watcher: poll ITU release pages once, download a new issue, notify the UI.
+
+$ ls -la /opt/sinceai/data/runs (pipeline-built runs)
+total 6516
+drwxr-xr-x  2 root root    4096 Nov  7 09:33 .
+drwxr-xr-x 10 root root    4096 Nov  8 01:54 ..
+-rw-r--r--  1 root root    7310 Nov  7 09:33 run_manifest.json
+-rw-r--r--  1 root root  654410 Nov  6 21:02 space_ific3074.json
+-rw-r--r--  1 root root   68869 Nov  6 21:02 space_ific3074.notices.json
+-rw-r--r--  1 root root  160380 Nov  7 09:29 space_ific3075.csv
+-rw-r--r--  1 root root  281937 Nov  7 09:29 space_ific3075_heatmaps.json
+-rw-r--r--  1 root root 1728248 Nov  7 09:29 space_ific3075.json
+-rw-r--r--  1 root root    4879 Nov  7 09:29 space_ific3075.md
+-rw-r--r--  1 root root   47687 Nov  7 09:30 space_ific3075.notices.json
+-rw-r--r--  1 root root  237370 Nov  7 09:33 space_ific3083.csv
+-rw-r--r--  1 root root  709982 Nov  7 09:33 space_ific3083_heatmaps.json
+-rw-r--r--  1 root root 2671254 Nov  7 09:33 space_ific3083.json
+-rw-r--r--  1 root root    5120 Nov  7 09:33 space_ific3083.md
+-rw-r--r--  1 root root   63004 Nov  7 09:34 space_ific3083.notices.json

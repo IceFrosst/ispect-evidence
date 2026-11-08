@@ -1,0 +1,14 @@
+  },
+  "findings": 114,
+  "run": "terrestrial_ific3076",
+  "runtime_seconds": 33.83
+}
+DIFF space_ific3074.csv  sha256 b0c81797b890
+DIFF space_ific3074.json  sha256 79e53d3a4f97
+DIFF space_ific3074.md  sha256 87f6c4806501
+DIFF terrestrial_ific3076.csv  sha256 4517571ab97f
+DIFF terrestrial_ific3076.json  sha256 5947b993299c
+DIFF terrestrial_ific3076.md  sha256 361ad3b6d0e2
+OK   trends_terrestrial_ific3076.json  sha256 6ba190b4f768  (byte-identical)
+OK   trends_terrestrial_ific3076.md  sha256 e806b1dbf57a  (byte-identical)
+[lane] {"run_id": "20261107T190029Z-09ab5b0482fc", "ok": false, "cold_start": true, "timings_s": {"fetch_space_3074": 78.3, "fetch_terrestrial_3076": 4.1, "calc_space_3074": 417.3, "calc_terrestrial_3076": 35.1}, "peak_rss_mib": 3341.2, "cpu_count": 8, "counts": {"space_ific3074": {"exceeds_limit": 12, "excluded": 36, "insufficient_data": 22, "no_concern": 0, "overlap_only": 126, "within_margin": 0}, "terrestrial_ific3076": {"exceeds_limit": 8, "excluded": 83, "insufficient_data": 0, "no_concern": 22, "overlap_only": 0, "within_margin": 1}, "trends_terrestrial_ific3076": {}}, "s3": "s3://models/calc-lane/20261107T190029Z-09ab5b0482fc/"}

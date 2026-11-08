@@ -1,0 +1,11 @@
+{
+  "orionld version": "1.8.0",
+  "orion version":   "1.15.0-next",
+  "uptime":          "0 d, 0 h, 1 m, 46 s",
+  "git_hash":        "nogitversion",
+  "compile_time":    "Mon Jan 13 11:28:16 UTC 2025",
+  "compiled_by":     "root",
+  "compiled_in":     "",
+  "release_date":    "Mon Jan 13 11:28:16 UTC 2025",
+  "doc":             "https://fiware-orion.readthedocs.org/en/master/"
+}

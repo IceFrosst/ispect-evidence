@@ -1,0 +1,11 @@
+# captured 2026-11-08T03:08:24Z: the live What-if on the Vultr VM calls the KServe model on OpenShift AI
+## 1. on the VM: What-if with the antenna height unknown (h_agl_m = null)
+$ curl -X POST localhost:8000/api/playground/terrestrial -d {"lat":59.4,"lon":24.7,"f_mhz":450,"bw_khz":25,"erp_w":50,"h_agl_m":null}  -> .ml
+{"trigger_dbuv_m": 20.0, "erp_kw": 0.05, "citation": "P1546", "method": "ml_estimate", "missing": ["heff_m"], "interval_dbuv_m": [10.7, 25.3, 52.1], "p_exceed": 0.664, "risk": "high", "note": "ML estimate for review priority only; not a calculation result. Outcome stays insufficient_data."}
+
+## 2. on OpenShift, same minute: KServe predictor log (oc logs deploy/p1546-risk-predictor --since=2m)
+INFO:     10.x.x.x:34872 - "POST /predict HTTP/1.1" 200 OK
+INFO:     10.x.x.x:53274 - "POST /predict HTTP/1.1" 200 OK
+INFO:     10.x.x.x:39216 - "POST /predict HTTP/1.1" 200 OK
+
+## 3. the VM env var RISK_API_URL points at the KServe InferenceService route (value not printed); risk/assess.py _quantiles has no silent local fallback on this path.

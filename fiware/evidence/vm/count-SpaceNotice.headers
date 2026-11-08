@@ -1,0 +1,6 @@
+HTTP/1.1 200 OK
+Date: Sat, 07 Nov 2026 18:51:36 GMT
+NGSILD-Results-Count: 322
+Link: <http://127.0.0.1:1026/ngsi-ld/v1/jsonldContexts/0ee6b3de-dadc-11f1-b5c6-1a9b59120263>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"
+Content-Type: application/json
+Content-Length: 183

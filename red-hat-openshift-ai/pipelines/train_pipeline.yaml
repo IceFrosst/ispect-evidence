@@ -1,0 +1,323 @@
+# PIPELINE DEFINITION
+# Name: p1546-risk-train
+# Description: Train, evaluate, safety-gate and register the ITU-R P.1546 LightGBM quantile risk model served by OpenShift AI model serving (KServe isvc p1546-risk)
+# Inputs:
+#    max_missed_exceedances_pct: float [Default: 0.5]
+#    min_coverage: float [Default: 0.85]
+#    samples: int [Default: 120000.0]
+#    seed: int [Default: 1546.0]
+#    workers: int [Default: 3.0]
+components:
+  comp-gate-and-register:
+    executorLabel: exec-gate-and-register
+    inputDefinitions:
+      artifacts:
+        model:
+          artifactType:
+            schemaTitle: system.Model
+            schemaVersion: 0.0.1
+      parameters:
+        max_missed_exceedances_pct:
+          parameterType: NUMBER_DOUBLE
+        min_coverage:
+          parameterType: NUMBER_DOUBLE
+        run_id:
+          parameterType: STRING
+    outputDefinitions:
+      parameters:
+        Output:
+          parameterType: STRING
+  comp-generate-samples:
+    executorLabel: exec-generate-samples
+    inputDefinitions:
+      parameters:
+        n:
+          parameterType: NUMBER_INTEGER
+        seed:
+          parameterType: NUMBER_INTEGER
+        workers:
+          parameterType: NUMBER_INTEGER
+    outputDefinitions:
+      artifacts:
+        samples:
+          artifactType:
+            schemaTitle: system.Dataset
+            schemaVersion: 0.0.1
+      parameters:
+        Output:
+          parameterType: NUMBER_INTEGER
+  comp-train-model:
+    executorLabel: exec-train-model
+    inputDefinitions:
+      artifacts:
+        samples:
+          artifactType:
+            schemaTitle: system.Dataset
+            schemaVersion: 0.0.1
+    outputDefinitions:
+      artifacts:
+        metrics:
+          artifactType:
+            schemaTitle: system.Metrics
+            schemaVersion: 0.0.1
+        model:
+          artifactType:
+            schemaTitle: system.Model
+            schemaVersion: 0.0.1
+deploymentSpec:
+  executors:
+    exec-gate-and-register:
+      container:
+        args:
+        - --executor_input
+        - '{{$}}'
+        - --function_to_execute
+        - gate_and_register
+        command:
+        - sh
+        - -c
+        - "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip ||\
+          \ python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1\
+          \ python3 -m pip install --quiet --no-warn-script-location 'kfp==2.18.0'\
+          \ '--no-deps' 'typing-extensions>=3.7.4,<5; python_version<\"3.9\"' && \"\
+          $0\" \"$@\"\n"
+        - sh
+        - -ec
+        - 'program_path=$(mktemp -d)
+
+
+          printf "%s" "$0" > "$program_path/ephemeral_component.py"
+
+          _KFP_RUNTIME=true python3 -m kfp.dsl.executor_main                         --component_module_path                         "$program_path/ephemeral_component.py"                         "$@"
+
+          '
+        - "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import\
+          \ *\n\ndef gate_and_register(model: dsl.Input[dsl.Model], run_id: str, max_missed_exceedances_pct:\
+          \ float,\n                      min_coverage: float) -> str:\n    \"\"\"\
+          Safety gate first (a screen that clears real exceedances is worse than no\
+          \ screen), then copy to S3.\"\"\"\n    import json\n    import os\n    from\
+          \ pathlib import Path\n    import boto3\n\n    src = Path(model.path)\n\
+          \    full = json.loads((src / \"metrics.json\").read_text())[\"test\"][\"\
+          full_inputs\"]\n    if full[\"missed_exceedances_pct\"] > max_missed_exceedances_pct\
+          \ or full[\"coverage_q05_q95\"] < min_coverage:\n        raise RuntimeError(f\"\
+          gate failed: missed {full['missed_exceedances_pct']} % (max {max_missed_exceedances_pct}),\"\
+          \n                           f\" coverage {full['coverage_q05_q95']} (min\
+          \ {min_coverage}); not registered\")\n    s3 = boto3.client(\"s3\", endpoint_url=os.environ[\"\
+          AWS_S3_ENDPOINT\"],\n                      region_name=os.environ.get(\"\
+          AWS_DEFAULT_REGION\") or \"us-east-1\")\n    bucket, prefix = os.environ[\"\
+          AWS_S3_BUCKET\"], f\"p1546-risk/runs/{run_id}/\"\n    for f in sorted(src.iterdir()):\n\
+          \        s3.upload_file(str(f), bucket, prefix + f.name)\n    uri = f\"\
+          s3://{bucket}/{prefix}\"\n    print(\"registered\", uri, json.dumps(full))\n\
+          \    return uri\n\n"
+        image: image-registry.openshift-image-registry.svc:5000/danialheidari619-dev/sinceai-calc:latest
+    exec-generate-samples:
+      container:
+        args:
+        - --executor_input
+        - '{{$}}'
+        - --function_to_execute
+        - generate_samples
+        command:
+        - sh
+        - -c
+        - "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip ||\
+          \ python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1\
+          \ python3 -m pip install --quiet --no-warn-script-location 'kfp==2.18.0'\
+          \ '--no-deps' 'typing-extensions>=3.7.4,<5; python_version<\"3.9\"' && \"\
+          $0\" \"$@\"\n"
+        - sh
+        - -ec
+        - 'program_path=$(mktemp -d)
+
+
+          printf "%s" "$0" > "$program_path/ephemeral_component.py"
+
+          _KFP_RUNTIME=true python3 -m kfp.dsl.executor_main                         --component_module_path                         "$program_path/ephemeral_component.py"                         "$@"
+
+          '
+        - "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import\
+          \ *\n\ndef generate_samples(n: int, seed: int, workers: int, samples: dsl.Output[dsl.Dataset])\
+          \ -> int:\n    \"\"\"Exact P.1546-6 field strengths (vendored Py1546) for\
+          \ random path/antenna/frequency inputs.\"\"\"\n    import numpy as np\n\
+          \    from risk.p1546_data import FEATURES, generate\n    X, y = generate(n,\
+          \ seed, workers)\n    with open(samples.path, \"wb\") as f:\n        np.savez_compressed(f,\
+          \ X=X, y=y, features=np.array(FEATURES))\n    samples.metadata.update({\"\
+          rows\": int(len(y)), \"requested\": n, \"seed\": seed, \"standard\": \"\
+          ITU-R P.1546-6\"})\n    return int(len(y))\n\n"
+        image: image-registry.openshift-image-registry.svc:5000/danialheidari619-dev/sinceai-calc:latest
+        resources:
+          cpuLimit: 3.0
+          cpuRequest: 0.25
+          memoryLimit: 3.0
+          memoryRequest: 1.0
+          resourceCpuLimit: '3'
+          resourceCpuRequest: 250m
+          resourceMemoryLimit: 3G
+          resourceMemoryRequest: 1G
+    exec-train-model:
+      container:
+        args:
+        - --executor_input
+        - '{{$}}'
+        - --function_to_execute
+        - train_model
+        command:
+        - sh
+        - -c
+        - "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip ||\
+          \ python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1\
+          \ python3 -m pip install --quiet --no-warn-script-location 'kfp==2.18.0'\
+          \ '--no-deps' 'typing-extensions>=3.7.4,<5; python_version<\"3.9\"' && \"\
+          $0\" \"$@\"\n"
+        - sh
+        - -ec
+        - 'program_path=$(mktemp -d)
+
+
+          printf "%s" "$0" > "$program_path/ephemeral_component.py"
+
+          _KFP_RUNTIME=true python3 -m kfp.dsl.executor_main                         --component_module_path                         "$program_path/ephemeral_component.py"                         "$@"
+
+          '
+        - "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import\
+          \ *\n\ndef train_model(samples: dsl.Input[dsl.Dataset], model: dsl.Output[dsl.Model],\
+          \ metrics: dsl.Output[dsl.Metrics]):\n    \"\"\"Same split, seeds and evaluation\
+          \ as `python -m risk.model`; metrics.json travels with the model.\"\"\"\n\
+          \    import json\n    import time\n    from pathlib import Path\n    import\
+          \ numpy as np\n    from risk.model import QUANTILES, evaluate, predict,\
+          \ train\n    from risk.p1546_data import FEATURES\n\n    d = np.load(samples.path)\n\
+          \    X, y = d[\"X\"], d[\"y\"]\n    idx = np.random.default_rng(1546).permutation(len(y))\n\
+          \    cut = int(0.8 * len(y))\n    tr, te = idx[:cut], idx[cut:]\n    t0\
+          \ = time.perf_counter()\n    models = train(X[tr], y[tr])\n    t_train =\
+          \ time.perf_counter() - t0\n    out = Path(model.path)\n    out.mkdir(parents=True,\
+          \ exist_ok=True)\n    for q, m in models.items():\n        m.booster_.save_model(str(out\
+          \ / f\"p1546_q{int(q * 100):02d}.txt\"))\n    t0 = time.perf_counter()\n\
+          \    predict(models, X[te])\n    per_row_us = (time.perf_counter() - t0)\
+          \ / len(te) * 1e6\n    result = {\"samples\": {\"train\": int(cut), \"test\"\
+          : int(len(te))}, \"train_s\": round(t_train, 1),\n              \"predict_us_per_row\"\
+          : round(per_row_us, 1), \"features\": FEATURES, \"quantiles\": list(QUANTILES),\n\
+          \              \"test\": evaluate(models, X[te], y[te])}\n    (out / \"\
+          metrics.json\").write_text(json.dumps(result, indent=1) + \"\\n\")\n   \
+          \ metrics.log_metric(\"train_s\", result[\"train_s\"])\n    metrics.log_metric(\"\
+          predict_us_per_row\", result[\"predict_us_per_row\"])\n    for regime, vals\
+          \ in result[\"test\"].items():\n        for k, v in vals.items():\n    \
+          \        metrics.log_metric(f\"{regime}.{k}\", v)\n    model.metadata.update({\"\
+          framework\": \"lightgbm\", \"task\": \"quantile regression q05/q50/q95\"\
+          ,\n                           \"mae_db_full_inputs\": result[\"test\"][\"\
+          full_inputs\"][\"mae_db\"]})\n\n"
+        image: image-registry.openshift-image-registry.svc:5000/danialheidari619-dev/sinceai-calc:latest
+        resources:
+          cpuLimit: 4.0
+          cpuRequest: 0.25
+          memoryLimit: 4.0
+          memoryRequest: 1.0
+          resourceCpuLimit: '4'
+          resourceCpuRequest: 250m
+          resourceMemoryLimit: 4G
+          resourceMemoryRequest: 1G
+pipelineInfo:
+  description: Train, evaluate, safety-gate and register the ITU-R P.1546 LightGBM
+    quantile risk model served by OpenShift AI model serving (KServe isvc p1546-risk)
+  name: p1546-risk-train
+root:
+  dag:
+    tasks:
+      gate-and-register:
+        cachingOptions: {}
+        componentRef:
+          name: comp-gate-and-register
+        dependentTasks:
+        - train-model
+        inputs:
+          artifacts:
+            model:
+              taskOutputArtifact:
+                outputArtifactKey: model
+                producerTask: train-model
+          parameters:
+            max_missed_exceedances_pct:
+              componentInputParameter: max_missed_exceedances_pct
+            min_coverage:
+              componentInputParameter: min_coverage
+            run_id:
+              runtimeValue:
+                constant: '{{$.pipeline_job_uuid}}'
+        taskInfo:
+          name: safety gate + register in S3
+      generate-samples:
+        cachingOptions:
+          enableCache: true
+        componentRef:
+          name: comp-generate-samples
+        inputs:
+          parameters:
+            n:
+              componentInputParameter: samples
+            seed:
+              componentInputParameter: seed
+            workers:
+              componentInputParameter: workers
+        taskInfo:
+          name: exact P.1546-6 samples
+      train-model:
+        cachingOptions:
+          enableCache: true
+        componentRef:
+          name: comp-train-model
+        dependentTasks:
+        - generate-samples
+        inputs:
+          artifacts:
+            samples:
+              taskOutputArtifact:
+                outputArtifactKey: samples
+                producerTask: generate-samples
+        taskInfo:
+          name: train q05/q50/q95 + evaluate
+  inputDefinitions:
+    parameters:
+      max_missed_exceedances_pct:
+        defaultValue: 0.5
+        isOptional: true
+        parameterType: NUMBER_DOUBLE
+      min_coverage:
+        defaultValue: 0.85
+        isOptional: true
+        parameterType: NUMBER_DOUBLE
+      samples:
+        defaultValue: 120000.0
+        isOptional: true
+        parameterType: NUMBER_INTEGER
+      seed:
+        defaultValue: 1546.0
+        isOptional: true
+        parameterType: NUMBER_INTEGER
+      workers:
+        defaultValue: 3.0
+        isOptional: true
+        parameterType: NUMBER_INTEGER
+schemaVersion: 2.1.0
+sdkVersion: kfp-2.18.0
+---
+platforms:
+  kubernetes:
+    deploymentSpec:
+      executors:
+        exec-gate-and-register:
+          secretAsEnv:
+          - keyToEnv:
+            - envVar: AWS_ACCESS_KEY_ID
+              secretKey: AWS_ACCESS_KEY_ID
+            - envVar: AWS_SECRET_ACCESS_KEY
+              secretKey: AWS_SECRET_ACCESS_KEY
+            - envVar: AWS_S3_ENDPOINT
+              secretKey: AWS_S3_ENDPOINT
+            - envVar: AWS_S3_BUCKET
+              secretKey: AWS_S3_BUCKET
+            - envVar: AWS_DEFAULT_REGION
+              secretKey: AWS_DEFAULT_REGION
+            optional: false
+            secretName: models-connection
+            secretNameParameter:
+              runtimeValue:
+                constant: models-connection

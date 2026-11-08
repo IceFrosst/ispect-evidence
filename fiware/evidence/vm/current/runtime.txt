@@ -1,0 +1,36 @@
+# captured 2026-11-08T03:03:49Z
+
+$ docker ps --format {{.Names}} {{.Image}} {{.Status}}
+fiware-receiver-1 python:3.12.8-alpine Up About a minute (healthy)
+fiware-orion-1 fiware/orion-ld:1.8.0 Up About a minute (healthy)
+fiware-mongo-1 mongo:5.0.31 Up 8 hours (healthy)
+
+$ docker stats --no-stream (memory caps: orion 640m, mongo 512m, receiver 64m)
+fiware-receiver-1 12.02MiB / 64MiB
+fiware-orion-1 246.4MiB / 640MiB
+fiware-mongo-1 149.1MiB / 512MiB
+
+$ curl -s localhost:1026/version
+{
+  "orionld version": "1.8.0",
+  "orion version":   "1.15.0-next",
+  "uptime":          "0 d, 0 h, 1 m, 55 s",
+  "git_hash":        "nogitversion",
+  "compile_time":    "Mon Jan 13 11:28:16 UTC 2025",
+  "compiled_by":  
+
+$ systemctl list-timers fiware-publish
+NEXT                         LEFT LAST                           PASSED UNIT                 ACTIVATES
+Sun 2026-11-08 04:02:44 UTC 58min Sun 2026-11-08 02:52:50 UTC 11min ago fiware-publish.timer fiware-publish.service
+
+
+$ journalctl -u fiware-publish -n 6 --no-pager
+Nov 08 03:02:53 sinceai-2026-batch python[482988]: {"run": "space_ific3074", "entities": 1264}
+Nov 08 03:02:53 sinceai-2026-batch python[482988]: {"run": "terrestrial_ific3075", "entities": 1100}
+Nov 08 03:02:53 sinceai-2026-batch python[482988]: {"run": "terrestrial_ific3076", "entities": 1100}
+Nov 08 03:02:53 sinceai-2026-batch systemd[1]: fiware-publish.service: Deactivated successfully.
+Nov 08 03:02:53 sinceai-2026-batch systemd[1]: Finished fiware-publish.service - Read-only FIWARE upsert of current pipeline result files.
+Nov 08 03:02:53 sinceai-2026-batch systemd[1]: fiware-publish.service: Consumed 1.972s CPU time.
+
+$ docker logs --tail 3 fiware-receiver-1 (HTTP status of Orion notifications)
+127.0.0.1 - - [08/Nov/2026 03:02:51] "POST /notify?subscriptionId=urn:ngsi-ld:Subscription:demo:IficRelease HTTP/1.1" 204 -

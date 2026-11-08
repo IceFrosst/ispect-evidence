@@ -1,0 +1,220 @@
+# PIPELINE DEFINITION
+# Name: ific-time-machine
+# Description: Space screening replayed over ITU IFIC 3062-3083 on OpenShift AI (one pod per release) -> the Filing Radar timeline page
+components:
+  comp-backtest-issue:
+    executorLabel: exec-backtest-issue
+    inputDefinitions:
+      parameters:
+        issue:
+          parameterType: NUMBER_INTEGER
+    outputDefinitions:
+      parameters:
+        Output:
+          parameterType: STRING
+  comp-build-timeline:
+    executorLabel: exec-build-timeline
+    inputDefinitions:
+      parameters:
+        rows:
+          parameterType: LIST
+        run_id:
+          parameterType: STRING
+    outputDefinitions:
+      artifacts:
+        metrics:
+          artifactType:
+            schemaTitle: system.Metrics
+            schemaVersion: 0.0.1
+        timeline:
+          artifactType:
+            schemaTitle: system.Artifact
+            schemaVersion: 0.0.1
+  comp-for-loop-2:
+    dag:
+      outputs:
+        parameters:
+          pipelinechannel--backtest-issue-Output:
+            valueFromParameter:
+              outputParameterKey: Output
+              producerSubtask: backtest-issue
+      tasks:
+        backtest-issue:
+          cachingOptions: {}
+          componentRef:
+            name: comp-backtest-issue
+          inputs:
+            parameters:
+              issue:
+                componentInputParameter: pipelinechannel--loop-item-param-1
+          taskInfo:
+            name: IFIC backtest
+    inputDefinitions:
+      parameters:
+        pipelinechannel--loop-item-param-1:
+          parameterType: NUMBER_INTEGER
+    outputDefinitions:
+      parameters:
+        pipelinechannel--backtest-issue-Output:
+          parameterType: LIST
+deploymentSpec:
+  executors:
+    exec-backtest-issue:
+      container:
+        args:
+        - --executor_input
+        - '{{$}}'
+        - --function_to_execute
+        - backtest_issue
+        command:
+        - sh
+        - -c
+        - "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip ||\
+          \ python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1\
+          \ python3 -m pip install --quiet --no-warn-script-location 'kfp==2.18.0'\
+          \ '--no-deps' 'typing-extensions>=3.7.4,<5; python_version<\"3.9\"' && \"\
+          $0\" \"$@\"\n"
+        - sh
+        - -ec
+        - 'program_path=$(mktemp -d)
+
+
+          printf "%s" "$0" > "$program_path/ephemeral_component.py"
+
+          _KFP_RUNTIME=true python3 -m kfp.dsl.executor_main                         --component_module_path                         "$program_path/ephemeral_component.py"                         "$@"
+
+          '
+        - "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import\
+          \ *\n\ndef backtest_issue(issue: int) -> str:\n    \"\"\"One IFIC in its\
+          \ own pod-local data folder; a failure is recorded as a row, never stops\
+          \ the batch.\"\"\"\n    import json\n    import os\n    import subprocess\n\
+          \    import sys\n    import tempfile\n    import time\n    from pathlib\
+          \ import Path\n\n    root = Path(\"/opt/app-root/src\")\n    data = Path(tempfile.mkdtemp(prefix=f\"\
+          ific{issue}_\"))\n    env = dict(os.environ, SINCEAI_DATA=str(data))\n \
+          \   t0 = time.monotonic()\n    dl = subprocess.run([sys.executable, \"tools/ific_snapshot.py\"\
+          , \"space\", str(issue), \"--download-only\"],\n                       \
+          \ cwd=root, env=env, capture_output=True, text=True)\n    download_s = round(time.monotonic()\
+          \ - t0, 1)\n    if dl.returncode != 0:\n        return json.dumps({\"issue\"\
+          : issue, \"status\": \"failed\", \"error\": (dl.stdout + dl.stderr)[-300:],\n\
+          \                           \"download_s\": download_s})\n    out = data\
+          \ / \"bt.json\"\n    subprocess.run([sys.executable, \"tools/backtest_space.py\"\
+          , \"--first\", str(issue), \"--last\", str(issue),\n                   \
+          \ \"--json\", str(out), \"--md\", str(data / \"bt.md\")], cwd=root, env=env,\
+          \ check=False)\n    if not out.exists():\n        return json.dumps({\"\
+          issue\": issue, \"status\": \"failed\", \"error\": \"backtest wrote no output\"\
+          ,\n                           \"download_s\": download_s})\n    row = json.loads(out.read_text())[\"\
+          issues\"][0]\n    sys.path.insert(0, str(root))\n    from tools.space_timeline\
+          \ import pub_date\n    row[\"date\"] = pub_date(data / \"ific\" / \"space\"\
+          \ / f\"ific{issue}.mdb\", issue)\n    row[\"download_s\"] = download_s\n\
+          \    row[\"pod\"] = os.environ.get(\"HOSTNAME\")\n    print(json.dumps({k:\
+          \ row.get(k) for k in (\"issue\", \"status\", \"notices\", \"exceedance_candidates\"\
+          , \"runtime_s\")}))\n    return json.dumps(row)\n\n"
+        image: image-registry.openshift-image-registry.svc:5000/danialheidari619-dev/sinceai-calc:latest
+        resources:
+          cpuLimit: 3.0
+          cpuRequest: 0.25
+          memoryLimit: 4.5
+          memoryRequest: 1.0
+          resourceCpuLimit: '3'
+          resourceCpuRequest: 250m
+          resourceMemoryLimit: 4500M
+          resourceMemoryRequest: 1G
+    exec-build-timeline:
+      container:
+        args:
+        - --executor_input
+        - '{{$}}'
+        - --function_to_execute
+        - build_timeline
+        command:
+        - sh
+        - -c
+        - "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip ||\
+          \ python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1\
+          \ python3 -m pip install --quiet --no-warn-script-location 'kfp==2.18.0'\
+          \ '--no-deps' 'typing-extensions>=3.7.4,<5; python_version<\"3.9\"' && \"\
+          $0\" \"$@\"\n"
+        - sh
+        - -ec
+        - 'program_path=$(mktemp -d)
+
+
+          printf "%s" "$0" > "$program_path/ephemeral_component.py"
+
+          _KFP_RUNTIME=true python3 -m kfp.dsl.executor_main                         --component_module_path                         "$program_path/ephemeral_component.py"                         "$@"
+
+          '
+        - "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import\
+          \ *\n\ndef build_timeline(rows: List[str], run_id: str, timeline: dsl.Output[dsl.Artifact],\n\
+          \                   metrics: dsl.Output[dsl.Metrics]):\n    import json\n\
+          \    import sys\n    from datetime import datetime, timezone\n    from pathlib\
+          \ import Path\n\n    root = Path(\"/opt/app-root/src\")\n    sys.path.insert(0,\
+          \ str(root))\n    from tools.backtest_space import summarize\n    from tools.space_timeline\
+          \ import build\n\n    issues = sorted((json.loads(r) for r in rows), key=lambda\
+          \ r: r[\"issue\"])\n    tl = build(issues, None)\n    dates = {r[\"issue\"\
+          ]: r.get(\"date\") for r in issues}\n    for i in tl[\"issues\"]:\n    \
+          \    i[\"date\"] = dates.get(i[\"issue\"])\n    commit = (root / \"GIT_COMMIT\"\
+          ).read_text().strip() if (root / \"GIT_COMMIT\").exists() else None\n  \
+          \  tl[\"compute\"] = {\n        \"platform\": \"Red Hat OpenShift AI 3.5.2\
+          \ (Developer Sandbox)\",\n        \"pipeline\": \"ific-time-machine\", \"\
+          run_id\": run_id, \"git_commit\": commit,\n        \"generated_utc\": datetime.now(timezone.utc).strftime(\"\
+          %Y-%m-%dT%H:%M:%SZ\"),\n        \"pods\": len({r.get(\"pod\") for r in issues\
+          \ if r.get(\"pod\")}),\n        \"note\": \"one pod per IFIC; runtime_s\
+          \ measured in the OpenShift pod (download excluded)\",\n    }\n    out =\
+          \ Path(timeline.path)\n    out.mkdir(parents=True, exist_ok=True)\n    (out\
+          \ / \"space_timeline.json\").write_text(json.dumps(tl, indent=1, sort_keys=True)\
+          \ + \"\\n\")\n    (out / \"backtest_space.json\").write_text(json.dumps({\"\
+          summary\": summarize(issues), \"issues\": issues},\n                   \
+          \                                     indent=1, sort_keys=True) + \"\\n\"\
+          )\n    t = tl[\"totals\"]\n    for k in (\"issues\", \"ok\", \"failed\"\
+          , \"notices\", \"exceedance_candidates\", \"median_runtime_s\"):\n     \
+          \   if t.get(k) is not None:\n            metrics.log_metric(k, t[k])\n\
+          \    print(json.dumps(t))\n\n"
+        image: image-registry.openshift-image-registry.svc:5000/danialheidari619-dev/sinceai-calc:latest
+        resources:
+          cpuLimit: 1.0
+          cpuRequest: 0.1
+          memoryLimit: 1.0
+          memoryRequest: 0.256
+          resourceCpuLimit: '1'
+          resourceCpuRequest: 100m
+          resourceMemoryLimit: 1G
+          resourceMemoryRequest: 256M
+pipelineInfo:
+  description: Space screening replayed over ITU IFIC 3062-3083 on OpenShift AI (one
+    pod per release) -> the Filing Radar timeline page
+  name: ific-time-machine
+root:
+  dag:
+    tasks:
+      build-timeline:
+        cachingOptions: {}
+        componentRef:
+          name: comp-build-timeline
+        dependentTasks:
+        - for-loop-2
+        inputs:
+          parameters:
+            rows:
+              taskOutputParameter:
+                outputParameterKey: pipelinechannel--backtest-issue-Output
+                producerTask: for-loop-2
+            run_id:
+              runtimeValue:
+                constant: '{{$.pipeline_job_uuid}}'
+        taskInfo:
+          name: build timeline
+      for-loop-2:
+        componentRef:
+          name: comp-for-loop-2
+        iteratorPolicy:
+          parallelismLimit: 1
+        parameterIterator:
+          itemInput: pipelinechannel--loop-item-param-1
+          items:
+            raw: '[3062, 3063, 3064, 3065, 3066, 3067, 3068, 3069, 3070, 3071, 3072,
+              3073, 3074, 3075, 3076, 3077, 3078, 3079, 3080, 3081, 3082, 3083]'
+        taskInfo:
+          name: for-loop-2
+schemaVersion: 2.1.0
+sdkVersion: kfp-2.18.0

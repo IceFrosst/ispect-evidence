@@ -1,0 +1,31 @@
+# OpenShift AI pipeline server (Data Science Pipelines, KFP v2) for the namespace. Artefacts go to our in-cluster MinIO
+# through the existing data connection `models-connection` (bucket `models`, prefix pipelines/); no new credentials.
+#   oc apply -f infra/openshift/pipelines/dspa.yaml && oc get dspa dspa -w
+apiVersion: datasciencepipelinesapplications.opendatahub.io/v1
+kind: DataSciencePipelinesApplication
+metadata:
+  name: dspa
+  labels: {sinceai: "2026"}
+spec:
+  dspVersion: v2
+  apiServer:
+    deploy: true
+    enableSamplePipeline: false
+    cacheEnabled: true
+  database:
+    mariaDB:
+      deploy: true
+      pvcSize: 2Gi
+  objectStorage:
+    externalStorage:
+      host: minio-service.danialheidari619-dev.svc
+      port: "9000"
+      scheme: http
+      secure: false
+      bucket: models
+      basePath: pipelines
+      region: us-east-1
+      s3CredentialsSecret:
+        secretName: models-connection
+        accessKey: AWS_ACCESS_KEY_ID
+        secretKey: AWS_SECRET_ACCESS_KEY

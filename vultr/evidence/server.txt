@@ -1,0 +1,28 @@
+# captured 2026-11-08T02:51:30Z
+
+$ uptime -p
+up 1 day, 11 hours, 9 minutes
+
+$ systemctl list-units --type=service --state=running | grep -E caddy|docker|sinceai
+  caddy.service                 loaded active running Caddy
+  docker.service                loaded active running Docker Application Container Engine
+  sinceai-api.service           loaded active running Filing Radar demo server (UI + results + act API), loopback only b
+
+$ docker ps --format {{.Names}} {{.Status}}
+fiware-receiver-1 Up 8 hours (healthy)
+fiware-orion-1 Up 2 hours (healthy)
+fiware-mongo-1 Up 8 hours (healthy)
+
+$ free -m | head -2
+               total        used        free      shared  buff/cache   available
+Mem:            3910        1110         383           0        2696        2799
+
+$ df -h / | tail -1
+/dev/vda2        75G   28G   45G  38% /
+
+$ curl -s -o /dev/null -w %{http_code} https://80-240-25-225.sslip.io/ (no login -> 401)
+401
+
+$ systemctl is-active sinceai-api sinceai-watcher.timer
+active
+active

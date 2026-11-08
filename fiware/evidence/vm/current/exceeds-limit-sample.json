@@ -1,0 +1,1696 @@
+[
+ {
+  "@context": [
+   "http://127.0.0.1:1026/ngsi-ld/v1/jsonldContexts/0ee6b3de-dadc-11f1-b5c6-1a9b59120263",
+   "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld"
+  ],
+  "id": "urn:ngsi-ld:Finding:space:3073:pfd-batch%3Aspace%3A3073%3Antc_id%3D109500335",
+  "type": "Finding",
+  "affectedNational": {
+   "type": "Property",
+   "value": [
+    "xls:405674:txrx:rx",
+    "xls:405674:txrx:tx",
+    "xls:600265:rx",
+    "xls:600265:tx",
+    "xls:603212:rx",
+    "xls:603212:tx",
+    "xls:607747:rx",
+    "xls:607747:tx",
+    "xls:609672:rx",
+    "xls:609672:tx",
+    "xls:621469:rx",
+    "xls:621469:tx",
+    "xls:627635:rx",
+    "xls:627635:tx",
+    "xls:632366:rx",
+    "xls:632366:tx",
+    "xls:632727:rx",
+    "xls:632727:tx",
+    "xls:633754:rx",
+    "xls:633754:tx",
+    "xls:642620:rx",
+    "xls:642620:tx",
+    "xls:800022:rx",
+    "xls:800023:rx",
+    "xls:800024:rx",
+    "xls:800025:rx",
+    "xls:800026:rx",
+    "xls:800027:rx",
+    "xls:800028:rx",
+    "xls:800029:rx",
+    "xls:800052:tx",
+    "xls:800053:tx",
+    "xls:800054:tx",
+    "xls:800055:tx",
+    "xls:800056:tx",
+    "xls:800057:tx",
+    "xls:800058:tx",
+    "xls:800059:tx",
+    "xls:800082:rx",
+    "xls:800083:rx",
+    "xls:800084:rx",
+    "xls:800085:rx",
+    "xls:800086:rx",
+    "xls:800087:rx",
+    "xls:800088:rx",
+    "xls:800089:rx",
+    "xls:800112:tx",
+    "xls:800113:tx",
+    "xls:800114:tx",
+    "xls:800115:tx",
+    "xls:800116:tx",
+    "xls:800117:tx",
+    "xls:800118:tx",
+    "xls:800119:tx",
+    "xls:800142:rx",
+    "xls:800143:rx",
+    "xls:800144:rx",
+    "xls:800145:rx",
+    "xls:800146:rx",
+    "xls:800147:rx",
+    "xls:800148:rx",
+    "xls:800149:rx",
+    "xls:800172:tx",
+    "xls:800173:tx",
+    "xls:800174:tx",
+    "xls:800175:tx",
+    "xls:800176:tx",
+    "xls:800177:tx",
+    "xls:800178:tx",
+    "xls:800179:tx",
+    "xls:800202:rx",
+    "xls:800203:rx",
+    "xls:800204:rx",
+    "xls:800205:rx",
+    "xls:800206:rx",
+    "xls:800207:rx",
+    "xls:800208:rx",
+    "xls:800209:rx",
+    "xls:800232:tx",
+    "xls:800233:tx",
+    "xls:800234:tx",
+    "xls:800235:tx",
+    "xls:800236:tx",
+    "xls:800237:tx",
+    "xls:800238:tx",
+    "xls:800239:tx",
+    "xls:800262:rx",
+    "xls:800263:rx",
+    "xls:800264:rx",
+    "xls:800265:rx",
+    "xls:800266:rx",
+    "xls:800267:rx",
+    "xls:800268:rx",
+    "xls:800269:rx",
+    "xls:800292:tx",
+    "xls:800293:tx",
+    "xls:800294:tx",
+    "xls:800295:tx",
+    "xls:800296:tx",
+    "xls:800297:tx",
+    "xls:800298:tx",
+    "xls:800299:tx",
+    "xls:800302:rx",
+    "xls:800305:tx",
+    "xls:800308:rx",
+    "xls:800313:rx",
+    "xls:800316:tx",
+    "xls:800319:rx"
+   ],
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "affectedStations": {
+   "type": "Relationship",
+   "object": [
+    "urn:ngsi-ld:FinnishStation:space:3073:405674",
+    "urn:ngsi-ld:FinnishStation:space:3073:600265",
+    "urn:ngsi-ld:FinnishStation:space:3073:603212",
+    "urn:ngsi-ld:FinnishStation:space:3073:607747",
+    "urn:ngsi-ld:FinnishStation:space:3073:609672",
+    "urn:ngsi-ld:FinnishStation:space:3073:621469",
+    "urn:ngsi-ld:FinnishStation:space:3073:627635",
+    "urn:ngsi-ld:FinnishStation:space:3073:632366",
+    "urn:ngsi-ld:FinnishStation:space:3073:632727",
+    "urn:ngsi-ld:FinnishStation:space:3073:633754",
+    "urn:ngsi-ld:FinnishStation:space:3073:642620",
+    "urn:ngsi-ld:FinnishStation:space:3073:800022",
+    "urn:ngsi-ld:FinnishStation:space:3073:800023",
+    "urn:ngsi-ld:FinnishStation:space:3073:800024",
+    "urn:ngsi-ld:FinnishStation:space:3073:800025",
+    "urn:ngsi-ld:FinnishStation:space:3073:800026",
+    "urn:ngsi-ld:FinnishStation:space:3073:800027",
+    "urn:ngsi-ld:FinnishStation:space:3073:800028",
+    "urn:ngsi-ld:FinnishStation:space:3073:800029",
+    "urn:ngsi-ld:FinnishStation:space:3073:800052",
+    "urn:ngsi-ld:FinnishStation:space:3073:800053",
+    "urn:ngsi-ld:FinnishStation:space:3073:800054",
+    "urn:ngsi-ld:FinnishStation:space:3073:800055",
+    "urn:ngsi-ld:FinnishStation:space:3073:800056",
+    "urn:ngsi-ld:FinnishStation:space:3073:800057",
+    "urn:ngsi-ld:FinnishStation:space:3073:800058",
+    "urn:ngsi-ld:FinnishStation:space:3073:800059",
+    "urn:ngsi-ld:FinnishStation:space:3073:800082",
+    "urn:ngsi-ld:FinnishStation:space:3073:800083",
+    "urn:ngsi-ld:FinnishStation:space:3073:800084",
+    "urn:ngsi-ld:FinnishStation:space:3073:800085",
+    "urn:ngsi-ld:FinnishStation:space:3073:800086",
+    "urn:ngsi-ld:FinnishStation:space:3073:800087",
+    "urn:ngsi-ld:FinnishStation:space:3073:800088",
+    "urn:ngsi-ld:FinnishStation:space:3073:800089",
+    "urn:ngsi-ld:FinnishStation:space:3073:800112",
+    "urn:ngsi-ld:FinnishStation:space:3073:800113",
+    "urn:ngsi-ld:FinnishStation:space:3073:800114",
+    "urn:ngsi-ld:FinnishStation:space:3073:800115",
+    "urn:ngsi-ld:FinnishStation:space:3073:800116",
+    "urn:ngsi-ld:FinnishStation:space:3073:800117",
+    "urn:ngsi-ld:FinnishStation:space:3073:800118",
+    "urn:ngsi-ld:FinnishStation:space:3073:800119",
+    "urn:ngsi-ld:FinnishStation:space:3073:800142",
+    "urn:ngsi-ld:FinnishStation:space:3073:800143",
+    "urn:ngsi-ld:FinnishStation:space:3073:800144",
+    "urn:ngsi-ld:FinnishStation:space:3073:800145",
+    "urn:ngsi-ld:FinnishStation:space:3073:800146",
+    "urn:ngsi-ld:FinnishStation:space:3073:800147",
+    "urn:ngsi-ld:FinnishStation:space:3073:800148",
+    "urn:ngsi-ld:FinnishStation:space:3073:800149",
+    "urn:ngsi-ld:FinnishStation:space:3073:800172",
+    "urn:ngsi-ld:FinnishStation:space:3073:800173",
+    "urn:ngsi-ld:FinnishStation:space:3073:800174",
+    "urn:ngsi-ld:FinnishStation:space:3073:800175",
+    "urn:ngsi-ld:FinnishStation:space:3073:800176",
+    "urn:ngsi-ld:FinnishStation:space:3073:800177",
+    "urn:ngsi-ld:FinnishStation:space:3073:800178",
+    "urn:ngsi-ld:FinnishStation:space:3073:800179",
+    "urn:ngsi-ld:FinnishStation:space:3073:800202",
+    "urn:ngsi-ld:FinnishStation:space:3073:800203",
+    "urn:ngsi-ld:FinnishStation:space:3073:800204",
+    "urn:ngsi-ld:FinnishStation:space:3073:800205",
+    "urn:ngsi-ld:FinnishStation:space:3073:800206",
+    "urn:ngsi-ld:FinnishStation:space:3073:800207",
+    "urn:ngsi-ld:FinnishStation:space:3073:800208",
+    "urn:ngsi-ld:FinnishStation:space:3073:800209",
+    "urn:ngsi-ld:FinnishStation:space:3073:800232",
+    "urn:ngsi-ld:FinnishStation:space:3073:800233",
+    "urn:ngsi-ld:FinnishStation:space:3073:800234",
+    "urn:ngsi-ld:FinnishStation:space:3073:800235",
+    "urn:ngsi-ld:FinnishStation:space:3073:800236",
+    "urn:ngsi-ld:FinnishStation:space:3073:800237",
+    "urn:ngsi-ld:FinnishStation:space:3073:800238",
+    "urn:ngsi-ld:FinnishStation:space:3073:800239",
+    "urn:ngsi-ld:FinnishStation:space:3073:800262",
+    "urn:ngsi-ld:FinnishStation:space:3073:800263",
+    "urn:ngsi-ld:FinnishStation:space:3073:800264",
+    "urn:ngsi-ld:FinnishStation:space:3073:800265",
+    "urn:ngsi-ld:FinnishStation:space:3073:800266",
+    "urn:ngsi-ld:FinnishStation:space:3073:800267",
+    "urn:ngsi-ld:FinnishStation:space:3073:800268",
+    "urn:ngsi-ld:FinnishStation:space:3073:800269",
+    "urn:ngsi-ld:FinnishStation:space:3073:800292",
+    "urn:ngsi-ld:FinnishStation:space:3073:800293",
+    "urn:ngsi-ld:FinnishStation:space:3073:800294",
+    "urn:ngsi-ld:FinnishStation:space:3073:800295",
+    "urn:ngsi-ld:FinnishStation:space:3073:800296",
+    "urn:ngsi-ld:FinnishStation:space:3073:800297",
+    "urn:ngsi-ld:FinnishStation:space:3073:800298",
+    "urn:ngsi-ld:FinnishStation:space:3073:800299",
+    "urn:ngsi-ld:FinnishStation:space:3073:800302",
+    "urn:ngsi-ld:FinnishStation:space:3073:800305",
+    "urn:ngsi-ld:FinnishStation:space:3073:800308",
+    "urn:ngsi-ld:FinnishStation:space:3073:800313",
+    "urn:ngsi-ld:FinnishStation:space:3073:800316",
+    "urn:ngsi-ld:FinnishStation:space:3073:800319"
+   ],
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "assessmentLabel": {
+   "type": "Property",
+   "value": "exceedance candidate (upper bound)",
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "calculations": {
+   "type": "Property",
+   "value": {
+    "assumptions": [
+     "Caller establishes Article 5 / No. 21.16 applicability; no plan-band inference.",
+     "Peak co-polar antenna gain toward each point; no beam-pattern reduction.",
+     "Worst-reference-band antenna-input density; single selected emission, no carrier aggregation.",
+     "Spherical Earth radius 6378.137 km; nominal circular equatorial GSO altitude 35786 km.",
+     "Latitude treated as spherical; sea level, no terrain, no refraction, no atmospheric/polarisation loss.",
+     "Caller-supplied satellite latitude; the batch screens the equator/inclination extremes and the filed station-keeping longitude tolerance jointly over the grid (worst margin reported).",
+     "Pointwise modeled upper bound, not a notice-wide or nationwide compliance determination.",
+     "Peak gain toward Finland at every grid point; upper bound under peak-gain pointing, not actual pointing.",
+     "Worst margin over Finnish territory (incl. Aland) 0.25-degree grid, positive-elevation points; not a continuous-area maximum.",
+     "Group emission alternatives are maximized, not summed; simultaneous carriers and other networks are not aggregated.",
+     "Only the Table 21-4 ceiling is screened; additional Art. 5/21 provisions, RoP 21.16 steering condition (a) and temporal/200 MHz constraints are not assessed.",
+     "Power basis: filed pwr_ds_max"
+    ],
+    "edition": "RR 2024",
+    "formula": "pfd = P_density_dBW_per_Hz + G_dBi + 10*log10(B_ref_Hz) - 10*log10(4*pi*d_m^2); margin = pfd - limit (positive = exceedance)",
+    "inputs": {
+     "antenna_input_power_density": {
+      "unit": "dBW/Hz",
+      "value": -49.900002
+     },
+     "arrival_angle": {
+      "unit": "deg",
+      "value": 10.537031
+     },
+     "earth_radius": {
+      "unit": "km",
+      "value": 6378.137
+     },
+     "frequency": {
+      "unit": "MHz",
+      "value": 7345
+     },
+     "gso_altitude": {
+      "unit": "km",
+      "value": 35786
+     },
+     "latitude": {
+      "unit": "deg",
+      "value": 70
+     },
+     "longitude": {
+      "unit": "deg",
+      "value": 27.75
+     },
+     "peak_antenna_gain": {
+      "unit": "dBi",
+      "value": 34
+     },
+     "reference_bandwidth": {
+      "unit": "Hz",
+      "value": 4000
+     },
+     "satellite_latitude": {
+      "unit": "deg",
+      "value": -0.1
+     },
+     "satellite_longitude": {
+      "unit": "deg",
+      "value": 11.7
+     },
+     "slant_range": {
+      "unit": "m",
+      "value": 40528878.436998
+     }
+    },
+    "limit": {
+     "unit": "dBW/m2",
+     "value": -149.231485
+    },
+    "limit_source": {
+     "clause": "Article 21, Section V, No. 21.16, Table 21-4 (Rev.WRC-23), 7 250-7 900 MHz, GSO fixed-satellite; PDF p. 298 (printed 288)",
+     "doc": "ITU Radio Regulations, Volume 1",
+     "url_or_path": "datasets/reference/itu/rr2024/RR2024_Vol1-E.pdf"
+    },
+    "margin_db": 6.204692,
+    "method": "Nominal GSO free-space pfd, peak-gain upper-bound screening",
+    "parameters": {
+     "band": "7 250-7 900 MHz",
+     "beam_name": "MTR",
+     "calculation_points_in_full_output": 19,
+     "eirp_density_dbw_hz": -15.900002,
+     "evidence_role": "primary: worst non-steerable calculation",
+     "f_pfd_steer_default": "N",
+     "f_steer": "Y",
+     "full_output": "$SINCEAI_DATA/results_draft/space_3073_calcs.jsonl",
+     "grid_aland_box": [
+      59.75,
+      60.5,
+      19.13,
+      21.1
+     ],
+     "grid_bbox": [
+      59.5,
+      70.1,
+      19,
+      31.6
+     ],
+     "grid_points": 1018,
+     "grid_region": "Finnish territory: finland_boundary_50m.geojson plus explicit Aland box",
+     "grid_step_deg": 0.25,
+     "group_id": "111708711",
+     "input_source": "$SINCEAI_DATA/ingest/space_3073.jsonl",
+     "limit_row_id": "fss_gso_7250_7900",
+     "overlap_segments_mhz": [
+      [
+       7289,
+       7401
+      ],
+      [
+       7428,
+       7750
+      ]
+     ],
+     "pdf_page": 298,
+     "printed_page": 288,
+     "provenance": {
+      "density_basis": "filed pwr_ds_max",
+      "emission_alternative_support": [
+       {
+        "pep_max": "8",
+        "pwr_ds_max": "-49.900002",
+        "seq_no": "1"
+       },
+       {
+        "pep_max": "5",
+        "pwr_ds_max": "-49.900002",
+        "seq_no": "2"
+       },
+       {
+        "pep_max": "2",
+        "pwr_ds_max": "-49.900002",
+        "seq_no": "3"
+       },
+       {
+        "pep_max": "-1",
+        "pwr_ds_max": "-49.900002",
+        "seq_no": "4"
+       },
+       {
+        "pep_max": "-4",
+        "pwr_ds_max": "-49.900002",
+        "seq_no": "5"
+       },
+       {
+        "pep_max": "-7",
+        "pwr_ds_max": "-49.900002",
+        "seq_no": "6"
+       }
+      ],
+      "group_id": "111708711",
+      "ific_no": 3073,
+      "inclination_excursion_deg": 0.1,
+      "longitude_tolerance_deg": {
+       "east": 0.1,
+       "west": 0.1
+      },
+      "notice_id": "space:3073:ntc_id=109500335",
+      "rows": {
+       "emiss": {
+        "design_emi": "614KG7W--",
+        "grp_id": "111708711",
+        "pwr_ds_max": "-49.900002",
+        "seq_no": "1"
+       },
+       "freq": [
+        {
+         "beam_name": "MTR",
+         "emi_rcp": "E",
+         "freq_mhz": "7281.25",
+         "grp_id": "111708711",
+         "ntc_id": "109500335",
+         "seq_no": "1",
+         "wic_no": "3073"
+        },
+        {
+         "beam_name": "MTR",
+         "emi_rcp": "E",
+         "freq_mhz": "7343.75",
+         "grp_id": "111708711",
+         "ntc_id": "109500335",
+         "seq_no": "2",
+         "wic_no": "3073"
+        },
+        {
+         "beam_name": "MTR",
+         "emi_rcp": "E",
+         "freq_mhz": "7406.25",
+         "grp_id": "111708711",
+         "ntc_id": "109500335",
+         "seq_no": "3",
+         "wic_no": "3073"
+        },
+        {
+         "beam_name": "MTR",
+         "emi_rcp": "E",
+         "freq_mhz": "7468.75",
+         "grp_id": "111708711",
+         "ntc_id": "109500335",
+         "seq_no": "4",
+         "wic_no": "3073"
+        },
+        {
+         "beam_name": "MTR",
+         "emi_rcp": "E",
+         "freq_mhz": "7531.25",
+         "grp_id": "111708711",
+         "ntc_id": "109500335",
+         "seq_no": "5",
+         "wic_no": "3073"
+        },
+        {
+         "beam_name": "MTR",
+         "emi_rcp": "E",
+         "freq_mhz": "7593.75",
+         "grp_id": "111708711",
+         "ntc_id": "109500335",
+         "seq_no": "6",
+         "wic_no": "3073"
+        },
+        {
+         "beam_name": "MTR",
+         "emi_rcp": "E",
+         "freq_mhz": "7656.25",
+         "grp_id": "111708711",
+         "ntc_id": "109500335",
+         "seq_no": "7",
+         "wic_no": "3073"
+        },
+        {
+         "beam_name": "MTR",
+         "emi_rcp": "E",
+         "freq_mhz": "7718.75",
+         "grp_id": "111708711",
+         "ntc_id": "109500335",
+         "seq_no": "8",
+         "wic_no": "3073"
+        }
+       ],
+       "geo": {
+        "long_nom": "11.8",
+        "ntc_id": "109500335",
+        "sat_name": "SICRAL-3H"
+       },
+       "grp": {
+        "beam_name": "MTR",
+        "emi_rcp": "E",
+        "grp_id": "111708711",
+        "ntc_id": "109500335",
+        "wic_no": "3073"
+       },
+       "notice": {
+        "adm": "I",
+        "ntc_id": "109500335",
+        "wic_no": "3073"
+       },
+       "s_beam": {
+        "beam_name": "MTR",
+        "emi_rcp": "E",
+        "gain": "34",
+        "ntc_id": "109500335"
+       },
+       "srv_cls": [
+        {
+         "grp_id": "111708711",
+         "seq_no": "1"
+        }
+       ]
+      }
+     },
+     "reference_bandwidth_hz": 4000,
+     "rop_21_16_steerable": false,
+     "scope": "EC FSS component, maximum across available group emission alternatives",
+     "spreading_loss_db": 163.14739
+    },
+    "result": {
+     "unit": "dBW/m2",
+     "value": -143.026792
+    },
+    "software": {
+     "name": "engine.space",
+     "version": "0.1.0"
+    }
+   },
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "citations": {
+   "type": "Property",
+   "value": {
+    "clause": null,
+    "doc": "Space IFIC ingest semantics",
+    "url_or_path": "docs/ific-space-semantics.md"
+   },
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "ific_no": {
+   "type": "Property",
+   "value": 3073,
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "limitCitation": {
+   "type": "Property",
+   "value": {
+    "clause": "Article 21, Section V, No. 21.16, Table 21-4 (Rev.WRC-23), 7 250-7 900 MHz, GSO fixed-satellite; PDF p. 298 (printed 288)",
+    "doc": "ITU Radio Regulations, Volume 1",
+    "url_or_path": "datasets/reference/itu/rr2024/RR2024_Vol1-E.pdf"
+   },
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "margin_db": {
+   "type": "Property",
+   "value": 6.204692,
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "notice": {
+   "type": "Relationship",
+   "object": "urn:ngsi-ld:SpaceNotice:space:3073:space%3A3073%3Antc_id%3D109500335",
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "outcome": {
+   "type": "Property",
+   "value": "exceeds_limit",
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "provenance": {
+   "type": "Property",
+   "value": {
+    "ific": 3073,
+    "table": "notice",
+    "key": {
+     "ntc_id": "109500335"
+    }
+   },
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "reason_code": {
+   "type": "Property",
+   "value": "CALC_EXCEEDS",
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "reason_text": {
+   "type": "Property",
+   "value": "Table 21-4 upper bound under peak-gain pointing; candidate for expert review, not a proven violation. Worst margin over Finnish territory (incl. Aland) grid: margin 6.205 dB, beam MTR (f_steer=Y, f_pfd_steer_default=N). Unassessed components are listed in explanation; no whole-notice clearance.",
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "release": {
+   "type": "Relationship",
+   "object": "urn:ngsi-ld:IficRelease:space:3073:release",
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "run_id": {
+   "type": "Property",
+   "value": "space_ific3073",
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "worstFinnishPoint": {
+   "type": "GeoProperty",
+   "value": {
+    "type": "Point",
+    "coordinates": [
+     27.75,
+     70
+    ]
+   },
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  }
+ },
+ {
+  "@context": [
+   "http://127.0.0.1:1026/ngsi-ld/v1/jsonldContexts/0ee6b3de-dadc-11f1-b5c6-1a9b59120263",
+   "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld"
+  ],
+  "id": "urn:ngsi-ld:Finding:space:3073:pfd-batch%3Aspace%3A3073%3Antc_id%3D113520240",
+  "type": "Finding",
+  "affectedNational": {
+   "type": "Property",
+   "value": [
+    "xls:600368:rx",
+    "xls:600368:tx",
+    "xls:600529:tx",
+    "xls:601452:tx",
+    "xls:601883:rx",
+    "xls:602266:tx",
+    "xls:602436:tx",
+    "xls:603413:rx",
+    "xls:605729:tx",
+    "xls:607797:rx",
+    "xls:609238:rx",
+    "xls:609238:tx",
+    "xls:611959:rx",
+    "xls:613999:tx",
+    "xls:614038:tx",
+    "xls:616722:rx",
+    "xls:616738:tx",
+    "xls:616871:rx",
+    "xls:616871:tx",
+    "xls:618183:rx",
+    "xls:618183:tx",
+    "xls:621827:rx",
+    "xls:621827:tx",
+    "xls:623938:tx",
+    "xls:624714:tx",
+    "xls:628219:rx",
+    "xls:628728:rx",
+    "xls:631021:tx",
+    "xls:632251:rx",
+    "xls:632476:rx",
+    "xls:632791:tx",
+    "xls:634993:tx",
+    "xls:636208:rx",
+    "xls:637357:rx",
+    "xls:638729:rx",
+    "xls:638729:tx",
+    "xls:640258:rx",
+    "xls:640258:tx",
+    "xls:642577:rx",
+    "xls:642577:tx",
+    "xls:642734:rx",
+    "xls:642734:tx",
+    "xls:643173:rx",
+    "xls:647340:rx",
+    "xls:647340:tx",
+    "xls:647668:rx",
+    "xls:983254:txrx:rx",
+    "xls:983254:txrx:tx",
+    "xls:983816:txrx:rx",
+    "xls:983816:txrx:tx",
+    "xls:985407:txrx:rx",
+    "xls:985407:txrx:tx",
+    "xls:989011:txrx:rx",
+    "xls:989011:txrx:tx",
+    "xls:989200:txrx:rx",
+    "xls:989200:txrx:tx"
+   ],
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "affectedStations": {
+   "type": "Relationship",
+   "object": [
+    "urn:ngsi-ld:FinnishStation:space:3073:600368",
+    "urn:ngsi-ld:FinnishStation:space:3073:600529",
+    "urn:ngsi-ld:FinnishStation:space:3073:601452",
+    "urn:ngsi-ld:FinnishStation:space:3073:601883",
+    "urn:ngsi-ld:FinnishStation:space:3073:602266",
+    "urn:ngsi-ld:FinnishStation:space:3073:602436",
+    "urn:ngsi-ld:FinnishStation:space:3073:603413",
+    "urn:ngsi-ld:FinnishStation:space:3073:605729",
+    "urn:ngsi-ld:FinnishStation:space:3073:607797",
+    "urn:ngsi-ld:FinnishStation:space:3073:609238",
+    "urn:ngsi-ld:FinnishStation:space:3073:611959",
+    "urn:ngsi-ld:FinnishStation:space:3073:613999",
+    "urn:ngsi-ld:FinnishStation:space:3073:614038",
+    "urn:ngsi-ld:FinnishStation:space:3073:616722",
+    "urn:ngsi-ld:FinnishStation:space:3073:616738",
+    "urn:ngsi-ld:FinnishStation:space:3073:616871",
+    "urn:ngsi-ld:FinnishStation:space:3073:618183",
+    "urn:ngsi-ld:FinnishStation:space:3073:621827",
+    "urn:ngsi-ld:FinnishStation:space:3073:623938",
+    "urn:ngsi-ld:FinnishStation:space:3073:624714",
+    "urn:ngsi-ld:FinnishStation:space:3073:628219",
+    "urn:ngsi-ld:FinnishStation:space:3073:628728",
+    "urn:ngsi-ld:FinnishStation:space:3073:631021",
+    "urn:ngsi-ld:FinnishStation:space:3073:632251",
+    "urn:ngsi-ld:FinnishStation:space:3073:632476",
+    "urn:ngsi-ld:FinnishStation:space:3073:632791",
+    "urn:ngsi-ld:FinnishStation:space:3073:634993",
+    "urn:ngsi-ld:FinnishStation:space:3073:636208",
+    "urn:ngsi-ld:FinnishStation:space:3073:637357",
+    "urn:ngsi-ld:FinnishStation:space:3073:638729",
+    "urn:ngsi-ld:FinnishStation:space:3073:640258",
+    "urn:ngsi-ld:FinnishStation:space:3073:642577",
+    "urn:ngsi-ld:FinnishStation:space:3073:642734",
+    "urn:ngsi-ld:FinnishStation:space:3073:643173",
+    "urn:ngsi-ld:FinnishStation:space:3073:647340",
+    "urn:ngsi-ld:FinnishStation:space:3073:647668",
+    "urn:ngsi-ld:FinnishStation:space:3073:983254",
+    "urn:ngsi-ld:FinnishStation:space:3073:983816",
+    "urn:ngsi-ld:FinnishStation:space:3073:985407",
+    "urn:ngsi-ld:FinnishStation:space:3073:989011",
+    "urn:ngsi-ld:FinnishStation:space:3073:989200"
+   ],
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "assessmentLabel": {
+   "type": "Property",
+   "value": "exceedance candidate (upper bound)",
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "calculations": {
+   "type": "Property",
+   "value": {
+    "assumptions": [
+     "Caller establishes Article 5 / No. 21.16 applicability; no plan-band inference.",
+     "Peak co-polar antenna gain toward each point; no beam-pattern reduction.",
+     "Worst-reference-band antenna-input density; single selected emission, no carrier aggregation.",
+     "Spherical Earth radius 6378.137 km; nominal circular equatorial GSO altitude 35786 km.",
+     "Latitude treated as spherical; sea level, no terrain, no refraction, no atmospheric/polarisation loss.",
+     "Caller-supplied satellite latitude; the batch screens the equator/inclination extremes and the filed station-keeping longitude tolerance jointly over the grid (worst margin reported).",
+     "Pointwise modeled upper bound, not a notice-wide or nationwide compliance determination.",
+     "Peak gain toward Finland at every grid point; upper bound under peak-gain pointing, not actual pointing.",
+     "Worst margin over Finnish territory (incl. Aland) 0.25-degree grid, positive-elevation points; not a continuous-area maximum.",
+     "Group emission alternatives are maximized, not summed; simultaneous carriers and other networks are not aggregated.",
+     "Only the Table 21-4 ceiling is screened; additional Art. 5/21 provisions, RoP 21.16 steering condition (a) and temporal/200 MHz constraints are not assessed.",
+     "Power basis: filed pwr_ds_max"
+    ],
+    "edition": "RR 2024",
+    "formula": "pfd = P_density_dBW_per_Hz + G_dBi + 10*log10(B_ref_Hz) - 10*log10(4*pi*d_m^2); margin = pfd - limit (positive = exceedance)",
+    "inputs": {
+     "antenna_input_power_density": {
+      "unit": "dBW/Hz",
+      "value": -49.099998
+     },
+     "arrival_angle": {
+      "unit": "deg",
+      "value": 10.341811
+     },
+     "earth_radius": {
+      "unit": "km",
+      "value": 6378.137
+     },
+     "frequency": {
+      "unit": "MHz",
+      "value": 11075
+     },
+     "gso_altitude": {
+      "unit": "km",
+      "value": 35786
+     },
+     "latitude": {
+      "unit": "deg",
+      "value": 70
+     },
+     "longitude": {
+      "unit": "deg",
+      "value": 27.75
+     },
+     "peak_antenna_gain": {
+      "unit": "dBi",
+      "value": 35.5
+     },
+     "reference_bandwidth": {
+      "unit": "Hz",
+      "value": 4000
+     },
+     "satellite_latitude": {
+      "unit": "deg",
+      "value": -0.1
+     },
+     "satellite_longitude": {
+      "unit": "deg",
+      "value": 9.9
+     },
+     "slant_range": {
+      "unit": "m",
+      "value": 40549658.074168
+     }
+    },
+    "limit": {
+     "unit": "dBW/m2",
+     "value": -147.329095
+    },
+    "limit_source": {
+     "clause": "Article 21, Section V, No. 21.16, Table 21-4 (Rev.WRC-23), 10.7-11.7 GHz, GSO fixed-satellite; PDF p. 298 (printed 288)",
+     "doc": "ITU Radio Regulations, Volume 1",
+     "url_or_path": "datasets/reference/itu/rr2024/RR2024_Vol1-E.pdf"
+    },
+    "margin_db": 6.597854,
+    "method": "Nominal GSO free-space pfd, peak-gain upper-bound screening",
+    "parameters": {
+     "band": "10.7-11.7 GHz",
+     "beam_name": "BSR",
+     "calculation_points_in_full_output": 40,
+     "eirp_density_dbw_hz": -13.599998,
+     "evidence_role": "primary: worst non-steerable calculation",
+     "f_pfd_steer_default": "N",
+     "f_steer": "Y",
+     "full_output": "$SINCEAI_DATA/results_draft/space_3073_calcs.jsonl",
+     "grid_aland_box": [
+      59.75,
+      60.5,
+      19.13,
+      21.1
+     ],
+     "grid_bbox": [
+      59.5,
+      70.1,
+      19,
+      31.6
+     ],
+     "grid_points": 1018,
+     "grid_region": "Finnish territory: finland_boundary_50m.geojson plus explicit Aland box",
+     "grid_step_deg": 0.25,
+     "group_id": "113722491",
+     "input_source": "$SINCEAI_DATA/ingest/space_3073.jsonl",
+     "limit_row_id": "fss_gso_10700_11700",
+     "overlap_segments_mhz": [
+      [
+       10950,
+       11200
+      ]
+     ],
+     "pdf_page": 298,
+     "printed_page": 288,
+     "provenance": {
+      "density_basis": "filed pwr_ds_max",
+      "emission_alternative_support": [
+       {
+        "pep_max": "22.5",
+        "pwr_ds_max": "-53.099998",
+        "seq_no": "1"
+       },
+       {
+        "pep_max": "22.5",
+        "pwr_ds_max": "-51.900002",
+        "seq_no": "2"
+       },
+       {
+        "pep_max": "19.5",
+        "pwr_ds_max": "-50",
+        "seq_no": "3"
+       },
+       {
+        "pep_max": "13.9",
+        "pwr_ds_max": "-49.099998",
+        "seq_no": "4"
+       },
+       {
+        "pep_max": "-0.5",
+        "pwr_ds_max": "-49.099998",
+        "seq_no": "5"
+       }
+      ],
+      "group_id": "113722491",
+      "ific_no": 3073,
+      "inclination_excursion_deg": 0.1,
+      "longitude_tolerance_deg": {
+       "east": 0.1,
+       "west": 0.1
+      },
+      "notice_id": "space:3073:ntc_id=113520240",
+      "rows": {
+       "emiss": {
+        "design_emi": "2M00G7W--",
+        "grp_id": "113722491",
+        "pwr_ds_max": "-49.099998",
+        "seq_no": "4"
+       },
+       "freq": [
+        {
+         "beam_name": "BSR",
+         "emi_rcp": "E",
+         "freq_mhz": "11075",
+         "grp_id": "113722491",
+         "ntc_id": "113520240",
+         "seq_no": "1",
+         "wic_no": "2779"
+        }
+       ],
+       "geo": {
+        "long_nom": "10",
+        "ntc_id": "113520240",
+        "sat_name": "F-SAT-N3-10E"
+       },
+       "grp": {
+        "beam_name": "BSR",
+        "emi_rcp": "E",
+        "grp_id": "113722491",
+        "ntc_id": "113520240",
+        "wic_no": "2779"
+       },
+       "notice": {
+        "adm": "F",
+        "ntc_id": "113520240",
+        "wic_no": "3073"
+       },
+       "s_beam": {
+        "beam_name": "BSR",
+        "emi_rcp": "E",
+        "gain": "35.5",
+        "ntc_id": "113520240"
+       },
+       "srv_cls": [
+        {
+         "grp_id": "113722491",
+         "seq_no": "1"
+        }
+       ]
+      }
+     },
+     "reference_bandwidth_hz": 4000,
+     "rop_21_16_steerable": false,
+     "scope": "EC FSS component, maximum across available group emission alternatives",
+     "spreading_loss_db": 163.151843
+    },
+    "result": {
+     "unit": "dBW/m2",
+     "value": -140.731241
+    },
+    "software": {
+     "name": "engine.space",
+     "version": "0.1.0"
+    }
+   },
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "citations": {
+   "type": "Property",
+   "value": {
+    "clause": null,
+    "doc": "Space IFIC ingest semantics",
+    "url_or_path": "docs/ific-space-semantics.md"
+   },
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "ific_no": {
+   "type": "Property",
+   "value": 3073,
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "limitCitation": {
+   "type": "Property",
+   "value": {
+    "clause": "Article 21, Section V, No. 21.16, Table 21-4 (Rev.WRC-23), 10.7-11.7 GHz, GSO fixed-satellite; PDF p. 298 (printed 288)",
+    "doc": "ITU Radio Regulations, Volume 1",
+    "url_or_path": "datasets/reference/itu/rr2024/RR2024_Vol1-E.pdf"
+   },
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "margin_db": {
+   "type": "Property",
+   "value": 6.597854,
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "notice": {
+   "type": "Relationship",
+   "object": "urn:ngsi-ld:SpaceNotice:space:3073:space%3A3073%3Antc_id%3D113520240",
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "outcome": {
+   "type": "Property",
+   "value": "exceeds_limit",
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "provenance": {
+   "type": "Property",
+   "value": {
+    "ific": 3073,
+    "table": "notice",
+    "key": {
+     "ntc_id": "113520240"
+    }
+   },
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "reason_code": {
+   "type": "Property",
+   "value": "CALC_EXCEEDS",
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "reason_text": {
+   "type": "Property",
+   "value": "Table 21-4 upper bound under peak-gain pointing; candidate for expert review, not a proven violation. Worst margin over Finnish territory (incl. Aland) grid: margin 6.598 dB, beam BSR (f_steer=Y, f_pfd_steer_default=N). Unassessed components are listed in explanation; no whole-notice clearance.",
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "release": {
+   "type": "Relationship",
+   "object": "urn:ngsi-ld:IficRelease:space:3073:release",
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "run_id": {
+   "type": "Property",
+   "value": "space_ific3073",
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "worstFinnishPoint": {
+   "type": "GeoProperty",
+   "value": {
+    "type": "Point",
+    "coordinates": [
+     27.75,
+     70
+    ]
+   },
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  }
+ },
+ {
+  "@context": [
+   "http://127.0.0.1:1026/ngsi-ld/v1/jsonldContexts/0ee6b3de-dadc-11f1-b5c6-1a9b59120263",
+   "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld"
+  ],
+  "id": "urn:ngsi-ld:Finding:space:3073:pfd-batch%3Aspace%3A3073%3Antc_id%3D116500125",
+  "type": "Finding",
+  "affectedNational": {
+   "type": "Property",
+   "value": [
+    "m4:3847",
+    "m4:3848",
+    "m4:3849",
+    "m4:3850",
+    "m4:3851",
+    "m4:3852",
+    "m4:3853",
+    "m4:3854",
+    "m4:3855",
+    "m4:3856",
+    "m4:3857",
+    "m4:3884",
+    "m4:3885",
+    "m4:3886",
+    "m4:3887",
+    "m4:3888",
+    "m4:3889",
+    "m4:3890",
+    "m4:4438",
+    "m4:4439",
+    "m4:4440",
+    "m4:4441",
+    "m4:4442",
+    "m4:4443",
+    "m4:4444",
+    "m4:4445",
+    "m4:4446",
+    "m4:4447",
+    "m4:4448",
+    "m4:4449",
+    "m4:4450",
+    "m4:4451",
+    "m4:4452",
+    "m4:4453",
+    "m4:4454",
+    "m4:4455",
+    "m4:4456",
+    "m4:4457",
+    "m4:4458",
+    "m4:4459",
+    "m4:4460",
+    "m4:4461",
+    "m4:4462",
+    "m4:4463",
+    "m4:4464",
+    "m4:4465",
+    "m4:4466",
+    "m4:4467",
+    "m4:4468",
+    "m4:4469",
+    "m4:4500",
+    "m4:4501",
+    "m4:4502",
+    "m4:4503",
+    "m4:4504",
+    "m4:4505",
+    "m4:4506",
+    "m4:4507",
+    "m4:4508",
+    "m4:4509",
+    "m4:4510",
+    "m4:4511",
+    "m4:4512",
+    "m4:4513",
+    "m4:4514",
+    "m4:4515",
+    "m4:4516",
+    "m4:4517",
+    "m4:4518",
+    "m4:4519",
+    "m4:4520",
+    "m4:4521",
+    "m4:4573",
+    "m4:4574",
+    "m4:4575",
+    "m4:4576",
+    "m4:4577",
+    "m4:4578",
+    "m4:4579",
+    "m4:4580",
+    "m4:4581",
+    "m4:4582",
+    "m4:4583",
+    "m4:4584",
+    "m4:4585",
+    "m4:4586",
+    "m4:4587",
+    "m4:4588",
+    "m4:4589",
+    "m4:4590",
+    "m4:4591",
+    "m4:4592",
+    "m4:4593",
+    "m4:4594",
+    "m4:4595",
+    "m4:4596",
+    "m4:4597",
+    "m4:4598",
+    "m4:4599",
+    "m4:4600",
+    "m4:4601",
+    "m4:4602",
+    "m4:4603",
+    "m4:4604",
+    "m4:4605",
+    "m4:4606",
+    "m4:4607",
+    "m4:4608",
+    "m4:4609",
+    "m4:4610",
+    "m4:4611",
+    "m4:4612",
+    "m4:4613",
+    "m4:4614",
+    "m4:4615",
+    "m4:4616",
+    "m4:4617",
+    "m4:4618",
+    "m4:4619",
+    "m4:4620",
+    "m4:4621",
+    "m4:4622",
+    "m4:4623",
+    "m4:4624",
+    "m4:4625",
+    "m4:4626",
+    "m4:4627",
+    "m4:4628",
+    "m4:4629",
+    "m4:4630",
+    "m4:4631",
+    "m4:4632",
+    "m4:4633",
+    "m4:4634",
+    "m4:4635",
+    "m4:4636",
+    "m4:4637",
+    "m4:4638",
+    "m4:4639",
+    "m4:4640",
+    "m4:4641",
+    "m4:4642",
+    "m4:4643",
+    "m4:4644",
+    "m4:4645",
+    "m4:4646",
+    "m4:4647",
+    "m4:4648",
+    "m4:4649"
+   ],
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "assessmentLabel": {
+   "type": "Property",
+   "value": "exceedance candidate (upper bound)",
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "calculations": {
+   "type": "Property",
+   "value": {
+    "assumptions": [
+     "Caller establishes Article 5 / No. 21.16 applicability; no plan-band inference.",
+     "Peak co-polar antenna gain toward each point; no beam-pattern reduction.",
+     "Worst-reference-band antenna-input density; single selected emission, no carrier aggregation.",
+     "Spherical Earth radius 6378.137 km; nominal circular equatorial GSO altitude 35786 km.",
+     "Latitude treated as spherical; sea level, no terrain, no refraction, no atmospheric/polarisation loss.",
+     "Caller-supplied satellite latitude; the batch screens the equator/inclination extremes and the filed station-keeping longitude tolerance jointly over the grid (worst margin reported).",
+     "Pointwise modeled upper bound, not a notice-wide or nationwide compliance determination.",
+     "Peak gain toward Finland at every grid point; upper bound under peak-gain pointing, not actual pointing.",
+     "Worst margin over Finnish territory (incl. Aland) 0.25-degree grid, positive-elevation points; not a continuous-area maximum.",
+     "Group emission alternatives are maximized, not summed; simultaneous carriers and other networks are not aggregated.",
+     "Only the Table 21-4 ceiling is screened; additional Art. 5/21 provisions, RoP 21.16 steering condition (a) and temporal/200 MHz constraints are not assessed.",
+     "Power basis: filed pwr_ds_max"
+    ],
+    "edition": "RR 2024",
+    "formula": "pfd = P_density_dBW_per_Hz + G_dBi + 10*log10(B_ref_Hz) - 10*log10(4*pi*d_m^2); margin = pfd - limit (positive = exceedance)",
+    "inputs": {
+     "antenna_input_power_density": {
+      "unit": "dBW/Hz",
+      "value": -49.099998
+     },
+     "arrival_angle": {
+      "unit": "deg",
+      "value": 6.365141
+     },
+     "earth_radius": {
+      "unit": "km",
+      "value": 6378.137
+     },
+     "frequency": {
+      "unit": "MHz",
+      "value": 11075
+     },
+     "gso_altitude": {
+      "unit": "km",
+      "value": 35786
+     },
+     "latitude": {
+      "unit": "deg",
+      "value": 70
+     },
+     "longitude": {
+      "unit": "deg",
+      "value": 27.75
+     },
+     "peak_antenna_gain": {
+      "unit": "dBi",
+      "value": 35.5
+     },
+     "reference_bandwidth": {
+      "unit": "Hz",
+      "value": 4000
+     },
+     "satellite_latitude": {
+      "unit": "deg",
+      "value": -0.1
+     },
+     "satellite_longitude": {
+      "unit": "deg",
+      "value": -12.6
+     },
+     "slant_range": {
+      "unit": "m",
+      "value": 40977827.464472
+     }
+    },
+    "limit": {
+     "unit": "dBW/m2",
+     "value": -149.317429
+    },
+    "limit_source": {
+     "clause": "Article 21, Section V, No. 21.16, Table 21-4 (Rev.WRC-23), 10.7-11.7 GHz, GSO fixed-satellite; PDF p. 298 (printed 288)",
+     "doc": "ITU Radio Regulations, Volume 1",
+     "url_or_path": "datasets/reference/itu/rr2024/RR2024_Vol1-E.pdf"
+    },
+    "margin_db": 8.494954,
+    "method": "Nominal GSO free-space pfd, peak-gain upper-bound screening",
+    "parameters": {
+     "band": "10.7-11.7 GHz",
+     "beam_name": "BSR",
+     "calculation_points_in_full_output": 18,
+     "eirp_density_dbw_hz": -13.599998,
+     "evidence_role": "primary: worst non-steerable calculation",
+     "f_pfd_steer_default": "N",
+     "f_steer": "Y",
+     "full_output": "$SINCEAI_DATA/results_draft/space_3073_calcs.jsonl",
+     "grid_aland_box": [
+      59.75,
+      60.5,
+      19.13,
+      21.1
+     ],
+     "grid_bbox": [
+      59.5,
+      70.1,
+      19,
+      31.6
+     ],
+     "grid_points": 1018,
+     "grid_region": "Finnish territory: finland_boundary_50m.geojson plus explicit Aland box",
+     "grid_step_deg": 0.25,
+     "group_id": "117770511",
+     "input_source": "$SINCEAI_DATA/ingest/space_3073.jsonl",
+     "limit_row_id": "fss_gso_10700_11700",
+     "overlap_segments_mhz": [
+      [
+       10950,
+       11200
+      ],
+      [
+       11450,
+       11700
+      ]
+     ],
+     "pdf_page": 298,
+     "printed_page": 288,
+     "provenance": {
+      "density_basis": "filed pwr_ds_max",
+      "emission_alternative_support": [
+       {
+        "pep_max": "22.5",
+        "pwr_ds_max": "-53.099998",
+        "seq_no": "1"
+       },
+       {
+        "pep_max": "22.5",
+        "pwr_ds_max": "-51.900002",
+        "seq_no": "2"
+       },
+       {
+        "pep_max": "19.5",
+        "pwr_ds_max": "-50",
+        "seq_no": "3"
+       },
+       {
+        "pep_max": "13.9",
+        "pwr_ds_max": "-49.099998",
+        "seq_no": "4"
+       },
+       {
+        "pep_max": "-0.5",
+        "pwr_ds_max": "-49.099998",
+        "seq_no": "5"
+       }
+      ],
+      "group_id": "117770511",
+      "ific_no": 3073,
+      "inclination_excursion_deg": 0.1,
+      "longitude_tolerance_deg": {
+       "east": 0.1,
+       "west": 0.1
+      },
+      "notice_id": "space:3073:ntc_id=116500125",
+      "rows": {
+       "emiss": {
+        "design_emi": "2M00G7W--",
+        "grp_id": "117770511",
+        "pwr_ds_max": "-49.099998",
+        "seq_no": "4"
+       },
+       "freq": [
+        {
+         "beam_name": "BSR",
+         "emi_rcp": "E",
+         "freq_mhz": "10968",
+         "grp_id": "117770511",
+         "ntc_id": "116500125",
+         "seq_no": "1",
+         "wic_no": "2873"
+        },
+        {
+         "beam_name": "BSR",
+         "emi_rcp": "E",
+         "freq_mhz": "11002",
+         "grp_id": "117770511",
+         "ntc_id": "116500125",
+         "seq_no": "2",
+         "wic_no": "2873"
+        },
+        {
+         "beam_name": "BSR",
+         "emi_rcp": "E",
+         "freq_mhz": "11004",
+         "grp_id": "117770511",
+         "ntc_id": "116500125",
+         "seq_no": "3",
+         "wic_no": "2873"
+        },
+        {
+         "beam_name": "BSR",
+         "emi_rcp": "E",
+         "freq_mhz": "11038",
+         "grp_id": "117770511",
+         "ntc_id": "116500125",
+         "seq_no": "4",
+         "wic_no": "2873"
+        },
+        {
+         "beam_name": "BSR",
+         "emi_rcp": "E",
+         "freq_mhz": "11040",
+         "grp_id": "117770511",
+         "ntc_id": "116500125",
+         "seq_no": "5",
+         "wic_no": "2873"
+        },
+        {
+         "beam_name": "BSR",
+         "emi_rcp": "E",
+         "freq_mhz": "11074",
+         "grp_id": "117770511",
+         "ntc_id": "116500125",
+         "seq_no": "6",
+         "wic_no": "2873"
+        },
+        {
+         "beam_name": "BSR",
+         "emi_rcp": "E",
+         "freq_mhz": "11076",
+         "grp_id": "117770511",
+         "ntc_id": "116500125",
+         "seq_no": "7",
+         "wic_no": "2873"
+        },
+        {
+         "beam_name": "BSR",
+         "emi_rcp": "E",
+         "freq_mhz": "11110",
+         "grp_id": "117770511",
+         "ntc_id": "116500125",
+         "seq_no": "8",
+         "wic_no": "2873"
+        },
+        {
+         "beam_name": "BSR",
+         "emi_rcp": "E",
+         "freq_mhz": "11112",
+         "grp_id": "117770511",
+         "ntc_id": "116500125",
+         "seq_no": "9",
+         "wic_no": "2873"
+        },
+        {
+         "beam_name": "BSR",
+         "emi_rcp": "E",
+         "freq_mhz": "11146",
+         "grp_id": "117770511",
+         "ntc_id": "116500125",
+         "seq_no": "10",
+         "wic_no": "2873"
+        },
+        {
+         "beam_name": "BSR",
+         "emi_rcp": "E",
+         "freq_mhz": "11148",
+         "grp_id": "117770511",
+         "ntc_id": "116500125",
+         "seq_no": "11",
+         "wic_no": "2873"
+        },
+        {
+         "beam_name": "BSR",
+         "emi_rcp": "E",
+         "freq_mhz": "11182",
+         "grp_id": "117770511",
+         "ntc_id": "116500125",
+         "seq_no": "12",
+         "wic_no": "2873"
+        },
+        {
+         "beam_name": "BSR",
+         "emi_rcp": "E",
+         "freq_mhz": "11468",
+         "grp_id": "117770511",
+         "ntc_id": "116500125",
+         "seq_no": "13",
+         "wic_no": "2873"
+        },
+        {
+         "beam_name": "BSR",
+         "emi_rcp": "E",
+         "freq_mhz": "11502",
+         "grp_id": "117770511",
+         "ntc_id": "116500125",
+         "seq_no": "14",
+         "wic_no": "2873"
+        },
+        {
+         "beam_name": "BSR",
+         "emi_rcp": "E",
+         "freq_mhz": "11504",
+         "grp_id": "117770511",
+         "ntc_id": "116500125",
+         "seq_no": "15",
+         "wic_no": "2873"
+        },
+        {
+         "beam_name": "BSR",
+         "emi_rcp": "E",
+         "freq_mhz": "11538",
+         "grp_id": "117770511",
+         "ntc_id": "116500125",
+         "seq_no": "16",
+         "wic_no": "2873"
+        },
+        {
+         "beam_name": "BSR",
+         "emi_rcp": "E",
+         "freq_mhz": "11540",
+         "grp_id": "117770511",
+         "ntc_id": "116500125",
+         "seq_no": "17",
+         "wic_no": "2873"
+        },
+        {
+         "beam_name": "BSR",
+         "emi_rcp": "E",
+         "freq_mhz": "11574",
+         "grp_id": "117770511",
+         "ntc_id": "116500125",
+         "seq_no": "18",
+         "wic_no": "2873"
+        },
+        {
+         "beam_name": "BSR",
+         "emi_rcp": "E",
+         "freq_mhz": "11576",
+         "grp_id": "117770511",
+         "ntc_id": "116500125",
+         "seq_no": "19",
+         "wic_no": "2873"
+        },
+        {
+         "beam_name": "BSR",
+         "emi_rcp": "E",
+         "freq_mhz": "11610",
+         "grp_id": "117770511",
+         "ntc_id": "116500125",
+         "seq_no": "20",
+         "wic_no": "2873"
+        },
+        {
+         "beam_name": "BSR",
+         "emi_rcp": "E",
+         "freq_mhz": "11612",
+         "grp_id": "117770511",
+         "ntc_id": "116500125",
+         "seq_no": "21",
+         "wic_no": "2873"
+        },
+        {
+         "beam_name": "BSR",
+         "emi_rcp": "E",
+         "freq_mhz": "11646",
+         "grp_id": "117770511",
+         "ntc_id": "116500125",
+         "seq_no": "22",
+         "wic_no": "2873"
+        },
+        {
+         "beam_name": "BSR",
+         "emi_rcp": "E",
+         "freq_mhz": "11648",
+         "grp_id": "117770511",
+         "ntc_id": "116500125",
+         "seq_no": "23",
+         "wic_no": "2873"
+        },
+        {
+         "beam_name": "BSR",
+         "emi_rcp": "E",
+         "freq_mhz": "11682",
+         "grp_id": "117770511",
+         "ntc_id": "116500125",
+         "seq_no": "24",
+         "wic_no": "2873"
+        }
+       ],
+       "geo": {
+        "long_nom": "-12.5",
+        "ntc_id": "116500125",
+        "sat_name": "F-SAT-N-E-12.5W"
+       },
+       "grp": {
+        "beam_name": "BSR",
+        "emi_rcp": "E",
+        "grp_id": "117770511",
+        "ntc_id": "116500125",
+        "wic_no": "2873"
+       },
+       "notice": {
+        "adm": "F",
+        "ntc_id": "116500125",
+        "wic_no": "3073"
+       },
+       "s_beam": {
+        "beam_name": "BSR",
+        "emi_rcp": "E",
+        "gain": "35.5",
+        "ntc_id": "116500125"
+       },
+       "srv_cls": [
+        {
+         "grp_id": "117770511",
+         "seq_no": "1"
+        }
+       ]
+      }
+     },
+     "reference_bandwidth_hz": 4000,
+     "rop_21_16_steerable": false,
+     "scope": "EC FSS component, maximum across available group emission alternatives",
+     "spreading_loss_db": 163.243077
+    },
+    "result": {
+     "unit": "dBW/m2",
+     "value": -140.822475
+    },
+    "software": {
+     "name": "engine.space",
+     "version": "0.1.0"
+    }
+   },
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "citations": {
+   "type": "Property",
+   "value": {
+    "clause": null,
+    "doc": "Space IFIC ingest semantics",
+    "url_or_path": "docs/ific-space-semantics.md"
+   },
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "ific_no": {
+   "type": "Property",
+   "value": 3073,
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "limitCitation": {
+   "type": "Property",
+   "value": {
+    "clause": "Article 21, Section V, No. 21.16, Table 21-4 (Rev.WRC-23), 10.7-11.7 GHz, GSO fixed-satellite; PDF p. 298 (printed 288)",
+    "doc": "ITU Radio Regulations, Volume 1",
+    "url_or_path": "datasets/reference/itu/rr2024/RR2024_Vol1-E.pdf"
+   },
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "margin_db": {
+   "type": "Property",
+   "value": 8.494954,
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "notice": {
+   "type": "Relationship",
+   "object": "urn:ngsi-ld:SpaceNotice:space:3073:space%3A3073%3Antc_id%3D116500125",
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "outcome": {
+   "type": "Property",
+   "value": "exceeds_limit",
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "provenance": {
+   "type": "Property",
+   "value": {
+    "ific": 3073,
+    "table": "notice",
+    "key": {
+     "ntc_id": "116500125"
+    }
+   },
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "reason_code": {
+   "type": "Property",
+   "value": "CALC_EXCEEDS",
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "reason_text": {
+   "type": "Property",
+   "value": "Table 21-4 upper bound under peak-gain pointing; candidate for expert review, not a proven violation. Worst margin over Finnish territory (incl. Aland) grid: margin 8.495 dB, beam BSR (f_steer=Y, f_pfd_steer_default=N). Unassessed components are listed in explanation; no whole-notice clearance.",
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "release": {
+   "type": "Relationship",
+   "object": "urn:ngsi-ld:IficRelease:space:3073:release",
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "run_id": {
+   "type": "Property",
+   "value": "space_ific3073",
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "worstFinnishPoint": {
+   "type": "GeoProperty",
+   "value": {
+    "type": "Point",
+    "coordinates": [
+     27.75,
+     70
+    ]
+   },
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  }
+ }
+]

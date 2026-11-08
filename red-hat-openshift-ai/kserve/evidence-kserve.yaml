@@ -1,0 +1,181 @@
+# oc get isvc,servingruntime,pvc,route (Sat 7 Nov 17:43 EET, live, after the Recreate fix): OpenShift AI model serving of the P.1546 risk model. No secrets.
+apiVersion: v1
+items:
+- apiVersion: serving.kserve.io/v1beta1
+  kind: InferenceService
+  metadata:
+    annotations:
+      modelFormat: lightgbm-quantile
+      openshift.io/display-name: P.1546 risk model
+      serving.kserve.io/deploymentMode: Standard
+      sinceai/reconcile: '1794023751'
+    finalizers:
+    - odh.inferenceservice.finalizers
+    - inferenceservice.finalizers
+    labels:
+      networking.kserve.io/visibility: exposed
+      opendatahub.io/dashboard: 'true'
+      sinceai: '2026'
+    name: p1546-risk
+    namespace: danialheidari619-dev
+  spec:
+    predictor:
+      automountServiceAccountToken: false
+      deploymentStrategy:
+        type: Recreate
+      maxReplicas: 1
+      minReplicas: 1
+      model:
+        modelFormat:
+          name: lightgbm-quantile
+          version: '1'
+        name: ''
+        resources: {}
+        runtime: p1546-risk-runtime
+        storageUri: pvc://p1546-models/p1546-risk/v1
+  status:
+    address:
+      url: http://p1546-risk-predictor.danialheidari619-dev.svc.cluster.local
+    components:
+      predictor:
+        url: http://p1546-risk-predictor-danialheidari619-dev.example.com
+    conditions:
+    - lastTransitionTime: '2026-11-07T03:55:52Z'
+      status: 'True'
+      type: IngressReady
+    - lastTransitionTime: '2026-11-07T15:42:53Z'
+      message: ReplicaSet "p1546-risk-predictor-8576686dfd" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: 'True'
+      type: PredictorReady
+    - lastTransitionTime: '2026-11-07T15:42:53Z'
+      status: 'True'
+      type: Ready
+    - lastTransitionTime: '2026-11-07T03:43:15Z'
+      severity: Info
+      status: 'False'
+      type: Stopped
+    deploymentMode: Standard
+    modelStatus:
+      copies:
+        failedCopies: 0
+        totalCopies: 1
+      states:
+        activeModelState: Loaded
+        targetModelState: Loaded
+      transitionStatus: UpToDate
+    observedGeneration: 4
+    servingRuntimeName: p1546-risk-runtime
+    url: https://p1546-risk-danialheidari619-dev.apps.rm2.thpm.p1.openshiftapps.com
+- apiVersion: serving.kserve.io/v1alpha1
+  kind: ServingRuntime
+  metadata:
+    annotations:
+      opendatahub.io/recommended-accelerators: '[]'
+      openshift.io/display-name: P.1546 risk (LightGBM quantile, FastAPI)
+    labels:
+      opendatahub.io/dashboard: 'true'
+      sinceai: '2026'
+    name: p1546-risk-runtime
+    namespace: danialheidari619-dev
+  spec:
+    containers:
+    - command:
+      - uvicorn
+      - infra.openshift.risk_api:app
+      - --host
+      - 0.0.0.0
+      - --port
+      - '8080'
+      env:
+      - name: MODEL_DIR
+        value: /mnt/models
+      image: image-registry.openshift-image-registry.svc:5000/danialheidari619-dev/p1546-risk:latest
+      name: kserve-container
+      ports:
+      - containerPort: 8080
+        protocol: TCP
+      readinessProbe:
+        httpGet:
+          path: /healthz
+          port: 8080
+        initialDelaySeconds: 5
+        periodSeconds: 10
+      resources:
+        limits:
+          cpu: '1'
+          memory: 1Gi
+        requests:
+          cpu: 200m
+          memory: 512Mi
+    multiModel: false
+    supportedModelFormats:
+    - autoSelect: true
+      name: lightgbm-quantile
+      version: '1'
+- apiVersion: v1
+  kind: PersistentVolumeClaim
+  metadata:
+    annotations:
+      openshift.io/display-name: P.1546 model storage
+      pv.kubernetes.io/bind-completed: 'yes'
+      pv.kubernetes.io/bound-by-controller: 'yes'
+      volume.beta.kubernetes.io/storage-provisioner: ebs.csi.aws.com
+      volume.kubernetes.io/selected-node: ip-10-0-23-106.ec2.internal
+      volume.kubernetes.io/storage-provisioner: ebs.csi.aws.com
+    finalizers:
+    - kubernetes.io/pvc-protection
+    labels:
+      opendatahub.io/dashboard: 'true'
+      sinceai: '2026'
+    name: p1546-models
+    namespace: danialheidari619-dev
+  spec:
+    accessModes:
+    - ReadWriteOnce
+    resources:
+      requests:
+        storage: 1Gi
+    storageClassName: gp3
+    volumeMode: Filesystem
+    volumeName: pvc-2037318a-2750-4fb6-81cf-c8146c67d542
+  status:
+    accessModes:
+    - ReadWriteOnce
+    capacity:
+      storage: 1Gi
+    phase: Bound
+- apiVersion: route.openshift.io/v1
+  kind: Route
+  metadata:
+    annotations:
+      haproxy.router.openshift.io/timeout: 30s
+    labels:
+      inferenceservice-name: p1546-risk
+    name: p1546-risk
+    namespace: danialheidari619-dev
+  spec:
+    host: p1546-risk-danialheidari619-dev.apps.rm2.thpm.p1.openshiftapps.com
+    port:
+      targetPort: http
+    tls:
+      insecureEdgeTerminationPolicy: Redirect
+      termination: edge
+    to:
+      kind: Service
+      name: p1546-risk-predictor
+      weight: 100
+    wildcardPolicy: None
+  status:
+    ingress:
+    - conditions:
+      - lastTransitionTime: '2026-11-07T03:55:52Z'
+        status: 'True'
+        type: Admitted
+      host: p1546-risk-danialheidari619-dev.apps.rm2.thpm.p1.openshiftapps.com
+      routerCanonicalHostname: router-default.apps.rm2.thpm.p1.openshiftapps.com
+      routerName: default
+      wildcardPolicy: None
+kind: List
+metadata:
+  resourceVersion: ''

@@ -1,0 +1,38 @@
+# captured 2026-11-08T03:07:26Z (oc, namespace danialheidari619-dev; no tokens)
+$ oc get isvc -n danialheidari619-dev
+NAME         URL                                                                          READY   PREV   LATEST   PREVROLLEDOUTREVISION   LATESTREADYREVISION   AGE
+granite      https://granite-danialheidari619-dev.apps.rm2.thpm.p1.openshiftapps.com      True                                                                  8h
+p1546-risk   https://p1546-risk-danialheidari619-dev.apps.rm2.thpm.p1.openshiftapps.com   True                                                                  23h
+
+$ oc get deploy -n danialheidari619-dev
+NAME                                   READY   UP-TO-DATE   AVAILABLE   AGE
+ds-pipeline-dspa                       1/1     1            1           8h
+ds-pipeline-metadata-envoy-dspa        1/1     1            1           8h
+ds-pipeline-metadata-grpc-dspa         1/1     1            1           8h
+ds-pipeline-persistenceagent-dspa      1/1     1            1           8h
+ds-pipeline-scheduledworkflow-dspa     1/1     1            1           8h
+ds-pipeline-workflow-controller-dspa   1/1     1            1           8h
+granite-predictor                      1/1     1            1           8h
+mariadb-dspa                           1/1     1            1           8h
+minio                                  1/1     1            1           36h
+p1546-risk                             1/1     1            1           30h
+p1546-risk-predictor                   1/1     1            1           23h
+surrogate-api                          0/0     0            0           36h
+
+$ oc get route -n danialheidari619-dev (host only)
+NAME                  HOST                                                                          TLS
+ds-pipeline-dspa      ds-pipeline-dspa-danialheidari619-dev.apps.rm2.thpm.p1.openshiftapps.com      reencrypt
+ds-pipeline-md-dspa   ds-pipeline-md-dspa-danialheidari619-dev.apps.rm2.thpm.p1.openshiftapps.com   reencrypt
+granite               granite-danialheidari619-dev.apps.rm2.thpm.p1.openshiftapps.com               reencrypt
+minio-console         minio-console-danialheidari619-dev.apps.rm2.thpm.p1.openshiftapps.com         edge
+p1546-risk            p1546-risk-danialheidari619-dev.apps.rm2.thpm.p1.openshiftapps.com            edge
+p1546-risk-tls        p1546-risk-tls-danialheidari619-dev.apps.rm2.thpm.p1.openshiftapps.com        edge
+surrogate-api         surrogate-api-danialheidari619-dev.apps.rm2.thpm.p1.openshiftapps.com         edge
+
+$ oc get job -n danialheidari619-dev
+NAME                    STATUS     COMPLETIONS   DURATION   AGE
+granite-batch-explain   Complete   1/1           4h59m      7h25m
+sinceai-calc-lane       Failed     0/1           8h         8h
+$ job sinceai-calc-lane conditions
+FailureTarget=True BackoffLimitExceeded
+Failed=True BackoffLimitExceeded

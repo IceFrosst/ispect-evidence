@@ -1,0 +1,26 @@
+# OpenShift AI model serving (KServe): custom runtime = our FastAPI risk service, loading the model files that KServe's
+# storage initializer downloads from the S3 data connection into /mnt/models. Shows in the OpenShift AI dashboard.
+apiVersion: serving.kserve.io/v1alpha1
+kind: ServingRuntime
+metadata:
+  name: p1546-risk-runtime
+  labels: {opendatahub.io/dashboard: "true", sinceai: "2026"}
+  annotations:
+    openshift.io/display-name: "P.1546 risk (LightGBM quantile, FastAPI)"
+    opendatahub.io/recommended-accelerators: "[]"
+spec:
+  supportedModelFormats:
+    - {name: lightgbm-quantile, version: "1", autoSelect: true}
+  multiModel: false
+  containers:
+    - name: kserve-container
+      image: image-registry.openshift-image-registry.svc:5000/danialheidari619-dev/p1546-risk:latest
+      command: ["uvicorn", "infra.openshift.risk_api:app", "--host", "0.0.0.0", "--port", "8080"]
+      env:
+        - {name: MODEL_DIR, value: /mnt/models}
+      ports:
+        - {containerPort: 8080, protocol: TCP}
+      readinessProbe: {httpGet: {path: /healthz, port: 8080}, initialDelaySeconds: 5, periodSeconds: 10}
+      resources:
+        requests: {cpu: 200m, memory: 512Mi}
+        limits: {cpu: "1", memory: 1Gi}

@@ -1,0 +1,15 @@
+[
+ {
+  "id": "urn:ngsi-ld:Subscription:demo:Finding",
+  "status": "ok",
+  "isActive": true
+ },
+ {
+  "id": "urn:ngsi-ld:Subscription:demo:IficRelease",
+  "status": "ok",
+  "isActive": true,
+  "timesSent": 4,
+  "lastNotification": "2026-11-08T03:02:51.886Z",
+  "lastSuccess": "2026-11-08T03:02:51.886Z"
+ }
+]

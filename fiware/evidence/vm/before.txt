@@ -1,0 +1,5 @@
+Captured over SSH before installing Docker, 2026-11-07T18:48:20Z.
+GET http://127.0.0.1:8000/api/runs: HTTP 200 (body deliberately omitted).
+               total        used        free      shared  buff/cache   available
+Mem:            3910         647         216           0        3339        3262
+Swap:           7899          36        7863

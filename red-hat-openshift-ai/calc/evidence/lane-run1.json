@@ -1,0 +1,94 @@
+{
+  "run_id": "20261107T190029Z-09ab5b0482fc",
+  "git_commit": "09ab5b0482fca9d2db544a6da155db1746377f9c",
+  "fixed_time": "2026-11-07T00:00:00Z",
+  "cold_start": true,
+  "terrain_mode": "auto",
+  "timings_s": {
+    "fetch_space_3074": 78.3,
+    "fetch_terrestrial_3076": 4.1,
+    "calc_space_3074": 417.3,
+    "calc_terrestrial_3076": 35.1
+  },
+  "peak_rss_mib": 3341.2,
+  "cpu_count": 8,
+  "pod": "sinceai-calc-lane-p7ntw",
+  "ok": false,
+  "files": [
+    {
+      "file": "space_ific3074.csv",
+      "sha256": "b0c81797b8903df0147453dd729829cf8526d8c0f5055b45e5e7ebbf7f48d0a1",
+      "reference": true,
+      "match_normalised": false,
+      "byte_identical": false
+    },
+    {
+      "file": "space_ific3074.json",
+      "sha256": "79e53d3a4f974149b72bd2e445da0b6cf5be69573039ef760610dee982b3a315",
+      "reference": true,
+      "match_normalised": false,
+      "byte_identical": false
+    },
+    {
+      "file": "space_ific3074.md",
+      "sha256": "87f6c4806501c1134d1c89c823269f3c2594b8f9b6d4558b9a657df7bdda353c",
+      "reference": true,
+      "match_normalised": false,
+      "byte_identical": false
+    },
+    {
+      "file": "terrestrial_ific3076.csv",
+      "sha256": "4517571ab97fd634ba1b2d6abed5ca59a9e7a93c00793f3f6b2a847b090a2a9f",
+      "reference": true,
+      "match_normalised": false,
+      "byte_identical": false
+    },
+    {
+      "file": "terrestrial_ific3076.json",
+      "sha256": "5947b993299cff3b940c47e2a2f3dd40d0fb3074a1069dda05f6f3eac89c03e6",
+      "reference": true,
+      "match_normalised": false,
+      "byte_identical": false
+    },
+    {
+      "file": "terrestrial_ific3076.md",
+      "sha256": "361ad3b6d0e266f001387047f7bd30cfb07bee10e3c61670343a258fd768d1ef",
+      "reference": true,
+      "match_normalised": false,
+      "byte_identical": false
+    },
+    {
+      "file": "trends_terrestrial_ific3076.json",
+      "sha256": "6ba190b4f768722815f31d89cd79709e2233fe8496ea5b953145e3f706d7eb4c",
+      "reference": true,
+      "match_normalised": true,
+      "byte_identical": true
+    },
+    {
+      "file": "trends_terrestrial_ific3076.md",
+      "sha256": "e806b1dbf57a9d73817dd4e141327ddfa534c49819d77396f96f0c5b5145f8e3",
+      "reference": true,
+      "match_normalised": true,
+      "byte_identical": true
+    }
+  ],
+  "counts": {
+    "space_ific3074": {
+      "exceeds_limit": 12,
+      "excluded": 36,
+      "insufficient_data": 22,
+      "no_concern": 0,
+      "overlap_only": 126,
+      "within_margin": 0
+    },
+    "terrestrial_ific3076": {
+      "exceeds_limit": 8,
+      "excluded": 83,
+      "insufficient_data": 0,
+      "no_concern": 22,
+      "overlap_only": 0,
+      "within_margin": 1
+    },
+    "trends_terrestrial_ific3076": {}
+  }
+}

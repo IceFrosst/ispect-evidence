@@ -1,0 +1,4 @@
+{"run": "space_ific3073", "entities": 1124}
+{"run": "space_ific3074", "entities": 1264}
+{"run": "terrestrial_ific3075", "entities": 1014}
+{"run": "terrestrial_ific3076", "entities": 996}

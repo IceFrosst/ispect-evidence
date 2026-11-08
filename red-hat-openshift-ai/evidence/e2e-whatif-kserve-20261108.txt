@@ -21,3 +21,20 @@ UTC 2026-11-08T03:34:03Z
 ## 3. Reproduce without a login (public route): GET /healthz
 UTC 2026-11-08T03:34:05Z
 HTTP 200
+
+## 4. The screenshot whatif-ml.png, tied to the log (headless Chrome through an SSH tunnel to the VM's app port)
+# The VM was redeployed by a teammate at 03:43Z; its code matches commit a79f635 on serve.py, playground.py, assess.py,
+# whatif.js, globe_map.js, triage.js (sha256).
+browser got 200 from /api/playground/terrestrial at 2026-11-08T04:10:04Z
+ticked 'Height unknown' at 2026-11-08T04:10:08Z
+browser got 200 from /api/playground/terrestrial at 2026-11-08T04:10:09Z
+screenshot saved at 2026-11-08T04:10:11Z
+UI shows (all inputs visible in the PNG): 450 MHz, 25 kHz, 50 W e.r.p., antenna height unknown, 60 % sea path, 10 % time, rural;
+result: Not assessed; ML estimate: 88 % probability over the trigger; ML range 17.7–55.8 dB(µV/m) at the 12 NM line, 38.1 km.
+KServe predictor log:
+2026-11-08T04:10:09.524475697Z INFO:     10.x.x.x:44778 - "POST /predict HTTP/1.1" 200 OK
+
+## 5. Outage during this capture (honest record)
+~03:40Z both model deployments (p1546-risk-predictor, p1546-risk) went to 0 pods; /healthz and the VM What-if returned 503.
+They could not restart: the sandbox quotas were full (deploy memory 30 GiB, then the account-wide 50-pod count incl. finished pipeline pods).
+Fix 04:00–04:05Z: Granite scaled to 0 (not used by the live product), 23 finished KFP driver pods deleted, both deployments scaled to 1 -> /healthz 200, VM What-if 200 again.

@@ -11,3 +11,8 @@ c4d16f450f06f9269369ce3b8178dff7d50067b1572c8b682fb0c4ff5df88819  p1546_q95.txt
 9a432c8d60027360214165c828768b52da144188aaea9f5a6e787bf983cda241  p1546_q50.txt   (byte-identical to v1; q05/q95 of the run not compared)
 ## metrics: v1/metrics.json vs run 10cde0f0 metrics.json
 22 of 25 keys identical (every predictive metric: mae, p95, coverage, interval, missed/cleared % for full/masked_50pct/all_masked, sample counts); the 3 that differ are timing: train_s 95.4 vs 17.8, predict_us_per_row 224.8 vs 46.2 (v1 also records exact_ms_per_row 0.5).
+## same model bytes run in-process for canonical results: committed risk/artifacts/*.txt.gz (gunzipped)
+f8b697f36d1ddef6f1f564e27bd7ca1df95f30aa8da1ed7d3e192dae0571bc83  risk/artifacts/p1546_q05.txt.gz (gunzipped)
+9a432c8d60027360214165c828768b52da144188aaea9f5a6e787bf983cda241  risk/artifacts/p1546_q50.txt.gz (gunzipped)
+c4d16f450f06f9269369ce3b8178dff7d50067b1572c8b682fb0c4ff5df88819  risk/artifacts/p1546_q95.txt.gz (gunzipped)
+-> identical to S3 v1 and to KServe /mnt/models above.

@@ -1,5 +1,5 @@
 {
- "source": "GET /apis/v2beta1/runs/<id> on the DSPA route (KFP v2), captured 2026-11-08T03:2xZ",
+ "source": "GET /apis/v2beta1/runs/<id> on the DSPA route (KFP v2). Run and step states as of 2026-11-08T03:2xZ (one query); re-filtered 04:0xZ from the same saved responses to keep task display names (driver/executor/root bookkeeping tasks left out). df180855 was still RUNNING at 03:2xZ.",
  "runs": [
   {
    "run_id": "10cde0f0-b5be-4b9f-a170-09c8c598c2ff",
@@ -9,24 +9,22 @@
    "finished_at": "2026-11-07T19:24:50Z",
    "steps": [
     {
-     "step": "executor",
-     "state": "SKIPPED"
+     "step": "generate-samples",
+     "state": "SUCCEEDED",
+     "start": "2026-11-07T19:23:25Z",
+     "end": "2026-11-07T19:23:25Z"
     },
     {
-     "step": "executor",
-     "state": "SUCCEEDED"
+     "step": "train-model",
+     "state": "SUCCEEDED",
+     "start": "2026-11-07T19:23:35Z",
+     "end": "2026-11-07T19:24:20Z"
     },
     {
      "step": "gate-and-register",
-     "state": "SUCCEEDED"
-    },
-    {
-     "step": "generate-samples",
-     "state": "SUCCEEDED"
-    },
-    {
-     "step": "root",
-     "state": "SUCCEEDED"
+     "state": "SUCCEEDED",
+     "start": "2026-11-07T19:24:30Z",
+     "end": "2026-11-07T19:24:50Z"
     }
    ]
   },
@@ -38,32 +36,34 @@
    "finished_at": "2026-11-07T19:29:28Z",
    "steps": [
     {
-     "step": "calculate",
-     "state": "SUCCEEDED"
-    },
-    {
-     "step": "calculate-2",
-     "state": "SUCCEEDED"
-    },
-    {
-     "step": "executor",
-     "state": "SUCCEEDED"
-    },
-    {
      "step": "fetch-ific",
-     "state": "SUCCEEDED"
+     "state": "SUCCEEDED",
+     "start": "2026-11-07T19:23:28Z",
+     "end": "2026-11-07T19:24:04Z"
     },
     {
      "step": "fetch-ific-2",
-     "state": "SUCCEEDED"
+     "state": "SUCCEEDED",
+     "start": "2026-11-07T19:24:14Z",
+     "end": "2026-11-07T19:24:44Z"
     },
     {
-     "step": "root",
-     "state": "SUCCEEDED"
+     "step": "calculate",
+     "state": "SUCCEEDED",
+     "start": "2026-11-07T19:24:54Z",
+     "end": "2026-11-07T19:27:36Z"
+    },
+    {
+     "step": "calculate-2",
+     "state": "SUCCEEDED",
+     "start": "2026-11-07T19:27:46Z",
+     "end": "2026-11-07T19:28:48Z"
     },
     {
      "step": "verify-results",
-     "state": "SUCCEEDED"
+     "state": "SUCCEEDED",
+     "start": "2026-11-07T19:28:58Z",
+     "end": "2026-11-07T19:29:28Z"
     }
    ]
   },
@@ -75,24 +75,22 @@
    "finished_at": "2026-11-07T19:11:15Z",
    "steps": [
     {
-     "step": "executor",
-     "state": "FAILED"
+     "step": "generate-samples",
+     "state": "SUCCEEDED",
+     "start": "2026-11-07T19:01:20Z",
+     "end": "2026-11-07T19:10:38Z"
     },
     {
-     "step": "executor",
-     "state": "SUCCEEDED"
+     "step": "train-model",
+     "state": "FAILED",
+     "start": "2026-11-07T19:10:48Z",
+     "end": "2026-11-07T19:11:15Z"
     },
     {
      "step": "gate-and-register",
-     "state": null
-    },
-    {
-     "step": "generate-samples",
-     "state": "SUCCEEDED"
-    },
-    {
-     "step": "root",
-     "state": "FAILED"
+     "state": null,
+     "start": "2026-11-07T19:11:15Z",
+     "end": "2026-11-07T19:11:15Z"
     }
    ]
   },
@@ -104,40 +102,76 @@
    "finished_at": "1970-01-01T00:00:00Z",
    "steps": [
     {
-     "step": "executor",
-     "state": "SUCCEEDED"
-    },
-    {
      "step": "for-loop-2",
-     "state": "RUNNING"
-    },
-    {
-     "step": "iteration-item",
-     "state": "SUCCEEDED"
+     "state": "RUNNING",
+     "start": "2026-11-07T21:01:17Z",
+     "end": "0001-01-01T00:00:00Z"
     },
     {
      "step": "iteration-iterations",
-     "state": "RUNNING"
+     "state": "RUNNING",
+     "start": "2026-11-07T21:01:27Z",
+     "end": "0001-01-01T00:00:00Z"
     },
     {
      "step": "iteration-iterations(0:0)",
-     "state": "SUCCEEDED"
+     "state": "SUCCEEDED",
+     "start": "2026-11-07T21:01:27Z",
+     "end": "2026-11-07T21:04:10Z"
+    },
+    {
+     "step": "iteration-item",
+     "state": "SUCCEEDED",
+     "start": "2026-11-07T21:01:37Z",
+     "end": "2026-11-07T21:04:10Z"
+    },
+    {
+     "step": "backtest-issue",
+     "state": "SUCCEEDED",
+     "start": "2026-11-07T21:01:47Z",
+     "end": "2026-11-07T21:04:10Z"
     },
     {
      "step": "iteration-iterations(1:1)",
-     "state": "SUCCEEDED"
+     "state": "SUCCEEDED",
+     "start": "2026-11-07T21:04:10Z",
+     "end": "2026-11-07T21:08:54Z"
+    },
+    {
+     "step": "iteration-item",
+     "state": "SUCCEEDED",
+     "start": "2026-11-07T21:04:20Z",
+     "end": "2026-11-07T21:08:54Z"
+    },
+    {
+     "step": "backtest-issue",
+     "state": "SUCCEEDED",
+     "start": "2026-11-07T21:04:30Z",
+     "end": "2026-11-07T21:08:54Z"
     },
     {
      "step": "iteration-iterations(2:2)",
-     "state": "SUCCEEDED"
+     "state": "SUCCEEDED",
+     "start": "2026-11-07T21:08:54Z",
+     "end": "2026-11-07T21:13:11Z"
+    },
+    {
+     "step": "iteration-item",
+     "state": "SUCCEEDED",
+     "start": "2026-11-07T21:09:05Z",
+     "end": "2026-11-07T21:13:11Z"
+    },
+    {
+     "step": "backtest-issue",
+     "state": "SUCCEEDED",
+     "start": "2026-11-07T21:09:15Z",
+     "end": "2026-11-07T21:13:11Z"
     },
     {
      "step": "iteration-iterations(3:3)",
-     "state": "RUNNING"
-    },
-    {
-     "step": "root",
-     "state": "RUNNING"
+     "state": "RUNNING",
+     "start": "2026-11-07T21:13:11Z",
+     "end": "0001-01-01T00:00:00Z"
     }
    ]
   }

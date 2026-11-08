@@ -1,5 +1,6 @@
-# OpenShift AI model serving (KServe): custom runtime = our FastAPI risk service, loading the model files that KServe's
-# storage initializer downloads from the S3 data connection into /mnt/models. Shows in the OpenShift AI dashboard.
+# OpenShift AI model serving (KServe): custom runtime = our FastAPI risk service, loading the model files from
+# /mnt/models. The InferenceService uses storageUri pvc://p1546-models (staged from the S3 data connection by
+# stage-model-job.yaml; the platform storage initializer asks for more disk than the sandbox quota). Shows in the OpenShift AI dashboard.
 apiVersion: serving.kserve.io/v1alpha1
 kind: ServingRuntime
 metadata:

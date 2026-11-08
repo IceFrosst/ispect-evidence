@@ -1,0 +1,21 @@
+# health check 2026-11-08T03:53:33Z on sinceai-2026-batch
+PASS  GET /api/runs -> 6 runs
+PASS  public URL without login -> 401
+PASS  service sinceai-api active
+PASS  service caddy active
+PASS  service docker active
+PASS  timer sinceai-watcher.timer active
+PASS  timer fiware-publish.timer active
+PASS  container fiware-orion-1 running/healthy
+PASS  container fiware-mongo-1 running/healthy
+PASS  container fiware-receiver-1 running/healthy
+PASS  Orion-LD 1.8.0 answers on loopback
+INFO  fiware-receiver-1 12.04MiB / 64MiB
+INFO  fiware-orion-1 247.8MiB / 640MiB
+INFO  fiware-mongo-1 149.2MiB / 512MiB
+PASS  memory: 2432 MB available of 3910 MB
+PASS  disk /: 39% used
+PASS  ufw allows only 22 80 443
+PASS  public listeners: 22 80 443 
+RESULT: all checks passed
+exit=0

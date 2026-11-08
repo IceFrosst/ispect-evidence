@@ -1,0 +1,3536 @@
+{
+ "id": "urn:ngsi-ld:Finding:space:3074:pfd-batch%3Aspace%3A3074%3Antc_id%3D103500417",
+ "finding": {
+  "@context": [
+   "http://127.0.0.1:1026/ngsi-ld/v1/jsonldContexts/0ee6b3de-dadc-11f1-b5c6-1a9b59120263",
+   "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld"
+  ],
+  "id": "urn:ngsi-ld:Finding:space:3074:pfd-batch%3Aspace%3A3074%3Antc_id%3D103500417",
+  "type": "Finding",
+  "ific_no": {
+   "type": "Property",
+   "value": 3074,
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "run_id": {
+   "type": "Property",
+   "value": "space_ific3074",
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "outcome": {
+   "type": "Property",
+   "value": "exceeds_limit",
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "reason_code": {
+   "type": "Property",
+   "value": "CALC_EXCEEDS",
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "reason_text": {
+   "type": "Property",
+   "value": "Table 21-4 upper bound under peak-gain pointing; candidate for expert review, not a proven violation. Worst margin over Finnish territory (incl. Aland) grid: margin 3.246 dB, beam CDN (f_steer=, f_pfd_steer_default=). Unassessed components are listed in explanation; no whole-notice clearance.",
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "provenance": {
+   "type": "Property",
+   "value": {
+    "ific": 3074,
+    "table": "notice",
+    "key": {
+     "ntc_id": "103500417"
+    }
+   },
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "calculations": {
+   "type": "Property",
+   "value": {
+    "assumptions": [
+     "Caller establishes Article 5 / No. 21.16 applicability; no plan-band inference.",
+     "Peak co-polar antenna gain toward each point; no beam-pattern reduction.",
+     "Worst-reference-band antenna-input density; single selected emission, no carrier aggregation.",
+     "Spherical Earth radius 6378.137 km; nominal circular equatorial GSO altitude 35786 km.",
+     "Latitude treated as spherical; sea level, no terrain, no refraction, no atmospheric/polarisation loss.",
+     "Caller-supplied satellite latitude; the batch screens the equator/inclination extremes and the filed station-keeping longitude tolerance jointly over the grid (worst margin reported).",
+     "Pointwise modeled upper bound, not a notice-wide or nationwide compliance determination.",
+     "Peak gain toward Finland at every grid point; upper bound under peak-gain pointing, not actual pointing.",
+     "Worst margin over Finnish territory (incl. Aland) 0.25-degree grid, positive-elevation points; not a continuous-area maximum.",
+     "Group emission alternatives are maximized, not summed; simultaneous carriers and other networks are not aggregated.",
+     "Only the Table 21-4 ceiling is screened; additional Art. 5/21 provisions, RoP 21.16 steering condition (a) and temporal/200 MHz constraints are not assessed.",
+     "Power basis: filed pwr_ds_max"
+    ],
+    "edition": "RR 2024",
+    "formula": "pfd = P_density_dBW_per_Hz + G_dBi + 10*log10(B_ref_Hz) - 10*log10(4*pi*d_m^2); margin = pfd - limit (positive = exceedance)",
+    "inputs": {
+     "antenna_input_power_density": {
+      "unit": "dBW/Hz",
+      "value": -50
+     },
+     "arrival_angle": {
+      "unit": "deg",
+      "value": 4.99916
+     },
+     "earth_radius": {
+      "unit": "km",
+      "value": 6378.137
+     },
+     "frequency": {
+      "unit": "MHz",
+      "value": 3800
+     },
+     "gso_altitude": {
+      "unit": "km",
+      "value": 35786
+     },
+     "latitude": {
+      "unit": "deg",
+      "value": 66.25
+     },
+     "longitude": {
+      "unit": "deg",
+      "value": 26.25
+     },
+     "peak_antenna_gain": {
+      "unit": "dBi",
+      "value": 28.5
+     },
+     "reference_bandwidth": {
+      "unit": "Hz",
+      "value": 4000
+     },
+     "satellite_latitude": {
+      "unit": "deg",
+      "value": -0.1
+     },
+     "satellite_longitude": {
+      "unit": "deg",
+      "value": 80.05
+     },
+     "slant_range": {
+      "unit": "m",
+      "value": 41126844.890537
+     }
+    },
+    "limit": {
+     "unit": "dBW/m2",
+     "value": -152
+    },
+    "limit_source": {
+     "clause": "Article 21, Section V, No. 21.16, Table 21-4 (Rev.WRC-23), 3 400-4 200 MHz, GSO fixed-satellite; PDF p. 297 (printed 287)",
+     "doc": "ITU Radio Regulations, Volume 1",
+     "url_or_path": "datasets/reference/itu/rr2024/RR2024_Vol1-E.pdf"
+    },
+    "margin_db": 3.245993,
+    "method": "Nominal GSO free-space pfd, peak-gain upper-bound screening",
+    "parameters": {
+     "band": "3 400-4 200 MHz",
+     "beam_name": "CDN",
+     "calculation_points_in_full_output": 6,
+     "eirp_density_dbw_hz": -21.5,
+     "evidence_role": "primary: worst non-steerable calculation",
+     "f_pfd_steer_default": "",
+     "f_steer": "",
+     "full_output": "$SINCEAI_DATA/results_draft/space_3074_calcs.jsonl",
+     "grid_aland_box": [
+      59.75,
+      60.5,
+      19.13,
+      21.1
+     ],
+     "grid_bbox": [
+      59.5,
+      70.1,
+      19,
+      31.6
+     ],
+     "grid_points": 1018,
+     "grid_region": "Finnish territory: finland_boundary_50m.geojson plus explicit Aland box",
+     "grid_step_deg": 0.25,
+     "group_id": "109692106",
+     "input_source": "$SINCEAI_DATA/ingest/space_3074.jsonl",
+     "limit_row_id": "fss_gso_3400_4200",
+     "overlap_segments_mhz": [
+      [
+       3402,
+       4198
+      ]
+     ],
+     "pdf_page": 297,
+     "printed_page": 287,
+     "provenance": {
+      "density_basis": "filed pwr_ds_max",
+      "emission_alternative_support": [
+       {
+        "pep_max": "12",
+        "pwr_ds_max": "-54",
+        "seq_no": "1"
+       },
+       {
+        "pep_max": "23.799999",
+        "pwr_ds_max": "-50",
+        "seq_no": "2"
+       },
+       {
+        "pep_max": "20",
+        "pwr_ds_max": "-50",
+        "seq_no": "3"
+       },
+       {
+        "pep_max": "13",
+        "pwr_ds_max": "-50",
+        "seq_no": "4"
+       },
+       {
+        "pep_max": "-3.5",
+        "pwr_ds_max": "-50",
+        "seq_no": "5"
+       }
+      ],
+      "group_id": "109692106",
+      "ific_no": 3074,
+      "inclination_excursion_deg": 0.1,
+      "longitude_tolerance_deg": {
+       "east": 0.05,
+       "west": 0.05
+      },
+      "notice_id": "space:3074:ntc_id=103500417",
+      "rows": {
+       "emiss": {
+        "design_emi": "24M0G9W--",
+        "grp_id": "109692106",
+        "pwr_ds_max": "-50",
+        "seq_no": "2"
+       },
+       "freq": [
+        {
+         "beam_name": "CDN",
+         "emi_rcp": "E",
+         "freq_mhz": "3420",
+         "grp_id": "109692106",
+         "ntc_id": "103500417",
+         "seq_no": "1",
+         "wic_no": "2940"
+        },
+        {
+         "beam_name": "CDN",
+         "emi_rcp": "E",
+         "freq_mhz": "3440",
+         "grp_id": "109692106",
+         "ntc_id": "103500417",
+         "seq_no": "2",
+         "wic_no": "2940"
+        },
+        {
+         "beam_name": "CDN",
+         "emi_rcp": "E",
+         "freq_mhz": "3460",
+         "grp_id": "109692106",
+         "ntc_id": "103500417",
+         "seq_no": "3",
+         "wic_no": "2940"
+        },
+        {
+         "beam_name": "CDN",
+         "emi_rcp": "E",
+         "freq_mhz": "3480",
+         "grp_id": "109692106",
+         "ntc_id": "103500417",
+         "seq_no": "4",
+         "wic_no": "2940"
+        },
+        {
+         "beam_name": "CDN",
+         "emi_rcp": "E",
+         "freq_mhz": "3500",
+         "grp_id": "109692106",
+         "ntc_id": "103500417",
+         "seq_no": "5",
+         "wic_no": "2940"
+        },
+        {
+         "beam_name": "CDN",
+         "emi_rcp": "E",
+         "freq_mhz": "3520",
+         "grp_id": "109692106",
+         "ntc_id": "103500417",
+         "seq_no": "6",
+         "wic_no": "2940"
+        },
+        {
+         "beam_name": "CDN",
+         "emi_rcp": "E",
+         "freq_mhz": "3540",
+         "grp_id": "109692106",
+         "ntc_id": "103500417",
+         "seq_no": "7",
+         "wic_no": "2940"
+        },
+        {
+         "beam_name": "CDN",
+         "emi_rcp": "E",
+         "freq_mhz": "3560",
+         "grp_id": "109692106",
+         "ntc_id": "103500417",
+         "seq_no": "8",
+         "wic_no": "2940"
+        },
+        {
+         "beam_name": "CDN",
+         "emi_rcp": "E",
+         "freq_mhz": "3580",
+         "grp_id": "109692106",
+         "ntc_id": "103500417",
+         "seq_no": "9",
+         "wic_no": "2940"
+        },
+        {
+         "beam_name": "CDN",
+         "emi_rcp": "E",
+         "freq_mhz": "3600",
+         "grp_id": "109692106",
+         "ntc_id": "103500417",
+         "seq_no": "10",
+         "wic_no": "2940"
+        },
+        {
+         "beam_name": "CDN",
+         "emi_rcp": "E",
+         "freq_mhz": "3620",
+         "grp_id": "109692106",
+         "ntc_id": "103500417",
+         "seq_no": "11",
+         "wic_no": "2940"
+        },
+        {
+         "beam_name": "CDN",
+         "emi_rcp": "E",
+         "freq_mhz": "3640",
+         "grp_id": "109692106",
+         "ntc_id": "103500417",
+         "seq_no": "12",
+         "wic_no": "2940"
+        },
+        {
+         "beam_name": "CDN",
+         "emi_rcp": "E",
+         "freq_mhz": "3660",
+         "grp_id": "109692106",
+         "ntc_id": "103500417",
+         "seq_no": "13",
+         "wic_no": "2940"
+        },
+        {
+         "beam_name": "CDN",
+         "emi_rcp": "E",
+         "freq_mhz": "3680",
+         "grp_id": "109692106",
+         "ntc_id": "103500417",
+         "seq_no": "14",
+         "wic_no": "2940"
+        },
+        {
+         "beam_name": "CDN",
+         "emi_rcp": "E",
+         "freq_mhz": "3700",
+         "grp_id": "109692106",
+         "ntc_id": "103500417",
+         "seq_no": "15",
+         "wic_no": "2940"
+        },
+        {
+         "beam_name": "CDN",
+         "emi_rcp": "E",
+         "freq_mhz": "3720",
+         "grp_id": "109692106",
+         "ntc_id": "103500417",
+         "seq_no": "16",
+         "wic_no": "2940"
+        },
+        {
+         "beam_name": "CDN",
+         "emi_rcp": "E",
+         "freq_mhz": "3740",
+         "grp_id": "109692106",
+         "ntc_id": "103500417",
+         "seq_no": "17",
+         "wic_no": "2940"
+        },
+        {
+         "beam_name": "CDN",
+         "emi_rcp": "E",
+         "freq_mhz": "3760",
+         "grp_id": "109692106",
+         "ntc_id": "103500417",
+         "seq_no": "18",
+         "wic_no": "2940"
+        },
+        {
+         "beam_name": "CDN",
+         "emi_rcp": "E",
+         "freq_mhz": "3780",
+         "grp_id": "109692106",
+         "ntc_id": "103500417",
+         "seq_no": "19",
+         "wic_no": "2940"
+        },
+        {
+         "beam_name": "CDN",
+         "emi_rcp": "E",
+         "freq_mhz": "3800",
+         "grp_id": "109692106",
+         "ntc_id": "103500417",
+         "seq_no": "20",
+         "wic_no": "2940"
+        },
+        {
+         "beam_name": "CDN",
+         "emi_rcp": "E",
+         "freq_mhz": "3820",
+         "grp_id": "109692106",
+         "ntc_id": "103500417",
+         "seq_no": "21",
+         "wic_no": "2940"
+        },
+        {
+         "beam_name": "CDN",
+         "emi_rcp": "E",
+         "freq_mhz": "3840",
+         "grp_id": "109692106",
+         "ntc_id": "103500417",
+         "seq_no": "22",
+         "wic_no": "2940"
+        },
+        {
+         "beam_name": "CDN",
+         "emi_rcp": "E",
+         "freq_mhz": "3860",
+         "grp_id": "109692106",
+         "ntc_id": "103500417",
+         "seq_no": "23",
+         "wic_no": "2940"
+        },
+        {
+         "beam_name": "CDN",
+         "emi_rcp": "E",
+         "freq_mhz": "3880",
+         "grp_id": "109692106",
+         "ntc_id": "103500417",
+         "seq_no": "24",
+         "wic_no": "2940"
+        },
+        {
+         "beam_name": "CDN",
+         "emi_rcp": "E",
+         "freq_mhz": "3900",
+         "grp_id": "109692106",
+         "ntc_id": "103500417",
+         "seq_no": "25",
+         "wic_no": "2940"
+        },
+        {
+         "beam_name": "CDN",
+         "emi_rcp": "E",
+         "freq_mhz": "3920",
+         "grp_id": "109692106",
+         "ntc_id": "103500417",
+         "seq_no": "26",
+         "wic_no": "2940"
+        },
+        {
+         "beam_name": "CDN",
+         "emi_rcp": "E",
+         "freq_mhz": "3940",
+         "grp_id": "109692106",
+         "ntc_id": "103500417",
+         "seq_no": "27",
+         "wic_no": "2940"
+        },
+        {
+         "beam_name": "CDN",
+         "emi_rcp": "E",
+         "freq_mhz": "3960",
+         "grp_id": "109692106",
+         "ntc_id": "103500417",
+         "seq_no": "28",
+         "wic_no": "2940"
+        },
+        {
+         "beam_name": "CDN",
+         "emi_rcp": "E",
+         "freq_mhz": "3980",
+         "grp_id": "109692106",
+         "ntc_id": "103500417",
+         "seq_no": "29",
+         "wic_no": "2940"
+        },
+        {
+         "beam_name": "CDN",
+         "emi_rcp": "E",
+         "freq_mhz": "4000",
+         "grp_id": "109692106",
+         "ntc_id": "103500417",
+         "seq_no": "30",
+         "wic_no": "2940"
+        },
+        {
+         "beam_name": "CDN",
+         "emi_rcp": "E",
+         "freq_mhz": "4020",
+         "grp_id": "109692106",
+         "ntc_id": "103500417",
+         "seq_no": "31",
+         "wic_no": "2940"
+        },
+        {
+         "beam_name": "CDN",
+         "emi_rcp": "E",
+         "freq_mhz": "4040",
+         "grp_id": "109692106",
+         "ntc_id": "103500417",
+         "seq_no": "32",
+         "wic_no": "2940"
+        },
+        {
+         "beam_name": "CDN",
+         "emi_rcp": "E",
+         "freq_mhz": "4060",
+         "grp_id": "109692106",
+         "ntc_id": "103500417",
+         "seq_no": "33",
+         "wic_no": "2940"
+        },
+        {
+         "beam_name": "CDN",
+         "emi_rcp": "E",
+         "freq_mhz": "4080",
+         "grp_id": "109692106",
+         "ntc_id": "103500417",
+         "seq_no": "34",
+         "wic_no": "2940"
+        },
+        {
+         "beam_name": "CDN",
+         "emi_rcp": "E",
+         "freq_mhz": "4100",
+         "grp_id": "109692106",
+         "ntc_id": "103500417",
+         "seq_no": "35",
+         "wic_no": "2940"
+        },
+        {
+         "beam_name": "CDN",
+         "emi_rcp": "E",
+         "freq_mhz": "4120",
+         "grp_id": "109692106",
+         "ntc_id": "103500417",
+         "seq_no": "36",
+         "wic_no": "2940"
+        },
+        {
+         "beam_name": "CDN",
+         "emi_rcp": "E",
+         "freq_mhz": "4140",
+         "grp_id": "109692106",
+         "ntc_id": "103500417",
+         "seq_no": "37",
+         "wic_no": "2940"
+        },
+        {
+         "beam_name": "CDN",
+         "emi_rcp": "E",
+         "freq_mhz": "4160",
+         "grp_id": "109692106",
+         "ntc_id": "103500417",
+         "seq_no": "38",
+         "wic_no": "2940"
+        },
+        {
+         "beam_name": "CDN",
+         "emi_rcp": "E",
+         "freq_mhz": "4180",
+         "grp_id": "109692106",
+         "ntc_id": "103500417",
+         "seq_no": "39",
+         "wic_no": "2940"
+        }
+       ],
+       "geo": {
+        "long_nom": "80",
+        "ntc_id": "103500417",
+        "sat_name": "COMPASS-80E"
+       },
+       "grp": {
+        "beam_name": "CDN",
+        "emi_rcp": "E",
+        "grp_id": "109692106",
+        "ntc_id": "103500417",
+        "wic_no": "2940"
+       },
+       "notice": {
+        "adm": "CHN",
+        "ntc_id": "103500417",
+        "wic_no": "3074"
+       },
+       "s_beam": {
+        "beam_name": "CDN",
+        "emi_rcp": "E",
+        "gain": "28.5",
+        "ntc_id": "103500417"
+       },
+       "srv_cls": [
+        {
+         "grp_id": "109692106",
+         "seq_no": "1"
+        }
+       ]
+      }
+     },
+     "reference_bandwidth_hz": 4000,
+     "rop_21_16_steerable": false,
+     "scope": "EC FSS component, maximum across available group emission alternatives",
+     "spreading_loss_db": 163.274607
+    },
+    "result": {
+     "unit": "dBW/m2",
+     "value": -148.754007
+    },
+    "software": {
+     "name": "engine.space",
+     "version": "0.1.0"
+    }
+   },
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "citations": {
+   "type": "Property",
+   "value": {
+    "clause": null,
+    "doc": "Space IFIC ingest semantics",
+    "url_or_path": "docs/ific-space-semantics.md"
+   },
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "affectedNational": {
+   "type": "Property",
+   "value": [
+    "xls:408577:txrx:rx",
+    "xls:408577:txrx:tx",
+    "xls:440557:txrx:rx",
+    "xls:440557:txrx:tx",
+    "xls:452076:txrx:rx",
+    "xls:452076:txrx:tx",
+    "xls:454152:txrx:rx",
+    "xls:454152:txrx:tx",
+    "xls:467765:txrx:rx",
+    "xls:467765:txrx:tx",
+    "xls:477781:txrx:rx",
+    "xls:477781:txrx:tx",
+    "xls:477915:txrx:rx",
+    "xls:477915:txrx:tx",
+    "xls:480622:txrx:rx",
+    "xls:480622:txrx:tx",
+    "xls:600368:rx",
+    "xls:600368:tx",
+    "xls:601883:rx",
+    "xls:601883:tx",
+    "xls:603310:tx",
+    "xls:605947:tx",
+    "xls:609238:rx",
+    "xls:609238:tx",
+    "xls:616871:rx",
+    "xls:616871:tx",
+    "xls:617767:rx",
+    "xls:618183:rx",
+    "xls:618183:tx",
+    "xls:621827:rx",
+    "xls:621827:tx",
+    "xls:623442:rx",
+    "xls:626885:rx",
+    "xls:632791:rx",
+    "xls:632791:tx",
+    "xls:636779:tx",
+    "xls:637749:tx",
+    "xls:638729:rx",
+    "xls:638729:tx",
+    "xls:639347:rx",
+    "xls:640068:tx",
+    "xls:640258:rx",
+    "xls:640258:tx",
+    "xls:641110:tx",
+    "xls:642577:rx",
+    "xls:642577:tx",
+    "xls:642734:rx",
+    "xls:642734:tx",
+    "xls:647340:rx",
+    "xls:647340:tx",
+    "xls:647870:rx",
+    "xls:649131:rx",
+    "xls:800000:rx",
+    "xls:800000:tx",
+    "xls:800001:rx",
+    "xls:800001:tx",
+    "xls:800002:rx",
+    "xls:800002:tx",
+    "xls:800003:rx",
+    "xls:800003:tx",
+    "xls:800004:rx",
+    "xls:800004:tx",
+    "xls:800005:rx",
+    "xls:800005:tx",
+    "xls:800006:rx",
+    "xls:800006:tx",
+    "xls:800007:rx",
+    "xls:800007:tx",
+    "xls:800008:rx",
+    "xls:800008:tx",
+    "xls:800009:rx",
+    "xls:800009:tx",
+    "xls:800010:rx",
+    "xls:800010:tx",
+    "xls:800011:rx",
+    "xls:800011:tx",
+    "xls:800012:rx",
+    "xls:800012:tx",
+    "xls:800013:rx",
+    "xls:800013:tx",
+    "xls:800014:rx",
+    "xls:800014:tx",
+    "xls:800015:rx",
+    "xls:800015:tx",
+    "xls:800016:rx",
+    "xls:800016:tx",
+    "xls:800017:rx",
+    "xls:800017:tx",
+    "xls:800018:rx",
+    "xls:800018:tx",
+    "xls:800019:rx",
+    "xls:800019:tx",
+    "xls:800020:rx",
+    "xls:800020:tx",
+    "xls:800021:rx",
+    "xls:800021:tx",
+    "xls:800022:rx",
+    "xls:800022:tx",
+    "xls:800023:rx",
+    "xls:800023:tx",
+    "xls:800024:rx",
+    "xls:800024:tx",
+    "xls:800025:rx",
+    "xls:800025:tx",
+    "xls:800026:rx",
+    "xls:800026:tx",
+    "xls:800027:rx",
+    "xls:800027:tx",
+    "xls:800028:rx",
+    "xls:800028:tx",
+    "xls:800029:rx",
+    "xls:800029:tx",
+    "xls:800030:rx",
+    "xls:800030:tx",
+    "xls:800031:rx",
+    "xls:800031:tx",
+    "xls:800032:rx",
+    "xls:800032:tx",
+    "xls:800033:rx",
+    "xls:800033:tx",
+    "xls:800034:rx",
+    "xls:800034:tx",
+    "xls:800035:rx",
+    "xls:800035:tx",
+    "xls:800036:rx",
+    "xls:800036:tx",
+    "xls:800037:rx",
+    "xls:800037:tx",
+    "xls:800038:rx",
+    "xls:800038:tx",
+    "xls:800039:rx",
+    "xls:800039:tx",
+    "xls:800040:rx",
+    "xls:800040:tx",
+    "xls:800041:rx",
+    "xls:800041:tx",
+    "xls:800042:rx",
+    "xls:800042:tx",
+    "xls:800043:rx",
+    "xls:800043:tx",
+    "xls:800044:rx",
+    "xls:800044:tx",
+    "xls:800045:rx",
+    "xls:800045:tx",
+    "xls:800046:rx",
+    "xls:800046:tx",
+    "xls:800047:rx",
+    "xls:800047:tx",
+    "xls:800048:rx",
+    "xls:800048:tx",
+    "xls:800049:rx",
+    "xls:800049:tx",
+    "xls:800050:rx",
+    "xls:800050:tx",
+    "xls:800051:rx",
+    "xls:800051:tx",
+    "xls:800052:rx",
+    "xls:800052:tx",
+    "xls:800053:rx",
+    "xls:800053:tx",
+    "xls:800054:rx",
+    "xls:800054:tx",
+    "xls:800055:rx",
+    "xls:800055:tx",
+    "xls:800056:rx",
+    "xls:800056:tx",
+    "xls:800057:rx",
+    "xls:800057:tx",
+    "xls:800058:rx",
+    "xls:800058:tx",
+    "xls:800059:rx",
+    "xls:800059:tx",
+    "xls:800060:rx",
+    "xls:800060:tx",
+    "xls:800061:rx",
+    "xls:800061:tx",
+    "xls:800062:rx",
+    "xls:800062:tx",
+    "xls:800063:rx",
+    "xls:800063:tx",
+    "xls:800064:rx",
+    "xls:800064:tx",
+    "xls:800065:rx",
+    "xls:800065:tx",
+    "xls:800066:rx",
+    "xls:800066:tx",
+    "xls:800067:rx",
+    "xls:800067:tx",
+    "xls:800068:rx",
+    "xls:800068:tx",
+    "xls:800069:rx",
+    "xls:800069:tx",
+    "xls:800070:rx",
+    "xls:800070:tx",
+    "xls:800071:rx",
+    "xls:800071:tx",
+    "xls:800072:rx",
+    "xls:800072:tx",
+    "xls:800073:rx",
+    "xls:800073:tx",
+    "xls:800074:rx",
+    "xls:800074:tx",
+    "xls:800075:rx",
+    "xls:800075:tx",
+    "xls:800076:rx",
+    "xls:800076:tx",
+    "xls:800077:rx",
+    "xls:800077:tx",
+    "xls:800078:rx",
+    "xls:800078:tx",
+    "xls:800079:rx",
+    "xls:800079:tx",
+    "xls:800080:rx",
+    "xls:800080:tx",
+    "xls:800081:rx",
+    "xls:800081:tx",
+    "xls:800082:rx",
+    "xls:800082:tx",
+    "xls:800083:rx",
+    "xls:800083:tx",
+    "xls:800084:rx",
+    "xls:800084:tx",
+    "xls:800085:rx",
+    "xls:800085:tx",
+    "xls:800086:rx",
+    "xls:800086:tx",
+    "xls:800087:rx",
+    "xls:800087:tx",
+    "xls:800088:rx",
+    "xls:800088:tx",
+    "xls:800089:rx",
+    "xls:800089:tx",
+    "xls:800090:rx",
+    "xls:800090:tx",
+    "xls:800091:rx",
+    "xls:800091:tx",
+    "xls:800092:rx",
+    "xls:800092:tx",
+    "xls:800093:rx",
+    "xls:800093:tx",
+    "xls:800094:rx",
+    "xls:800094:tx",
+    "xls:800095:rx",
+    "xls:800095:tx",
+    "xls:800096:rx",
+    "xls:800096:tx",
+    "xls:800097:rx",
+    "xls:800097:tx",
+    "xls:800098:rx",
+    "xls:800098:tx",
+    "xls:800099:rx",
+    "xls:800099:tx",
+    "xls:800100:rx",
+    "xls:800100:tx",
+    "xls:800101:rx",
+    "xls:800101:tx",
+    "xls:800102:rx",
+    "xls:800102:tx",
+    "xls:800103:rx",
+    "xls:800103:tx",
+    "xls:800104:rx",
+    "xls:800104:tx",
+    "xls:800105:rx",
+    "xls:800105:tx",
+    "xls:800106:rx",
+    "xls:800106:tx",
+    "xls:800107:rx",
+    "xls:800107:tx",
+    "xls:800108:rx",
+    "xls:800108:tx",
+    "xls:800109:rx",
+    "xls:800109:tx",
+    "xls:800110:rx",
+    "xls:800110:tx",
+    "xls:800111:rx",
+    "xls:800111:tx",
+    "xls:800112:rx",
+    "xls:800112:tx",
+    "xls:800113:rx",
+    "xls:800113:tx",
+    "xls:800114:rx",
+    "xls:800114:tx",
+    "xls:800115:rx",
+    "xls:800115:tx",
+    "xls:800116:rx",
+    "xls:800116:tx",
+    "xls:800117:rx",
+    "xls:800117:tx",
+    "xls:800118:rx",
+    "xls:800118:tx",
+    "xls:800119:rx",
+    "xls:800119:tx",
+    "xls:800120:rx",
+    "xls:800120:tx",
+    "xls:800121:rx",
+    "xls:800121:tx",
+    "xls:800122:rx",
+    "xls:800122:tx",
+    "xls:800123:rx",
+    "xls:800123:tx",
+    "xls:800124:rx",
+    "xls:800124:tx",
+    "xls:800125:rx",
+    "xls:800125:tx",
+    "xls:800126:rx",
+    "xls:800126:tx",
+    "xls:800127:rx",
+    "xls:800127:tx",
+    "xls:800128:rx",
+    "xls:800128:tx",
+    "xls:800129:rx",
+    "xls:800129:tx",
+    "xls:800130:rx",
+    "xls:800130:tx",
+    "xls:800131:rx",
+    "xls:800131:tx",
+    "xls:800132:rx",
+    "xls:800132:tx",
+    "xls:800133:rx",
+    "xls:800133:tx",
+    "xls:800134:rx",
+    "xls:800134:tx",
+    "xls:800135:rx",
+    "xls:800135:tx",
+    "xls:800136:rx",
+    "xls:800136:tx",
+    "xls:800137:rx",
+    "xls:800137:tx",
+    "xls:800138:rx",
+    "xls:800138:tx",
+    "xls:800139:rx",
+    "xls:800139:tx",
+    "xls:800140:rx",
+    "xls:800140:tx",
+    "xls:800141:rx",
+    "xls:800141:tx",
+    "xls:800142:rx",
+    "xls:800142:tx",
+    "xls:800143:rx",
+    "xls:800143:tx",
+    "xls:800144:rx",
+    "xls:800144:tx",
+    "xls:800145:rx",
+    "xls:800145:tx",
+    "xls:800146:rx",
+    "xls:800146:tx",
+    "xls:800147:rx",
+    "xls:800147:tx",
+    "xls:800148:rx",
+    "xls:800148:tx",
+    "xls:800149:rx",
+    "xls:800149:tx",
+    "xls:800150:rx",
+    "xls:800150:tx",
+    "xls:800151:rx",
+    "xls:800151:tx",
+    "xls:800152:rx",
+    "xls:800152:tx",
+    "xls:800153:rx",
+    "xls:800153:tx",
+    "xls:800154:rx",
+    "xls:800154:tx",
+    "xls:800155:rx",
+    "xls:800155:tx",
+    "xls:800156:rx",
+    "xls:800156:tx",
+    "xls:800157:rx",
+    "xls:800157:tx",
+    "xls:800158:rx",
+    "xls:800158:tx",
+    "xls:800159:rx",
+    "xls:800159:tx",
+    "xls:800160:rx",
+    "xls:800160:tx",
+    "xls:800161:rx",
+    "xls:800161:tx",
+    "xls:800162:rx",
+    "xls:800162:tx",
+    "xls:800163:rx",
+    "xls:800163:tx",
+    "xls:800164:rx",
+    "xls:800164:tx",
+    "xls:800165:rx",
+    "xls:800165:tx",
+    "xls:800166:rx",
+    "xls:800166:tx",
+    "xls:800167:rx",
+    "xls:800167:tx",
+    "xls:800168:rx",
+    "xls:800168:tx",
+    "xls:800169:rx",
+    "xls:800169:tx",
+    "xls:800170:rx",
+    "xls:800170:tx",
+    "xls:800171:rx",
+    "xls:800171:tx",
+    "xls:800172:rx",
+    "xls:800172:tx",
+    "xls:800173:rx",
+    "xls:800173:tx",
+    "xls:800174:rx",
+    "xls:800174:tx",
+    "xls:800175:rx",
+    "xls:800175:tx",
+    "xls:800176:rx",
+    "xls:800176:tx",
+    "xls:800177:rx",
+    "xls:800177:tx",
+    "xls:800178:rx",
+    "xls:800178:tx",
+    "xls:800179:rx",
+    "xls:800179:tx",
+    "xls:800180:rx",
+    "xls:800180:tx",
+    "xls:800181:rx",
+    "xls:800181:tx",
+    "xls:800182:rx",
+    "xls:800182:tx",
+    "xls:800183:rx",
+    "xls:800183:tx",
+    "xls:800184:rx",
+    "xls:800184:tx",
+    "xls:800185:rx",
+    "xls:800185:tx",
+    "xls:800186:rx",
+    "xls:800186:tx",
+    "xls:800187:rx",
+    "xls:800187:tx",
+    "xls:800188:rx",
+    "xls:800188:tx",
+    "xls:800189:rx",
+    "xls:800189:tx",
+    "xls:800190:rx",
+    "xls:800190:tx",
+    "xls:800191:rx",
+    "xls:800191:tx",
+    "xls:800192:rx",
+    "xls:800192:tx",
+    "xls:800193:rx",
+    "xls:800193:tx",
+    "xls:800194:rx",
+    "xls:800194:tx",
+    "xls:800195:rx",
+    "xls:800195:tx",
+    "xls:800196:rx",
+    "xls:800196:tx",
+    "xls:800197:rx",
+    "xls:800197:tx",
+    "xls:800198:rx",
+    "xls:800198:tx",
+    "xls:800199:rx",
+    "xls:800199:tx",
+    "xls:800200:rx",
+    "xls:800200:tx",
+    "xls:800201:rx",
+    "xls:800201:tx",
+    "xls:800202:rx",
+    "xls:800202:tx",
+    "xls:800203:rx",
+    "xls:800203:tx",
+    "xls:800204:rx",
+    "xls:800204:tx",
+    "xls:800205:rx",
+    "xls:800205:tx",
+    "xls:800206:rx",
+    "xls:800206:tx",
+    "xls:800207:rx",
+    "xls:800207:tx",
+    "xls:800208:rx",
+    "xls:800208:tx",
+    "xls:800209:rx",
+    "xls:800209:tx",
+    "xls:800210:rx",
+    "xls:800210:tx",
+    "xls:800211:rx",
+    "xls:800211:tx",
+    "xls:800212:rx",
+    "xls:800212:tx",
+    "xls:800213:rx",
+    "xls:800213:tx",
+    "xls:800214:rx",
+    "xls:800214:tx",
+    "xls:800215:rx",
+    "xls:800215:tx",
+    "xls:800216:rx",
+    "xls:800216:tx",
+    "xls:800217:rx",
+    "xls:800217:tx",
+    "xls:800218:rx",
+    "xls:800218:tx",
+    "xls:800219:rx",
+    "xls:800219:tx",
+    "xls:800220:rx",
+    "xls:800220:tx",
+    "xls:800221:rx",
+    "xls:800221:tx",
+    "xls:800222:rx",
+    "xls:800222:tx",
+    "xls:800223:rx",
+    "xls:800223:tx",
+    "xls:800224:rx",
+    "xls:800224:tx",
+    "xls:800225:rx",
+    "xls:800225:tx",
+    "xls:800226:rx",
+    "xls:800226:tx",
+    "xls:800227:rx",
+    "xls:800227:tx",
+    "xls:800228:rx",
+    "xls:800228:tx",
+    "xls:800229:rx",
+    "xls:800229:tx",
+    "xls:800230:rx",
+    "xls:800230:tx",
+    "xls:800231:rx",
+    "xls:800231:tx",
+    "xls:800232:rx",
+    "xls:800232:tx",
+    "xls:800233:rx",
+    "xls:800233:tx",
+    "xls:800234:rx",
+    "xls:800234:tx",
+    "xls:800235:rx",
+    "xls:800235:tx",
+    "xls:800236:rx",
+    "xls:800236:tx",
+    "xls:800237:rx",
+    "xls:800237:tx",
+    "xls:800238:rx",
+    "xls:800238:tx",
+    "xls:800239:rx",
+    "xls:800239:tx",
+    "xls:800240:rx",
+    "xls:800240:tx",
+    "xls:800241:rx",
+    "xls:800241:tx",
+    "xls:800242:rx",
+    "xls:800242:tx",
+    "xls:800243:rx",
+    "xls:800243:tx",
+    "xls:800244:rx",
+    "xls:800244:tx",
+    "xls:800245:rx",
+    "xls:800245:tx",
+    "xls:800246:rx",
+    "xls:800246:tx",
+    "xls:800247:rx",
+    "xls:800247:tx",
+    "xls:800248:rx",
+    "xls:800248:tx",
+    "xls:800249:rx",
+    "xls:800249:tx",
+    "xls:800250:rx",
+    "xls:800250:tx",
+    "xls:800251:rx",
+    "xls:800251:tx",
+    "xls:800252:rx",
+    "xls:800252:tx",
+    "xls:800253:rx",
+    "xls:800253:tx",
+    "xls:800254:rx",
+    "xls:800254:tx",
+    "xls:800255:rx",
+    "xls:800255:tx",
+    "xls:800256:rx",
+    "xls:800256:tx",
+    "xls:800257:rx",
+    "xls:800257:tx",
+    "xls:800258:rx",
+    "xls:800258:tx",
+    "xls:800259:rx",
+    "xls:800259:tx",
+    "xls:800260:rx",
+    "xls:800260:tx",
+    "xls:800261:rx",
+    "xls:800261:tx",
+    "xls:800262:rx",
+    "xls:800262:tx",
+    "xls:800263:rx",
+    "xls:800263:tx",
+    "xls:800264:rx",
+    "xls:800264:tx",
+    "xls:800265:rx",
+    "xls:800265:tx",
+    "xls:800266:rx",
+    "xls:800266:tx",
+    "xls:800267:rx",
+    "xls:800267:tx",
+    "xls:800268:rx",
+    "xls:800268:tx",
+    "xls:800269:rx",
+    "xls:800269:tx",
+    "xls:800270:rx",
+    "xls:800270:tx",
+    "xls:800271:rx",
+    "xls:800271:tx",
+    "xls:800272:rx",
+    "xls:800272:tx",
+    "xls:800273:rx",
+    "xls:800273:tx",
+    "xls:800274:rx",
+    "xls:800274:tx",
+    "xls:800275:rx",
+    "xls:800275:tx",
+    "xls:800276:rx",
+    "xls:800276:tx",
+    "xls:800277:rx",
+    "xls:800277:tx",
+    "xls:800278:rx",
+    "xls:800278:tx",
+    "xls:800279:rx",
+    "xls:800279:tx",
+    "xls:800280:rx",
+    "xls:800280:tx",
+    "xls:800281:rx",
+    "xls:800281:tx",
+    "xls:800282:rx",
+    "xls:800282:tx",
+    "xls:800283:rx",
+    "xls:800283:tx",
+    "xls:800284:rx",
+    "xls:800284:tx",
+    "xls:800285:rx",
+    "xls:800285:tx",
+    "xls:800286:rx",
+    "xls:800286:tx",
+    "xls:800287:rx",
+    "xls:800287:tx",
+    "xls:800288:rx",
+    "xls:800288:tx",
+    "xls:800289:rx",
+    "xls:800289:tx",
+    "xls:800290:rx",
+    "xls:800290:tx",
+    "xls:800291:rx",
+    "xls:800291:tx",
+    "xls:800292:rx",
+    "xls:800292:tx",
+    "xls:800293:rx",
+    "xls:800293:tx",
+    "xls:800294:rx",
+    "xls:800294:tx",
+    "xls:800295:rx",
+    "xls:800295:tx",
+    "xls:800296:rx",
+    "xls:800296:tx",
+    "xls:800297:rx",
+    "xls:800297:tx",
+    "xls:800298:rx",
+    "xls:800298:tx",
+    "xls:800299:rx",
+    "xls:800299:tx",
+    "xls:800300:rx",
+    "xls:800300:tx",
+    "xls:800301:rx",
+    "xls:800301:tx",
+    "xls:800302:rx",
+    "xls:800302:tx",
+    "xls:800303:rx",
+    "xls:800303:tx",
+    "xls:800304:rx",
+    "xls:800304:tx",
+    "xls:800305:rx",
+    "xls:800305:tx",
+    "xls:800306:rx",
+    "xls:800306:tx",
+    "xls:800307:rx",
+    "xls:800307:tx",
+    "xls:800308:rx",
+    "xls:800308:tx",
+    "xls:800309:rx",
+    "xls:800309:tx",
+    "xls:800310:rx",
+    "xls:800310:tx",
+    "xls:800311:rx",
+    "xls:800311:tx",
+    "xls:800312:rx",
+    "xls:800312:tx",
+    "xls:800313:rx",
+    "xls:800313:tx",
+    "xls:800314:rx",
+    "xls:800314:tx",
+    "xls:800315:rx",
+    "xls:800315:tx",
+    "xls:800316:rx",
+    "xls:800316:tx",
+    "xls:800317:rx",
+    "xls:800317:tx",
+    "xls:800318:rx",
+    "xls:800318:tx",
+    "xls:800319:rx",
+    "xls:800319:tx",
+    "xls:981340:txrx:rx",
+    "xls:981340:txrx:tx",
+    "xls:983254:txrx:rx",
+    "xls:983254:txrx:tx",
+    "xls:983816:txrx:rx",
+    "xls:983816:txrx:tx",
+    "xls:985407:txrx:rx",
+    "xls:985407:txrx:tx",
+    "xls:986805:txrx:rx",
+    "xls:986805:txrx:tx",
+    "xls:987028:txrx:rx",
+    "xls:987028:txrx:tx",
+    "xls:989011:txrx:rx",
+    "xls:989011:txrx:tx"
+   ],
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "notice": {
+   "type": "Relationship",
+   "object": "urn:ngsi-ld:SpaceNotice:space:3074:space%3A3074%3Antc_id%3D103500417",
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "release": {
+   "type": "Relationship",
+   "object": "urn:ngsi-ld:IficRelease:space:3074:release",
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "affectedStations": {
+   "type": "Relationship",
+   "object": [
+    "urn:ngsi-ld:FinnishStation:space:3074:408577",
+    "urn:ngsi-ld:FinnishStation:space:3074:440557",
+    "urn:ngsi-ld:FinnishStation:space:3074:452076",
+    "urn:ngsi-ld:FinnishStation:space:3074:454152",
+    "urn:ngsi-ld:FinnishStation:space:3074:467765",
+    "urn:ngsi-ld:FinnishStation:space:3074:477781",
+    "urn:ngsi-ld:FinnishStation:space:3074:477915",
+    "urn:ngsi-ld:FinnishStation:space:3074:480622",
+    "urn:ngsi-ld:FinnishStation:space:3074:600368",
+    "urn:ngsi-ld:FinnishStation:space:3074:601883",
+    "urn:ngsi-ld:FinnishStation:space:3074:603310",
+    "urn:ngsi-ld:FinnishStation:space:3074:605947",
+    "urn:ngsi-ld:FinnishStation:space:3074:609238",
+    "urn:ngsi-ld:FinnishStation:space:3074:616871",
+    "urn:ngsi-ld:FinnishStation:space:3074:617767",
+    "urn:ngsi-ld:FinnishStation:space:3074:618183",
+    "urn:ngsi-ld:FinnishStation:space:3074:621827",
+    "urn:ngsi-ld:FinnishStation:space:3074:623442",
+    "urn:ngsi-ld:FinnishStation:space:3074:626885",
+    "urn:ngsi-ld:FinnishStation:space:3074:632791",
+    "urn:ngsi-ld:FinnishStation:space:3074:636779",
+    "urn:ngsi-ld:FinnishStation:space:3074:637749",
+    "urn:ngsi-ld:FinnishStation:space:3074:638729",
+    "urn:ngsi-ld:FinnishStation:space:3074:639347",
+    "urn:ngsi-ld:FinnishStation:space:3074:640068",
+    "urn:ngsi-ld:FinnishStation:space:3074:640258",
+    "urn:ngsi-ld:FinnishStation:space:3074:641110",
+    "urn:ngsi-ld:FinnishStation:space:3074:642577",
+    "urn:ngsi-ld:FinnishStation:space:3074:642734",
+    "urn:ngsi-ld:FinnishStation:space:3074:647340",
+    "urn:ngsi-ld:FinnishStation:space:3074:647870",
+    "urn:ngsi-ld:FinnishStation:space:3074:649131",
+    "urn:ngsi-ld:FinnishStation:space:3074:800000",
+    "urn:ngsi-ld:FinnishStation:space:3074:800001",
+    "urn:ngsi-ld:FinnishStation:space:3074:800002",
+    "urn:ngsi-ld:FinnishStation:space:3074:800003",
+    "urn:ngsi-ld:FinnishStation:space:3074:800004",
+    "urn:ngsi-ld:FinnishStation:space:3074:800005",
+    "urn:ngsi-ld:FinnishStation:space:3074:800006",
+    "urn:ngsi-ld:FinnishStation:space:3074:800007",
+    "urn:ngsi-ld:FinnishStation:space:3074:800008",
+    "urn:ngsi-ld:FinnishStation:space:3074:800009",
+    "urn:ngsi-ld:FinnishStation:space:3074:800010",
+    "urn:ngsi-ld:FinnishStation:space:3074:800011",
+    "urn:ngsi-ld:FinnishStation:space:3074:800012",
+    "urn:ngsi-ld:FinnishStation:space:3074:800013",
+    "urn:ngsi-ld:FinnishStation:space:3074:800014",
+    "urn:ngsi-ld:FinnishStation:space:3074:800015",
+    "urn:ngsi-ld:FinnishStation:space:3074:800016",
+    "urn:ngsi-ld:FinnishStation:space:3074:800017",
+    "urn:ngsi-ld:FinnishStation:space:3074:800018",
+    "urn:ngsi-ld:FinnishStation:space:3074:800019",
+    "urn:ngsi-ld:FinnishStation:space:3074:800020",
+    "urn:ngsi-ld:FinnishStation:space:3074:800021",
+    "urn:ngsi-ld:FinnishStation:space:3074:800022",
+    "urn:ngsi-ld:FinnishStation:space:3074:800023",
+    "urn:ngsi-ld:FinnishStation:space:3074:800024",
+    "urn:ngsi-ld:FinnishStation:space:3074:800025",
+    "urn:ngsi-ld:FinnishStation:space:3074:800026",
+    "urn:ngsi-ld:FinnishStation:space:3074:800027",
+    "urn:ngsi-ld:FinnishStation:space:3074:800028",
+    "urn:ngsi-ld:FinnishStation:space:3074:800029",
+    "urn:ngsi-ld:FinnishStation:space:3074:800030",
+    "urn:ngsi-ld:FinnishStation:space:3074:800031",
+    "urn:ngsi-ld:FinnishStation:space:3074:800032",
+    "urn:ngsi-ld:FinnishStation:space:3074:800033",
+    "urn:ngsi-ld:FinnishStation:space:3074:800034",
+    "urn:ngsi-ld:FinnishStation:space:3074:800035",
+    "urn:ngsi-ld:FinnishStation:space:3074:800036",
+    "urn:ngsi-ld:FinnishStation:space:3074:800037",
+    "urn:ngsi-ld:FinnishStation:space:3074:800038",
+    "urn:ngsi-ld:FinnishStation:space:3074:800039",
+    "urn:ngsi-ld:FinnishStation:space:3074:800040",
+    "urn:ngsi-ld:FinnishStation:space:3074:800041",
+    "urn:ngsi-ld:FinnishStation:space:3074:800042",
+    "urn:ngsi-ld:FinnishStation:space:3074:800043",
+    "urn:ngsi-ld:FinnishStation:space:3074:800044",
+    "urn:ngsi-ld:FinnishStation:space:3074:800045",
+    "urn:ngsi-ld:FinnishStation:space:3074:800046",
+    "urn:ngsi-ld:FinnishStation:space:3074:800047",
+    "urn:ngsi-ld:FinnishStation:space:3074:800048",
+    "urn:ngsi-ld:FinnishStation:space:3074:800049",
+    "urn:ngsi-ld:FinnishStation:space:3074:800050",
+    "urn:ngsi-ld:FinnishStation:space:3074:800051",
+    "urn:ngsi-ld:FinnishStation:space:3074:800052",
+    "urn:ngsi-ld:FinnishStation:space:3074:800053",
+    "urn:ngsi-ld:FinnishStation:space:3074:800054",
+    "urn:ngsi-ld:FinnishStation:space:3074:800055",
+    "urn:ngsi-ld:FinnishStation:space:3074:800056",
+    "urn:ngsi-ld:FinnishStation:space:3074:800057",
+    "urn:ngsi-ld:FinnishStation:space:3074:800058",
+    "urn:ngsi-ld:FinnishStation:space:3074:800059",
+    "urn:ngsi-ld:FinnishStation:space:3074:800060",
+    "urn:ngsi-ld:FinnishStation:space:3074:800061",
+    "urn:ngsi-ld:FinnishStation:space:3074:800062",
+    "urn:ngsi-ld:FinnishStation:space:3074:800063",
+    "urn:ngsi-ld:FinnishStation:space:3074:800064",
+    "urn:ngsi-ld:FinnishStation:space:3074:800065",
+    "urn:ngsi-ld:FinnishStation:space:3074:800066",
+    "urn:ngsi-ld:FinnishStation:space:3074:800067",
+    "urn:ngsi-ld:FinnishStation:space:3074:800068",
+    "urn:ngsi-ld:FinnishStation:space:3074:800069",
+    "urn:ngsi-ld:FinnishStation:space:3074:800070",
+    "urn:ngsi-ld:FinnishStation:space:3074:800071",
+    "urn:ngsi-ld:FinnishStation:space:3074:800072",
+    "urn:ngsi-ld:FinnishStation:space:3074:800073",
+    "urn:ngsi-ld:FinnishStation:space:3074:800074",
+    "urn:ngsi-ld:FinnishStation:space:3074:800075",
+    "urn:ngsi-ld:FinnishStation:space:3074:800076",
+    "urn:ngsi-ld:FinnishStation:space:3074:800077",
+    "urn:ngsi-ld:FinnishStation:space:3074:800078",
+    "urn:ngsi-ld:FinnishStation:space:3074:800079",
+    "urn:ngsi-ld:FinnishStation:space:3074:800080",
+    "urn:ngsi-ld:FinnishStation:space:3074:800081",
+    "urn:ngsi-ld:FinnishStation:space:3074:800082",
+    "urn:ngsi-ld:FinnishStation:space:3074:800083",
+    "urn:ngsi-ld:FinnishStation:space:3074:800084",
+    "urn:ngsi-ld:FinnishStation:space:3074:800085",
+    "urn:ngsi-ld:FinnishStation:space:3074:800086",
+    "urn:ngsi-ld:FinnishStation:space:3074:800087",
+    "urn:ngsi-ld:FinnishStation:space:3074:800088",
+    "urn:ngsi-ld:FinnishStation:space:3074:800089",
+    "urn:ngsi-ld:FinnishStation:space:3074:800090",
+    "urn:ngsi-ld:FinnishStation:space:3074:800091",
+    "urn:ngsi-ld:FinnishStation:space:3074:800092",
+    "urn:ngsi-ld:FinnishStation:space:3074:800093",
+    "urn:ngsi-ld:FinnishStation:space:3074:800094",
+    "urn:ngsi-ld:FinnishStation:space:3074:800095",
+    "urn:ngsi-ld:FinnishStation:space:3074:800096",
+    "urn:ngsi-ld:FinnishStation:space:3074:800097",
+    "urn:ngsi-ld:FinnishStation:space:3074:800098",
+    "urn:ngsi-ld:FinnishStation:space:3074:800099",
+    "urn:ngsi-ld:FinnishStation:space:3074:800100",
+    "urn:ngsi-ld:FinnishStation:space:3074:800101",
+    "urn:ngsi-ld:FinnishStation:space:3074:800102",
+    "urn:ngsi-ld:FinnishStation:space:3074:800103",
+    "urn:ngsi-ld:FinnishStation:space:3074:800104",
+    "urn:ngsi-ld:FinnishStation:space:3074:800105",
+    "urn:ngsi-ld:FinnishStation:space:3074:800106",
+    "urn:ngsi-ld:FinnishStation:space:3074:800107",
+    "urn:ngsi-ld:FinnishStation:space:3074:800108",
+    "urn:ngsi-ld:FinnishStation:space:3074:800109",
+    "urn:ngsi-ld:FinnishStation:space:3074:800110",
+    "urn:ngsi-ld:FinnishStation:space:3074:800111",
+    "urn:ngsi-ld:FinnishStation:space:3074:800112",
+    "urn:ngsi-ld:FinnishStation:space:3074:800113",
+    "urn:ngsi-ld:FinnishStation:space:3074:800114",
+    "urn:ngsi-ld:FinnishStation:space:3074:800115",
+    "urn:ngsi-ld:FinnishStation:space:3074:800116",
+    "urn:ngsi-ld:FinnishStation:space:3074:800117",
+    "urn:ngsi-ld:FinnishStation:space:3074:800118",
+    "urn:ngsi-ld:FinnishStation:space:3074:800119",
+    "urn:ngsi-ld:FinnishStation:space:3074:800120",
+    "urn:ngsi-ld:FinnishStation:space:3074:800121",
+    "urn:ngsi-ld:FinnishStation:space:3074:800122",
+    "urn:ngsi-ld:FinnishStation:space:3074:800123",
+    "urn:ngsi-ld:FinnishStation:space:3074:800124",
+    "urn:ngsi-ld:FinnishStation:space:3074:800125",
+    "urn:ngsi-ld:FinnishStation:space:3074:800126",
+    "urn:ngsi-ld:FinnishStation:space:3074:800127",
+    "urn:ngsi-ld:FinnishStation:space:3074:800128",
+    "urn:ngsi-ld:FinnishStation:space:3074:800129",
+    "urn:ngsi-ld:FinnishStation:space:3074:800130",
+    "urn:ngsi-ld:FinnishStation:space:3074:800131",
+    "urn:ngsi-ld:FinnishStation:space:3074:800132",
+    "urn:ngsi-ld:FinnishStation:space:3074:800133",
+    "urn:ngsi-ld:FinnishStation:space:3074:800134",
+    "urn:ngsi-ld:FinnishStation:space:3074:800135",
+    "urn:ngsi-ld:FinnishStation:space:3074:800136",
+    "urn:ngsi-ld:FinnishStation:space:3074:800137",
+    "urn:ngsi-ld:FinnishStation:space:3074:800138",
+    "urn:ngsi-ld:FinnishStation:space:3074:800139",
+    "urn:ngsi-ld:FinnishStation:space:3074:800140",
+    "urn:ngsi-ld:FinnishStation:space:3074:800141",
+    "urn:ngsi-ld:FinnishStation:space:3074:800142",
+    "urn:ngsi-ld:FinnishStation:space:3074:800143",
+    "urn:ngsi-ld:FinnishStation:space:3074:800144",
+    "urn:ngsi-ld:FinnishStation:space:3074:800145",
+    "urn:ngsi-ld:FinnishStation:space:3074:800146",
+    "urn:ngsi-ld:FinnishStation:space:3074:800147",
+    "urn:ngsi-ld:FinnishStation:space:3074:800148",
+    "urn:ngsi-ld:FinnishStation:space:3074:800149",
+    "urn:ngsi-ld:FinnishStation:space:3074:800150",
+    "urn:ngsi-ld:FinnishStation:space:3074:800151",
+    "urn:ngsi-ld:FinnishStation:space:3074:800152",
+    "urn:ngsi-ld:FinnishStation:space:3074:800153",
+    "urn:ngsi-ld:FinnishStation:space:3074:800154",
+    "urn:ngsi-ld:FinnishStation:space:3074:800155",
+    "urn:ngsi-ld:FinnishStation:space:3074:800156",
+    "urn:ngsi-ld:FinnishStation:space:3074:800157",
+    "urn:ngsi-ld:FinnishStation:space:3074:800158",
+    "urn:ngsi-ld:FinnishStation:space:3074:800159",
+    "urn:ngsi-ld:FinnishStation:space:3074:800160",
+    "urn:ngsi-ld:FinnishStation:space:3074:800161",
+    "urn:ngsi-ld:FinnishStation:space:3074:800162",
+    "urn:ngsi-ld:FinnishStation:space:3074:800163",
+    "urn:ngsi-ld:FinnishStation:space:3074:800164",
+    "urn:ngsi-ld:FinnishStation:space:3074:800165",
+    "urn:ngsi-ld:FinnishStation:space:3074:800166",
+    "urn:ngsi-ld:FinnishStation:space:3074:800167",
+    "urn:ngsi-ld:FinnishStation:space:3074:800168",
+    "urn:ngsi-ld:FinnishStation:space:3074:800169",
+    "urn:ngsi-ld:FinnishStation:space:3074:800170",
+    "urn:ngsi-ld:FinnishStation:space:3074:800171",
+    "urn:ngsi-ld:FinnishStation:space:3074:800172",
+    "urn:ngsi-ld:FinnishStation:space:3074:800173",
+    "urn:ngsi-ld:FinnishStation:space:3074:800174",
+    "urn:ngsi-ld:FinnishStation:space:3074:800175",
+    "urn:ngsi-ld:FinnishStation:space:3074:800176",
+    "urn:ngsi-ld:FinnishStation:space:3074:800177",
+    "urn:ngsi-ld:FinnishStation:space:3074:800178",
+    "urn:ngsi-ld:FinnishStation:space:3074:800179",
+    "urn:ngsi-ld:FinnishStation:space:3074:800180",
+    "urn:ngsi-ld:FinnishStation:space:3074:800181",
+    "urn:ngsi-ld:FinnishStation:space:3074:800182",
+    "urn:ngsi-ld:FinnishStation:space:3074:800183",
+    "urn:ngsi-ld:FinnishStation:space:3074:800184",
+    "urn:ngsi-ld:FinnishStation:space:3074:800185",
+    "urn:ngsi-ld:FinnishStation:space:3074:800186",
+    "urn:ngsi-ld:FinnishStation:space:3074:800187",
+    "urn:ngsi-ld:FinnishStation:space:3074:800188",
+    "urn:ngsi-ld:FinnishStation:space:3074:800189",
+    "urn:ngsi-ld:FinnishStation:space:3074:800190",
+    "urn:ngsi-ld:FinnishStation:space:3074:800191",
+    "urn:ngsi-ld:FinnishStation:space:3074:800192",
+    "urn:ngsi-ld:FinnishStation:space:3074:800193",
+    "urn:ngsi-ld:FinnishStation:space:3074:800194",
+    "urn:ngsi-ld:FinnishStation:space:3074:800195",
+    "urn:ngsi-ld:FinnishStation:space:3074:800196",
+    "urn:ngsi-ld:FinnishStation:space:3074:800197",
+    "urn:ngsi-ld:FinnishStation:space:3074:800198",
+    "urn:ngsi-ld:FinnishStation:space:3074:800199",
+    "urn:ngsi-ld:FinnishStation:space:3074:800200",
+    "urn:ngsi-ld:FinnishStation:space:3074:800201",
+    "urn:ngsi-ld:FinnishStation:space:3074:800202",
+    "urn:ngsi-ld:FinnishStation:space:3074:800203",
+    "urn:ngsi-ld:FinnishStation:space:3074:800204",
+    "urn:ngsi-ld:FinnishStation:space:3074:800205",
+    "urn:ngsi-ld:FinnishStation:space:3074:800206",
+    "urn:ngsi-ld:FinnishStation:space:3074:800207",
+    "urn:ngsi-ld:FinnishStation:space:3074:800208",
+    "urn:ngsi-ld:FinnishStation:space:3074:800209",
+    "urn:ngsi-ld:FinnishStation:space:3074:800210",
+    "urn:ngsi-ld:FinnishStation:space:3074:800211",
+    "urn:ngsi-ld:FinnishStation:space:3074:800212",
+    "urn:ngsi-ld:FinnishStation:space:3074:800213",
+    "urn:ngsi-ld:FinnishStation:space:3074:800214",
+    "urn:ngsi-ld:FinnishStation:space:3074:800215",
+    "urn:ngsi-ld:FinnishStation:space:3074:800216",
+    "urn:ngsi-ld:FinnishStation:space:3074:800217",
+    "urn:ngsi-ld:FinnishStation:space:3074:800218",
+    "urn:ngsi-ld:FinnishStation:space:3074:800219",
+    "urn:ngsi-ld:FinnishStation:space:3074:800220",
+    "urn:ngsi-ld:FinnishStation:space:3074:800221",
+    "urn:ngsi-ld:FinnishStation:space:3074:800222",
+    "urn:ngsi-ld:FinnishStation:space:3074:800223",
+    "urn:ngsi-ld:FinnishStation:space:3074:800224",
+    "urn:ngsi-ld:FinnishStation:space:3074:800225",
+    "urn:ngsi-ld:FinnishStation:space:3074:800226",
+    "urn:ngsi-ld:FinnishStation:space:3074:800227",
+    "urn:ngsi-ld:FinnishStation:space:3074:800228",
+    "urn:ngsi-ld:FinnishStation:space:3074:800229",
+    "urn:ngsi-ld:FinnishStation:space:3074:800230",
+    "urn:ngsi-ld:FinnishStation:space:3074:800231",
+    "urn:ngsi-ld:FinnishStation:space:3074:800232",
+    "urn:ngsi-ld:FinnishStation:space:3074:800233",
+    "urn:ngsi-ld:FinnishStation:space:3074:800234",
+    "urn:ngsi-ld:FinnishStation:space:3074:800235",
+    "urn:ngsi-ld:FinnishStation:space:3074:800236",
+    "urn:ngsi-ld:FinnishStation:space:3074:800237",
+    "urn:ngsi-ld:FinnishStation:space:3074:800238",
+    "urn:ngsi-ld:FinnishStation:space:3074:800239",
+    "urn:ngsi-ld:FinnishStation:space:3074:800240",
+    "urn:ngsi-ld:FinnishStation:space:3074:800241",
+    "urn:ngsi-ld:FinnishStation:space:3074:800242",
+    "urn:ngsi-ld:FinnishStation:space:3074:800243",
+    "urn:ngsi-ld:FinnishStation:space:3074:800244",
+    "urn:ngsi-ld:FinnishStation:space:3074:800245",
+    "urn:ngsi-ld:FinnishStation:space:3074:800246",
+    "urn:ngsi-ld:FinnishStation:space:3074:800247",
+    "urn:ngsi-ld:FinnishStation:space:3074:800248",
+    "urn:ngsi-ld:FinnishStation:space:3074:800249",
+    "urn:ngsi-ld:FinnishStation:space:3074:800250",
+    "urn:ngsi-ld:FinnishStation:space:3074:800251",
+    "urn:ngsi-ld:FinnishStation:space:3074:800252",
+    "urn:ngsi-ld:FinnishStation:space:3074:800253",
+    "urn:ngsi-ld:FinnishStation:space:3074:800254",
+    "urn:ngsi-ld:FinnishStation:space:3074:800255",
+    "urn:ngsi-ld:FinnishStation:space:3074:800256",
+    "urn:ngsi-ld:FinnishStation:space:3074:800257",
+    "urn:ngsi-ld:FinnishStation:space:3074:800258",
+    "urn:ngsi-ld:FinnishStation:space:3074:800259",
+    "urn:ngsi-ld:FinnishStation:space:3074:800260",
+    "urn:ngsi-ld:FinnishStation:space:3074:800261",
+    "urn:ngsi-ld:FinnishStation:space:3074:800262",
+    "urn:ngsi-ld:FinnishStation:space:3074:800263",
+    "urn:ngsi-ld:FinnishStation:space:3074:800264",
+    "urn:ngsi-ld:FinnishStation:space:3074:800265",
+    "urn:ngsi-ld:FinnishStation:space:3074:800266",
+    "urn:ngsi-ld:FinnishStation:space:3074:800267",
+    "urn:ngsi-ld:FinnishStation:space:3074:800268",
+    "urn:ngsi-ld:FinnishStation:space:3074:800269",
+    "urn:ngsi-ld:FinnishStation:space:3074:800270",
+    "urn:ngsi-ld:FinnishStation:space:3074:800271",
+    "urn:ngsi-ld:FinnishStation:space:3074:800272",
+    "urn:ngsi-ld:FinnishStation:space:3074:800273",
+    "urn:ngsi-ld:FinnishStation:space:3074:800274",
+    "urn:ngsi-ld:FinnishStation:space:3074:800275",
+    "urn:ngsi-ld:FinnishStation:space:3074:800276",
+    "urn:ngsi-ld:FinnishStation:space:3074:800277",
+    "urn:ngsi-ld:FinnishStation:space:3074:800278",
+    "urn:ngsi-ld:FinnishStation:space:3074:800279",
+    "urn:ngsi-ld:FinnishStation:space:3074:800280",
+    "urn:ngsi-ld:FinnishStation:space:3074:800281",
+    "urn:ngsi-ld:FinnishStation:space:3074:800282",
+    "urn:ngsi-ld:FinnishStation:space:3074:800283",
+    "urn:ngsi-ld:FinnishStation:space:3074:800284",
+    "urn:ngsi-ld:FinnishStation:space:3074:800285",
+    "urn:ngsi-ld:FinnishStation:space:3074:800286",
+    "urn:ngsi-ld:FinnishStation:space:3074:800287",
+    "urn:ngsi-ld:FinnishStation:space:3074:800288",
+    "urn:ngsi-ld:FinnishStation:space:3074:800289",
+    "urn:ngsi-ld:FinnishStation:space:3074:800290",
+    "urn:ngsi-ld:FinnishStation:space:3074:800291",
+    "urn:ngsi-ld:FinnishStation:space:3074:800292",
+    "urn:ngsi-ld:FinnishStation:space:3074:800293",
+    "urn:ngsi-ld:FinnishStation:space:3074:800294",
+    "urn:ngsi-ld:FinnishStation:space:3074:800295",
+    "urn:ngsi-ld:FinnishStation:space:3074:800296",
+    "urn:ngsi-ld:FinnishStation:space:3074:800297",
+    "urn:ngsi-ld:FinnishStation:space:3074:800298",
+    "urn:ngsi-ld:FinnishStation:space:3074:800299",
+    "urn:ngsi-ld:FinnishStation:space:3074:800300",
+    "urn:ngsi-ld:FinnishStation:space:3074:800301",
+    "urn:ngsi-ld:FinnishStation:space:3074:800302",
+    "urn:ngsi-ld:FinnishStation:space:3074:800303",
+    "urn:ngsi-ld:FinnishStation:space:3074:800304",
+    "urn:ngsi-ld:FinnishStation:space:3074:800305",
+    "urn:ngsi-ld:FinnishStation:space:3074:800306",
+    "urn:ngsi-ld:FinnishStation:space:3074:800307",
+    "urn:ngsi-ld:FinnishStation:space:3074:800308",
+    "urn:ngsi-ld:FinnishStation:space:3074:800309",
+    "urn:ngsi-ld:FinnishStation:space:3074:800310",
+    "urn:ngsi-ld:FinnishStation:space:3074:800311",
+    "urn:ngsi-ld:FinnishStation:space:3074:800312",
+    "urn:ngsi-ld:FinnishStation:space:3074:800313",
+    "urn:ngsi-ld:FinnishStation:space:3074:800314",
+    "urn:ngsi-ld:FinnishStation:space:3074:800315",
+    "urn:ngsi-ld:FinnishStation:space:3074:800316",
+    "urn:ngsi-ld:FinnishStation:space:3074:800317",
+    "urn:ngsi-ld:FinnishStation:space:3074:800318",
+    "urn:ngsi-ld:FinnishStation:space:3074:800319",
+    "urn:ngsi-ld:FinnishStation:space:3074:981340",
+    "urn:ngsi-ld:FinnishStation:space:3074:983254",
+    "urn:ngsi-ld:FinnishStation:space:3074:983816",
+    "urn:ngsi-ld:FinnishStation:space:3074:985407",
+    "urn:ngsi-ld:FinnishStation:space:3074:986805",
+    "urn:ngsi-ld:FinnishStation:space:3074:987028",
+    "urn:ngsi-ld:FinnishStation:space:3074:989011"
+   ],
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "margin_db": {
+   "type": "Property",
+   "value": 3.245993,
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "limitCitation": {
+   "type": "Property",
+   "value": {
+    "clause": "Article 21, Section V, No. 21.16, Table 21-4 (Rev.WRC-23), 3 400-4 200 MHz, GSO fixed-satellite; PDF p. 297 (printed 287)",
+    "doc": "ITU Radio Regulations, Volume 1",
+    "url_or_path": "datasets/reference/itu/rr2024/RR2024_Vol1-E.pdf"
+   },
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "worstFinnishPoint": {
+   "type": "GeoProperty",
+   "value": {
+    "type": "Point",
+    "coordinates": [
+     26.25,
+     66.25
+    ]
+   },
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "assessmentLabel": {
+   "type": "Property",
+   "value": "exceedance candidate (upper bound)",
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  }
+ },
+ "notice": {
+  "@context": [
+   "http://127.0.0.1:1026/ngsi-ld/v1/jsonldContexts/0ee6b3de-dadc-11f1-b5c6-1a9b59120263",
+   "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld"
+  ],
+  "id": "urn:ngsi-ld:SpaceNotice:space:3074:space%3A3074%3Antc_id%3D103500417",
+  "type": "SpaceNotice",
+  "ific_no": {
+   "type": "Property",
+   "value": 3074,
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "run_id": {
+   "type": "Property",
+   "value": "space_ific3074",
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "adm": {
+   "type": "Property",
+   "value": "CHN",
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "network": {
+   "type": "Property",
+   "value": "COMPASS-80E",
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "notice_type": {
+   "type": "Property",
+   "value": "G",
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "orbitSummary": {
+   "type": "Property",
+   "value": "GSO",
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "bands": {
+   "type": "Property",
+   "value": "3 400-4 200 MHz",
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "provenance": {
+   "type": "Property",
+   "value": {
+    "ific": 3074,
+    "table": "notice",
+    "key": {
+     "ntc_id": "103500417"
+    }
+   },
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  },
+  "release": {
+   "type": "Relationship",
+   "object": "urn:ngsi-ld:IficRelease:space:3074:release",
+   "observedAt": "2026-11-07T00:00:00.000Z"
+  }
+ },
+ "stations": [
+  {
+   "@context": [
+    "http://127.0.0.1:1026/ngsi-ld/v1/jsonldContexts/0ee6b3de-dadc-11f1-b5c6-1a9b59120263",
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld"
+   ],
+   "id": "urn:ngsi-ld:FinnishStation:space:3074:408577",
+   "type": "FinnishStation",
+   "bands": {
+    "type": "Property",
+    "value": {
+     "national_use_id": "xls:408577:txrx",
+     "direction": "txrx",
+     "freq_lo_mhz": 2264.75,
+     "freq_hi_mhz": 2267.25
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "ific_no": {
+    "type": "Property",
+    "value": 3074,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "provenance": {
+    "type": "Property",
+    "value": {
+     "file": "datasets/traficom/frequencies_of_interest_v05112026.csv",
+     "row": 179,
+     "key": "408577",
+     "licence_class_raw": "MUUT"
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "run_id": {
+    "type": "Property",
+    "value": "space_ific3074",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "station_no": {
+    "type": "Property",
+    "value": "408577",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "synthetic": {
+    "type": "Property",
+    "value": true,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "name": {
+    "type": "Property",
+    "value": "Synthetic XLS station 408577",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "location": {
+    "type": "GeoProperty",
+    "value": {
+     "type": "Point",
+     "coordinates": [
+      26.36802,
+      67.51793
+     ]
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   }
+  },
+  {
+   "@context": [
+    "http://127.0.0.1:1026/ngsi-ld/v1/jsonldContexts/0ee6b3de-dadc-11f1-b5c6-1a9b59120263",
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld"
+   ],
+   "id": "urn:ngsi-ld:FinnishStation:space:3074:440557",
+   "type": "FinnishStation",
+   "bands": {
+    "type": "Property",
+    "value": {
+     "national_use_id": "xls:440557:txrx",
+     "direction": "txrx",
+     "freq_lo_mhz": 2277.75,
+     "freq_hi_mhz": 2280.25
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "ific_no": {
+    "type": "Property",
+    "value": 3074,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "provenance": {
+    "type": "Property",
+    "value": {
+     "file": "datasets/traficom/frequencies_of_interest_v05112026.csv",
+     "row": 184,
+     "key": "440557",
+     "licence_class_raw": "MUUT"
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "run_id": {
+    "type": "Property",
+    "value": "space_ific3074",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "station_no": {
+    "type": "Property",
+    "value": "440557",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "synthetic": {
+    "type": "Property",
+    "value": true,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "name": {
+    "type": "Property",
+    "value": "Synthetic XLS station 440557",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "location": {
+    "type": "GeoProperty",
+    "value": {
+     "type": "Point",
+     "coordinates": [
+      27.56091,
+      61.18644
+     ]
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   }
+  },
+  {
+   "@context": [
+    "http://127.0.0.1:1026/ngsi-ld/v1/jsonldContexts/0ee6b3de-dadc-11f1-b5c6-1a9b59120263",
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld"
+   ],
+   "id": "urn:ngsi-ld:FinnishStation:space:3074:452076",
+   "type": "FinnishStation",
+   "bands": {
+    "type": "Property",
+    "value": {
+     "national_use_id": "xls:452076:txrx",
+     "direction": "txrx",
+     "freq_lo_mhz": 2274.75,
+     "freq_hi_mhz": 2277.25
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "ific_no": {
+    "type": "Property",
+    "value": 3074,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "provenance": {
+    "type": "Property",
+    "value": {
+     "file": "datasets/traficom/frequencies_of_interest_v05112026.csv",
+     "row": 187,
+     "key": "452076",
+     "licence_class_raw": "MUUT"
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "run_id": {
+    "type": "Property",
+    "value": "space_ific3074",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "station_no": {
+    "type": "Property",
+    "value": "452076",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "synthetic": {
+    "type": "Property",
+    "value": true,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "name": {
+    "type": "Property",
+    "value": "Synthetic XLS station 452076",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "location": {
+    "type": "GeoProperty",
+    "value": {
+     "type": "Point",
+     "coordinates": [
+      21.59466,
+      64.21928
+     ]
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   }
+  },
+  {
+   "@context": [
+    "http://127.0.0.1:1026/ngsi-ld/v1/jsonldContexts/0ee6b3de-dadc-11f1-b5c6-1a9b59120263",
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld"
+   ],
+   "id": "urn:ngsi-ld:FinnishStation:space:3074:454152",
+   "type": "FinnishStation",
+   "bands": {
+    "type": "Property",
+    "value": {
+     "national_use_id": "xls:454152:txrx",
+     "direction": "txrx",
+     "freq_lo_mhz": 2272.75,
+     "freq_hi_mhz": 2275.25
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "ific_no": {
+    "type": "Property",
+    "value": 3074,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "provenance": {
+    "type": "Property",
+    "value": {
+     "file": "datasets/traficom/frequencies_of_interest_v05112026.csv",
+     "row": 189,
+     "key": "454152",
+     "licence_class_raw": "MUUT"
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "run_id": {
+    "type": "Property",
+    "value": "space_ific3074",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "station_no": {
+    "type": "Property",
+    "value": "454152",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "synthetic": {
+    "type": "Property",
+    "value": true,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "name": {
+    "type": "Property",
+    "value": "Synthetic XLS station 454152",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "location": {
+    "type": "GeoProperty",
+    "value": {
+     "type": "Point",
+     "coordinates": [
+      22.8198,
+      64.52194
+     ]
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   }
+  },
+  {
+   "@context": [
+    "http://127.0.0.1:1026/ngsi-ld/v1/jsonldContexts/0ee6b3de-dadc-11f1-b5c6-1a9b59120263",
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld"
+   ],
+   "id": "urn:ngsi-ld:FinnishStation:space:3074:467765",
+   "type": "FinnishStation",
+   "bands": {
+    "type": "Property",
+    "value": {
+     "national_use_id": "xls:467765:txrx",
+     "direction": "txrx",
+     "freq_lo_mhz": 2274.75,
+     "freq_hi_mhz": 2277.25
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "ific_no": {
+    "type": "Property",
+    "value": 3074,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "provenance": {
+    "type": "Property",
+    "value": {
+     "file": "datasets/traficom/frequencies_of_interest_v05112026.csv",
+     "row": 192,
+     "key": "467765",
+     "licence_class_raw": "MUUT"
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "run_id": {
+    "type": "Property",
+    "value": "space_ific3074",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "station_no": {
+    "type": "Property",
+    "value": "467765",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "synthetic": {
+    "type": "Property",
+    "value": true,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "name": {
+    "type": "Property",
+    "value": "Synthetic XLS station 467765",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "location": {
+    "type": "GeoProperty",
+    "value": {
+     "type": "Point",
+     "coordinates": [
+      25.92324,
+      63.31365
+     ]
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   }
+  },
+  {
+   "@context": [
+    "http://127.0.0.1:1026/ngsi-ld/v1/jsonldContexts/0ee6b3de-dadc-11f1-b5c6-1a9b59120263",
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld"
+   ],
+   "id": "urn:ngsi-ld:FinnishStation:space:3074:477781",
+   "type": "FinnishStation",
+   "bands": {
+    "type": "Property",
+    "value": {
+     "national_use_id": "xls:477781:txrx",
+     "direction": "txrx",
+     "freq_lo_mhz": 2277.75,
+     "freq_hi_mhz": 2280.25
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "ific_no": {
+    "type": "Property",
+    "value": 3074,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "provenance": {
+    "type": "Property",
+    "value": {
+     "file": "datasets/traficom/frequencies_of_interest_v05112026.csv",
+     "row": 193,
+     "key": "477781",
+     "licence_class_raw": "MUUT"
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "run_id": {
+    "type": "Property",
+    "value": "space_ific3074",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "station_no": {
+    "type": "Property",
+    "value": "477781",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "synthetic": {
+    "type": "Property",
+    "value": true,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "name": {
+    "type": "Property",
+    "value": "Synthetic XLS station 477781",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "location": {
+    "type": "GeoProperty",
+    "value": {
+     "type": "Point",
+     "coordinates": [
+      23.89423,
+      66.28073
+     ]
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   }
+  },
+  {
+   "@context": [
+    "http://127.0.0.1:1026/ngsi-ld/v1/jsonldContexts/0ee6b3de-dadc-11f1-b5c6-1a9b59120263",
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld"
+   ],
+   "id": "urn:ngsi-ld:FinnishStation:space:3074:477915",
+   "type": "FinnishStation",
+   "bands": {
+    "type": "Property",
+    "value": {
+     "national_use_id": "xls:477915:txrx",
+     "direction": "txrx",
+     "freq_lo_mhz": 2263.75,
+     "freq_hi_mhz": 2266.25
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "ific_no": {
+    "type": "Property",
+    "value": 3074,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "provenance": {
+    "type": "Property",
+    "value": {
+     "file": "datasets/traficom/frequencies_of_interest_v05112026.csv",
+     "row": 194,
+     "key": "477915",
+     "licence_class_raw": "MUUT"
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "run_id": {
+    "type": "Property",
+    "value": "space_ific3074",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "station_no": {
+    "type": "Property",
+    "value": "477915",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "synthetic": {
+    "type": "Property",
+    "value": true,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "name": {
+    "type": "Property",
+    "value": "Synthetic XLS station 477915",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "location": {
+    "type": "GeoProperty",
+    "value": {
+     "type": "Point",
+     "coordinates": [
+      20.46887,
+      63.60681
+     ]
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   }
+  },
+  {
+   "@context": [
+    "http://127.0.0.1:1026/ngsi-ld/v1/jsonldContexts/0ee6b3de-dadc-11f1-b5c6-1a9b59120263",
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld"
+   ],
+   "id": "urn:ngsi-ld:FinnishStation:space:3074:480622",
+   "type": "FinnishStation",
+   "bands": {
+    "type": "Property",
+    "value": {
+     "national_use_id": "xls:480622:txrx",
+     "direction": "txrx",
+     "freq_lo_mhz": 2264.75,
+     "freq_hi_mhz": 2267.25
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "ific_no": {
+    "type": "Property",
+    "value": 3074,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "provenance": {
+    "type": "Property",
+    "value": {
+     "file": "datasets/traficom/frequencies_of_interest_v05112026.csv",
+     "row": 195,
+     "key": "480622",
+     "licence_class_raw": "MUUT"
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "run_id": {
+    "type": "Property",
+    "value": "space_ific3074",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "station_no": {
+    "type": "Property",
+    "value": "480622",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "synthetic": {
+    "type": "Property",
+    "value": true,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "name": {
+    "type": "Property",
+    "value": "Synthetic XLS station 480622",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "location": {
+    "type": "GeoProperty",
+    "value": {
+     "type": "Point",
+     "coordinates": [
+      24.20575,
+      61.83238
+     ]
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   }
+  },
+  {
+   "@context": [
+    "http://127.0.0.1:1026/ngsi-ld/v1/jsonldContexts/0ee6b3de-dadc-11f1-b5c6-1a9b59120263",
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld"
+   ],
+   "id": "urn:ngsi-ld:FinnishStation:space:3074:600368",
+   "type": "FinnishStation",
+   "bands": {
+    "type": "Property",
+    "value": [
+     {
+      "national_use_id": "xls:600368:tx",
+      "direction": "tx",
+      "freq_lo_mhz": 6182.415,
+      "freq_hi_mhz": 6301.015
+     },
+     {
+      "national_use_id": "xls:600368:rx",
+      "direction": "rx",
+      "freq_lo_mhz": 5930.375,
+      "freq_hi_mhz": 6048.975
+     }
+    ],
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "ific_no": {
+    "type": "Property",
+    "value": 3074,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "provenance": {
+    "type": "Property",
+    "value": {
+     "file": "datasets/traficom/frequencies_of_interest_v05112026.csv",
+     "row": 202,
+     "key": "600368",
+     "licence_class_raw": ""
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "run_id": {
+    "type": "Property",
+    "value": "space_ific3074",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "station_no": {
+    "type": "Property",
+    "value": "600368",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "synthetic": {
+    "type": "Property",
+    "value": true,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "name": {
+    "type": "Property",
+    "value": "Synthetic XLS station 600368",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "location": {
+    "type": "GeoProperty",
+    "value": {
+     "type": "Point",
+     "coordinates": [
+      21.51529,
+      61.0487
+     ]
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   }
+  },
+  {
+   "@context": [
+    "http://127.0.0.1:1026/ngsi-ld/v1/jsonldContexts/0ee6b3de-dadc-11f1-b5c6-1a9b59120263",
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld"
+   ],
+   "id": "urn:ngsi-ld:FinnishStation:space:3074:601883",
+   "type": "FinnishStation",
+   "bands": {
+    "type": "Property",
+    "value": [
+     {
+      "national_use_id": "xls:601883:tx",
+      "direction": "tx",
+      "freq_lo_mhz": 5930.375,
+      "freq_hi_mhz": 5989.675
+     },
+     {
+      "national_use_id": "xls:601883:rx",
+      "direction": "rx",
+      "freq_lo_mhz": 6182.415,
+      "freq_hi_mhz": 6241.715
+     }
+    ],
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "ific_no": {
+    "type": "Property",
+    "value": 3074,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "provenance": {
+    "type": "Property",
+    "value": {
+     "file": "datasets/traficom/frequencies_of_interest_v05112026.csv",
+     "row": 215,
+     "key": "601883",
+     "licence_class_raw": ""
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "run_id": {
+    "type": "Property",
+    "value": "space_ific3074",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "station_no": {
+    "type": "Property",
+    "value": "601883",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "synthetic": {
+    "type": "Property",
+    "value": true,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "name": {
+    "type": "Property",
+    "value": "Synthetic XLS station 601883",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "location": {
+    "type": "GeoProperty",
+    "value": {
+     "type": "Point",
+     "coordinates": [
+      21.15791,
+      62.7882
+     ]
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   }
+  },
+  {
+   "@context": [
+    "http://127.0.0.1:1026/ngsi-ld/v1/jsonldContexts/0ee6b3de-dadc-11f1-b5c6-1a9b59120263",
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld"
+   ],
+   "id": "urn:ngsi-ld:FinnishStation:space:3074:603310",
+   "type": "FinnishStation",
+   "bands": {
+    "type": "Property",
+    "value": [
+     {
+      "national_use_id": "xls:603310:tx",
+      "direction": "tx",
+      "freq_lo_mhz": 6685,
+      "freq_hi_mhz": 6745
+     },
+     {
+      "national_use_id": "xls:603310:rx",
+      "direction": "rx",
+      "freq_lo_mhz": 7025,
+      "freq_hi_mhz": 7085
+     }
+    ],
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "ific_no": {
+    "type": "Property",
+    "value": 3074,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "provenance": {
+    "type": "Property",
+    "value": {
+     "file": "datasets/traficom/frequencies_of_interest_v05112026.csv",
+     "row": 221,
+     "key": "603310",
+     "licence_class_raw": ""
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "run_id": {
+    "type": "Property",
+    "value": "space_ific3074",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "station_no": {
+    "type": "Property",
+    "value": "603310",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "synthetic": {
+    "type": "Property",
+    "value": true,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "name": {
+    "type": "Property",
+    "value": "Synthetic XLS station 603310",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "location": {
+    "type": "GeoProperty",
+    "value": {
+     "type": "Point",
+     "coordinates": [
+      22.0102,
+      63.0288
+     ]
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   }
+  },
+  {
+   "@context": [
+    "http://127.0.0.1:1026/ngsi-ld/v1/jsonldContexts/0ee6b3de-dadc-11f1-b5c6-1a9b59120263",
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld"
+   ],
+   "id": "urn:ngsi-ld:FinnishStation:space:3074:605947",
+   "type": "FinnishStation",
+   "bands": {
+    "type": "Property",
+    "value": [
+     {
+      "national_use_id": "xls:605947:tx",
+      "direction": "tx",
+      "freq_lo_mhz": 6565,
+      "freq_hi_mhz": 6625
+     },
+     {
+      "national_use_id": "xls:605947:rx",
+      "direction": "rx",
+      "freq_lo_mhz": 6905,
+      "freq_hi_mhz": 6965
+     }
+    ],
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "ific_no": {
+    "type": "Property",
+    "value": 3074,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "provenance": {
+    "type": "Property",
+    "value": {
+     "file": "datasets/traficom/frequencies_of_interest_v05112026.csv",
+     "row": 230,
+     "key": "605947",
+     "licence_class_raw": ""
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "run_id": {
+    "type": "Property",
+    "value": "space_ific3074",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "station_no": {
+    "type": "Property",
+    "value": "605947",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "synthetic": {
+    "type": "Property",
+    "value": true,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "name": {
+    "type": "Property",
+    "value": "Synthetic XLS station 605947",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "location": {
+    "type": "GeoProperty",
+    "value": {
+     "type": "Point",
+     "coordinates": [
+      24.7324,
+      60.3151
+     ]
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   }
+  },
+  {
+   "@context": [
+    "http://127.0.0.1:1026/ngsi-ld/v1/jsonldContexts/0ee6b3de-dadc-11f1-b5c6-1a9b59120263",
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld"
+   ],
+   "id": "urn:ngsi-ld:FinnishStation:space:3074:609238",
+   "type": "FinnishStation",
+   "bands": {
+    "type": "Property",
+    "value": [
+     {
+      "national_use_id": "xls:609238:tx",
+      "direction": "tx",
+      "freq_lo_mhz": 6048.975,
+      "freq_hi_mhz": 6167.575
+     },
+     {
+      "national_use_id": "xls:609238:rx",
+      "direction": "rx",
+      "freq_lo_mhz": 6301.015,
+      "freq_hi_mhz": 6419.615
+     }
+    ],
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "ific_no": {
+    "type": "Property",
+    "value": 3074,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "provenance": {
+    "type": "Property",
+    "value": {
+     "file": "datasets/traficom/frequencies_of_interest_v05112026.csv",
+     "row": 250,
+     "key": "609238",
+     "licence_class_raw": ""
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "run_id": {
+    "type": "Property",
+    "value": "space_ific3074",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "station_no": {
+    "type": "Property",
+    "value": "609238",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "synthetic": {
+    "type": "Property",
+    "value": true,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "name": {
+    "type": "Property",
+    "value": "Synthetic XLS station 609238",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "location": {
+    "type": "GeoProperty",
+    "value": {
+     "type": "Point",
+     "coordinates": [
+      23.19761,
+      61.5228
+     ]
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   }
+  },
+  {
+   "@context": [
+    "http://127.0.0.1:1026/ngsi-ld/v1/jsonldContexts/0ee6b3de-dadc-11f1-b5c6-1a9b59120263",
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld"
+   ],
+   "id": "urn:ngsi-ld:FinnishStation:space:3074:616871",
+   "type": "FinnishStation",
+   "bands": {
+    "type": "Property",
+    "value": [
+     {
+      "national_use_id": "xls:616871:tx",
+      "direction": "tx",
+      "freq_lo_mhz": 6301.015,
+      "freq_hi_mhz": 6419.615
+     },
+     {
+      "national_use_id": "xls:616871:rx",
+      "direction": "rx",
+      "freq_lo_mhz": 6048.975,
+      "freq_hi_mhz": 6167.575
+     }
+    ],
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "ific_no": {
+    "type": "Property",
+    "value": 3074,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "provenance": {
+    "type": "Property",
+    "value": {
+     "file": "datasets/traficom/frequencies_of_interest_v05112026.csv",
+     "row": 294,
+     "key": "616871",
+     "licence_class_raw": ""
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "run_id": {
+    "type": "Property",
+    "value": "space_ific3074",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "station_no": {
+    "type": "Property",
+    "value": "616871",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "synthetic": {
+    "type": "Property",
+    "value": true,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "name": {
+    "type": "Property",
+    "value": "Synthetic XLS station 616871",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "location": {
+    "type": "GeoProperty",
+    "value": {
+     "type": "Point",
+     "coordinates": [
+      25.6502,
+      66.5009
+     ]
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   }
+  },
+  {
+   "@context": [
+    "http://127.0.0.1:1026/ngsi-ld/v1/jsonldContexts/0ee6b3de-dadc-11f1-b5c6-1a9b59120263",
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld"
+   ],
+   "id": "urn:ngsi-ld:FinnishStation:space:3074:617767",
+   "type": "FinnishStation",
+   "bands": {
+    "type": "Property",
+    "value": [
+     {
+      "national_use_id": "xls:617767:tx",
+      "direction": "tx",
+      "freq_lo_mhz": 6905,
+      "freq_hi_mhz": 6965
+     },
+     {
+      "national_use_id": "xls:617767:rx",
+      "direction": "rx",
+      "freq_lo_mhz": 6565,
+      "freq_hi_mhz": 6625
+     }
+    ],
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "ific_no": {
+    "type": "Property",
+    "value": 3074,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "provenance": {
+    "type": "Property",
+    "value": {
+     "file": "datasets/traficom/frequencies_of_interest_v05112026.csv",
+     "row": 300,
+     "key": "617767",
+     "licence_class_raw": ""
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "run_id": {
+    "type": "Property",
+    "value": "space_ific3074",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "station_no": {
+    "type": "Property",
+    "value": "617767",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "synthetic": {
+    "type": "Property",
+    "value": true,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "name": {
+    "type": "Property",
+    "value": "Synthetic XLS station 617767",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "location": {
+    "type": "GeoProperty",
+    "value": {
+     "type": "Point",
+     "coordinates": [
+      26.4241,
+      69.5868
+     ]
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   }
+  },
+  {
+   "@context": [
+    "http://127.0.0.1:1026/ngsi-ld/v1/jsonldContexts/0ee6b3de-dadc-11f1-b5c6-1a9b59120263",
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld"
+   ],
+   "id": "urn:ngsi-ld:FinnishStation:space:3074:618183",
+   "type": "FinnishStation",
+   "bands": {
+    "type": "Property",
+    "value": [
+     {
+      "national_use_id": "xls:618183:tx",
+      "direction": "tx",
+      "freq_lo_mhz": 6182.415,
+      "freq_hi_mhz": 6301.015
+     },
+     {
+      "national_use_id": "xls:618183:rx",
+      "direction": "rx",
+      "freq_lo_mhz": 5930.375,
+      "freq_hi_mhz": 6048.975
+     }
+    ],
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "ific_no": {
+    "type": "Property",
+    "value": 3074,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "provenance": {
+    "type": "Property",
+    "value": {
+     "file": "datasets/traficom/frequencies_of_interest_v05112026.csv",
+     "row": 304,
+     "key": "618183",
+     "licence_class_raw": ""
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "run_id": {
+    "type": "Property",
+    "value": "space_ific3074",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "station_no": {
+    "type": "Property",
+    "value": "618183",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "synthetic": {
+    "type": "Property",
+    "value": true,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "name": {
+    "type": "Property",
+    "value": "Synthetic XLS station 618183",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "location": {
+    "type": "GeoProperty",
+    "value": {
+     "type": "Point",
+     "coordinates": [
+      25.35391,
+      60.9127
+     ]
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   }
+  },
+  {
+   "@context": [
+    "http://127.0.0.1:1026/ngsi-ld/v1/jsonldContexts/0ee6b3de-dadc-11f1-b5c6-1a9b59120263",
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld"
+   ],
+   "id": "urn:ngsi-ld:FinnishStation:space:3074:621827",
+   "type": "FinnishStation",
+   "bands": {
+    "type": "Property",
+    "value": [
+     {
+      "national_use_id": "xls:621827:tx",
+      "direction": "tx",
+      "freq_lo_mhz": 5930.375,
+      "freq_hi_mhz": 6048.975
+     },
+     {
+      "national_use_id": "xls:621827:rx",
+      "direction": "rx",
+      "freq_lo_mhz": 6182.415,
+      "freq_hi_mhz": 6301.015
+     }
+    ],
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "ific_no": {
+    "type": "Property",
+    "value": 3074,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "provenance": {
+    "type": "Property",
+    "value": {
+     "file": "datasets/traficom/frequencies_of_interest_v05112026.csv",
+     "row": 325,
+     "key": "621827",
+     "licence_class_raw": ""
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "run_id": {
+    "type": "Property",
+    "value": "space_ific3074",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "station_no": {
+    "type": "Property",
+    "value": "621827",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "synthetic": {
+    "type": "Property",
+    "value": true,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "name": {
+    "type": "Property",
+    "value": "Synthetic XLS station 621827",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "location": {
+    "type": "GeoProperty",
+    "value": {
+     "type": "Point",
+     "coordinates": [
+      21.90231,
+      61.4431
+     ]
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   }
+  },
+  {
+   "@context": [
+    "http://127.0.0.1:1026/ngsi-ld/v1/jsonldContexts/0ee6b3de-dadc-11f1-b5c6-1a9b59120263",
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld"
+   ],
+   "id": "urn:ngsi-ld:FinnishStation:space:3074:623442",
+   "type": "FinnishStation",
+   "bands": {
+    "type": "Property",
+    "value": [
+     {
+      "national_use_id": "xls:623442:tx",
+      "direction": "tx",
+      "freq_lo_mhz": 6965,
+      "freq_hi_mhz": 7025
+     },
+     {
+      "national_use_id": "xls:623442:rx",
+      "direction": "rx",
+      "freq_lo_mhz": 6625,
+      "freq_hi_mhz": 6685
+     }
+    ],
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "ific_no": {
+    "type": "Property",
+    "value": 3074,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "provenance": {
+    "type": "Property",
+    "value": {
+     "file": "datasets/traficom/frequencies_of_interest_v05112026.csv",
+     "row": 332,
+     "key": "623442",
+     "licence_class_raw": ""
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "run_id": {
+    "type": "Property",
+    "value": "space_ific3074",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "station_no": {
+    "type": "Property",
+    "value": "623442",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "synthetic": {
+    "type": "Property",
+    "value": true,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "name": {
+    "type": "Property",
+    "value": "Synthetic XLS station 623442",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "location": {
+    "type": "GeoProperty",
+    "value": {
+     "type": "Point",
+     "coordinates": [
+      22.6332,
+      60.0462
+     ]
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   }
+  },
+  {
+   "@context": [
+    "http://127.0.0.1:1026/ngsi-ld/v1/jsonldContexts/0ee6b3de-dadc-11f1-b5c6-1a9b59120263",
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld"
+   ],
+   "id": "urn:ngsi-ld:FinnishStation:space:3074:626885",
+   "type": "FinnishStation",
+   "bands": {
+    "type": "Property",
+    "value": [
+     {
+      "national_use_id": "xls:626885:tx",
+      "direction": "tx",
+      "freq_lo_mhz": 7025,
+      "freq_hi_mhz": 7085
+     },
+     {
+      "national_use_id": "xls:626885:rx",
+      "direction": "rx",
+      "freq_lo_mhz": 6685,
+      "freq_hi_mhz": 6745
+     }
+    ],
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "ific_no": {
+    "type": "Property",
+    "value": 3074,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "provenance": {
+    "type": "Property",
+    "value": {
+     "file": "datasets/traficom/frequencies_of_interest_v05112026.csv",
+     "row": 353,
+     "key": "626885",
+     "licence_class_raw": ""
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "run_id": {
+    "type": "Property",
+    "value": "space_ific3074",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "station_no": {
+    "type": "Property",
+    "value": "626885",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "synthetic": {
+    "type": "Property",
+    "value": true,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "name": {
+    "type": "Property",
+    "value": "Synthetic XLS station 626885",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "location": {
+    "type": "GeoProperty",
+    "value": {
+     "type": "Point",
+     "coordinates": [
+      22.12921,
+      62.8318
+     ]
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   }
+  },
+  {
+   "@context": [
+    "http://127.0.0.1:1026/ngsi-ld/v1/jsonldContexts/0ee6b3de-dadc-11f1-b5c6-1a9b59120263",
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld"
+   ],
+   "id": "urn:ngsi-ld:FinnishStation:space:3074:632791",
+   "type": "FinnishStation",
+   "bands": {
+    "type": "Property",
+    "value": [
+     {
+      "national_use_id": "xls:632791:tx",
+      "direction": "tx",
+      "freq_lo_mhz": 6182.415,
+      "freq_hi_mhz": 6241.715
+     },
+     {
+      "national_use_id": "xls:632791:rx",
+      "direction": "rx",
+      "freq_lo_mhz": 5930.375,
+      "freq_hi_mhz": 5989.675
+     }
+    ],
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "ific_no": {
+    "type": "Property",
+    "value": 3074,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "provenance": {
+    "type": "Property",
+    "value": {
+     "file": "datasets/traficom/frequencies_of_interest_v05112026.csv",
+     "row": 401,
+     "key": "632791",
+     "licence_class_raw": ""
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "run_id": {
+    "type": "Property",
+    "value": "space_ific3074",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "station_no": {
+    "type": "Property",
+    "value": "632791",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "synthetic": {
+    "type": "Property",
+    "value": true,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "name": {
+    "type": "Property",
+    "value": "Synthetic XLS station 632791",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "location": {
+    "type": "GeoProperty",
+    "value": {
+     "type": "Point",
+     "coordinates": [
+      21.67049,
+      63.0721
+     ]
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   }
+  },
+  {
+   "@context": [
+    "http://127.0.0.1:1026/ngsi-ld/v1/jsonldContexts/0ee6b3de-dadc-11f1-b5c6-1a9b59120263",
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld"
+   ],
+   "id": "urn:ngsi-ld:FinnishStation:space:3074:636779",
+   "type": "FinnishStation",
+   "bands": {
+    "type": "Property",
+    "value": [
+     {
+      "national_use_id": "xls:636779:tx",
+      "direction": "tx",
+      "freq_lo_mhz": 6565,
+      "freq_hi_mhz": 6625
+     },
+     {
+      "national_use_id": "xls:636779:rx",
+      "direction": "rx",
+      "freq_lo_mhz": 6905,
+      "freq_hi_mhz": 6965
+     }
+    ],
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "ific_no": {
+    "type": "Property",
+    "value": 3074,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "provenance": {
+    "type": "Property",
+    "value": {
+     "file": "datasets/traficom/frequencies_of_interest_v05112026.csv",
+     "row": 423,
+     "key": "636779",
+     "licence_class_raw": ""
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "run_id": {
+    "type": "Property",
+    "value": "space_ific3074",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "station_no": {
+    "type": "Property",
+    "value": "636779",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "synthetic": {
+    "type": "Property",
+    "value": true,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "name": {
+    "type": "Property",
+    "value": "Synthetic XLS station 636779",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "location": {
+    "type": "GeoProperty",
+    "value": {
+     "type": "Point",
+     "coordinates": [
+      26.91991,
+      69.8383
+     ]
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   }
+  },
+  {
+   "@context": [
+    "http://127.0.0.1:1026/ngsi-ld/v1/jsonldContexts/0ee6b3de-dadc-11f1-b5c6-1a9b59120263",
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld"
+   ],
+   "id": "urn:ngsi-ld:FinnishStation:space:3074:637749",
+   "type": "FinnishStation",
+   "bands": {
+    "type": "Property",
+    "value": [
+     {
+      "national_use_id": "xls:637749:tx",
+      "direction": "tx",
+      "freq_lo_mhz": 6505,
+      "freq_hi_mhz": 6565
+     },
+     {
+      "national_use_id": "xls:637749:rx",
+      "direction": "rx",
+      "freq_lo_mhz": 6845,
+      "freq_hi_mhz": 6905
+     }
+    ],
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "ific_no": {
+    "type": "Property",
+    "value": 3074,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "provenance": {
+    "type": "Property",
+    "value": {
+     "file": "datasets/traficom/frequencies_of_interest_v05112026.csv",
+     "row": 429,
+     "key": "637749",
+     "licence_class_raw": ""
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "run_id": {
+    "type": "Property",
+    "value": "space_ific3074",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "station_no": {
+    "type": "Property",
+    "value": "637749",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "synthetic": {
+    "type": "Property",
+    "value": true,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "name": {
+    "type": "Property",
+    "value": "Synthetic XLS station 637749",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "location": {
+    "type": "GeoProperty",
+    "value": {
+     "type": "Point",
+     "coordinates": [
+      28.92429,
+      61.9133
+     ]
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   }
+  },
+  {
+   "@context": [
+    "http://127.0.0.1:1026/ngsi-ld/v1/jsonldContexts/0ee6b3de-dadc-11f1-b5c6-1a9b59120263",
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld"
+   ],
+   "id": "urn:ngsi-ld:FinnishStation:space:3074:638729",
+   "type": "FinnishStation",
+   "bands": {
+    "type": "Property",
+    "value": [
+     {
+      "national_use_id": "xls:638729:tx",
+      "direction": "tx",
+      "freq_lo_mhz": 6182.415,
+      "freq_hi_mhz": 6301.015
+     },
+     {
+      "national_use_id": "xls:638729:rx",
+      "direction": "rx",
+      "freq_lo_mhz": 5930.375,
+      "freq_hi_mhz": 6048.975
+     }
+    ],
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "ific_no": {
+    "type": "Property",
+    "value": 3074,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "provenance": {
+    "type": "Property",
+    "value": {
+     "file": "datasets/traficom/frequencies_of_interest_v05112026.csv",
+     "row": 434,
+     "key": "638729",
+     "licence_class_raw": ""
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "run_id": {
+    "type": "Property",
+    "value": "space_ific3074",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "station_no": {
+    "type": "Property",
+    "value": "638729",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "synthetic": {
+    "type": "Property",
+    "value": true,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "name": {
+    "type": "Property",
+    "value": "Synthetic XLS station 638729",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "location": {
+    "type": "GeoProperty",
+    "value": {
+     "type": "Point",
+     "coordinates": [
+      27.4893,
+      68.5664
+     ]
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   }
+  },
+  {
+   "@context": [
+    "http://127.0.0.1:1026/ngsi-ld/v1/jsonldContexts/0ee6b3de-dadc-11f1-b5c6-1a9b59120263",
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld"
+   ],
+   "id": "urn:ngsi-ld:FinnishStation:space:3074:639347",
+   "type": "FinnishStation",
+   "bands": {
+    "type": "Property",
+    "value": [
+     {
+      "national_use_id": "xls:639347:tx",
+      "direction": "tx",
+      "freq_lo_mhz": 6845,
+      "freq_hi_mhz": 6905
+     },
+     {
+      "national_use_id": "xls:639347:rx",
+      "direction": "rx",
+      "freq_lo_mhz": 6505,
+      "freq_hi_mhz": 6565
+     }
+    ],
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "ific_no": {
+    "type": "Property",
+    "value": 3074,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "provenance": {
+    "type": "Property",
+    "value": {
+     "file": "datasets/traficom/frequencies_of_interest_v05112026.csv",
+     "row": 441,
+     "key": "639347",
+     "licence_class_raw": ""
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "run_id": {
+    "type": "Property",
+    "value": "space_ific3074",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "station_no": {
+    "type": "Property",
+    "value": "639347",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "synthetic": {
+    "type": "Property",
+    "value": true,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "name": {
+    "type": "Property",
+    "value": "Synthetic XLS station 639347",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "location": {
+    "type": "GeoProperty",
+    "value": {
+     "type": "Point",
+     "coordinates": [
+      28.16489,
+      61.8176
+     ]
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   }
+  },
+  {
+   "@context": [
+    "http://127.0.0.1:1026/ngsi-ld/v1/jsonldContexts/0ee6b3de-dadc-11f1-b5c6-1a9b59120263",
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld"
+   ],
+   "id": "urn:ngsi-ld:FinnishStation:space:3074:640068",
+   "type": "FinnishStation",
+   "bands": {
+    "type": "Property",
+    "value": [
+     {
+      "national_use_id": "xls:640068:tx",
+      "direction": "tx",
+      "freq_lo_mhz": 6565,
+      "freq_hi_mhz": 6625
+     },
+     {
+      "national_use_id": "xls:640068:rx",
+      "direction": "rx",
+      "freq_lo_mhz": 6905,
+      "freq_hi_mhz": 6965
+     }
+    ],
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "ific_no": {
+    "type": "Property",
+    "value": 3074,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "provenance": {
+    "type": "Property",
+    "value": {
+     "file": "datasets/traficom/frequencies_of_interest_v05112026.csv",
+     "row": 445,
+     "key": "640068",
+     "licence_class_raw": ""
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "run_id": {
+    "type": "Property",
+    "value": "space_ific3074",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "station_no": {
+    "type": "Property",
+    "value": "640068",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "synthetic": {
+    "type": "Property",
+    "value": true,
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "name": {
+    "type": "Property",
+    "value": "Synthetic XLS station 640068",
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   },
+   "location": {
+    "type": "GeoProperty",
+    "value": {
+     "type": "Point",
+     "coordinates": [
+      28.1871,
+      61.0445
+     ]
+    },
+    "observedAt": "2026-11-07T00:00:00.000Z"
+   }
+  }
+ ],
+ "stationCount": 359,
+ "stationsShown": 25,
+ "hops": [
+  "Finding",
+  "SpaceNotice",
+  "FinnishStation"
+ ]
+}

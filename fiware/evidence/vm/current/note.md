@@ -31,3 +31,15 @@ loopback port.
 2. **The receiver answered 404** to every notification, because Orion appends `?subscriptionId=...` and the receiver compared
    the whole path. Fix in `infra/fiware/receiver.py` plus a regression test (`test_receiver_accepts_the_query_string_orion_appends`).
    Evidence: `runtime.txt` shows `POST /notify?subscriptionId=... 204`.
+
+## More
+`../../DEMO.md` (90-second demo), `verify.md` (read-only commands to check everything above), `../../SMART_DATA_MODELS.md` (which
+Smart Data Model we checked and why we did not adopt it), and the case pop-up's **Context broker** row, which reads a finding and its
+linked notice and stations back from the broker through `GET /api/fiware/finding`. Post-mortem of the Orion memory kill: the Vultr evidence folder.
+
+## Broker on a product path (new, 8 Nov ~07:00 EET)
+The case pop-up of the app has a **Context broker** row. It calls the GET-only proxy `GET /api/fiware/finding`, which resolves a
+Finding through Orion-LD: Finding -> SpaceNotice -> FinnishStation relationships (up to 25 stations shown, the broker reports the
+total). `finding-hop.json` is a real response from the VM for the 3074 over-limit finding `ntc_id=103500417`: outcome
+`exceeds_limit`, its notice, **359 affected stations (25 shown), 3 relationship hops**. `tests.txt` is the current passing run
+(37 passed); the older failing capture in `../tests.txt` is kept and labelled as historical.

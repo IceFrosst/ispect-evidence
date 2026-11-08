@@ -1,3 +1,7 @@
+# HISTORICAL capture (Sat 7 Nov, laptop): kept unchanged for honesty.
+# These failures came from the committed space_ific3074.json of that moment (duplicated findings, fixed in 3cffa06).
+# The current passing run is vm/current/tests.txt.
+
 Command: /tmp/sinceai-l13-venv/bin/python -m pytest infra -q (final)
 =========================== short test summary info ============================
 FAILED infra/fiware/test_fiware.py::test_mapping[space_ific3074] - pydantic_c...

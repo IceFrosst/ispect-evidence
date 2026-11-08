@@ -1,0 +1,4 @@
+# captured 2026-11-08T03:59:09Z on commit 1d79b21
+$ python -m pytest infra/fiware infra/tests/test_primary_semantics.py -q
+.....................................                                    [100%]
+37 passed in 19.04s

@@ -38,3 +38,8 @@ while every laptop is closed; one small VM runs the whole product.
 
 ## Teardown
 *Planned:* destroy (not stop) on Sun 8 Nov after judging, then check billing for $0 pending (issue #27).
+
+## Operations files in this folder
+`ARCHITECTURE.md` (what runs and why, memory budget, what we did not use), `RUNBOOK.md` (deploy, rollback, restart, wake/verify, teardown),
+`health_check.sh` + `health-check.txt` (one read-only run on the live VM: all PASS, public ports exactly 22/80/443),
+`incident-orion-oom-20261108.md` (post-mortem of the Orion memory kill and the receiver fix).
